@@ -1,0 +1,9 @@
+.blogs_property{
+    color: var(--b);
+    
+}
+.blog_featured_bg{
+    background: var(--p);
+    padding: 40px 0;
+    margin-top: 50px;
+}

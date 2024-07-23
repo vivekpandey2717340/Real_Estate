@@ -1,0 +1,41 @@
+.gallery_box{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99999999;
+    display: none;
+    
+}
+.gallery_box_overlay{
+    background: rgba(43, 45, 64, 0.9);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery_slider {
+    width:50vw ;
+    height: 80vh;
+    
+}
+.gallery_slider img {
+    width: 100%;
+    height: auto;
+    border-radius: none;
+}
+.gallery_slider_box{
+    position: relative;
+   
+}
+.gallery_slider_crossbtn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.gallery_slider_crossbtn i{
+    cursor: pointer;
+    padding: 10px;
+    background: var(--w);
+    border-radius: 50%;
+}

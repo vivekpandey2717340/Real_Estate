@@ -1,0 +1,29 @@
+.aboutStandTitle{
+    text-align: center;
+    margin: 50px 0;
+}
+.aboutStandTitle h1{
+    font-size: 40px;
+    color: var(--p);
+}
+.aboutStandTitle p{
+    font-size: 20px;
+}
+.aboutStandGrid{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: space-between;
+    width: 100%;
+    
+
+}
+.aboutStandGrid .projects{
+    text-align: center;
+}
+.aboutStandGrid .projects h1 {
+    color: var(--p);
+    font-size: 40px;
+}
+.aboutStandGrid .projects p {
+    font-size: 20px;
+}

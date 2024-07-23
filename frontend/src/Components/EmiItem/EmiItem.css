@@ -1,0 +1,75 @@
+.emi_grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: center;
+}
+.input_emi{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+
+}
+.emi_calculator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    border-radius: 20px;
+    border: 2px solid var(--p);
+    padding: 20px 0;
+
+}
+.emi_calculator button{
+    width: 200px;
+    height: 40px;
+    background: var(--g);
+    color: var(--w);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+.emi_calculator button:hover{
+    background: none;
+    box-shadow:2px 2px 4px var(--g) ;
+    color: var(--b);
+}
+.emi_calculator h2{
+    margin: 20px 0;
+}
+.doughnut{
+    width: 100%;
+    height: 400px;
+}
+.input_emi input {
+    width: 90%;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--p);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+}
+.input_emi label{
+    padding-bottom: 20px;
+}
+.emi_result{
+    margin: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.emi_result p{
+    padding: 10px 25px ;
+}
+.emi_result p:nth-child(1), .emi_result p:nth-child(2){
+    border-right: 1px solid var(--p);
+}
+.emi_result div {
+    padding: 10px 0 5px 0;
+    color: var(--g);
+    font-weight: 600;
+}

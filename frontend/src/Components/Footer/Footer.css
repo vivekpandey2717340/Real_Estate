@@ -1,0 +1,99 @@
+
+.footer_img {
+    width: 80%;
+    margin: auto;
+  }
+  .footer_img img {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+  }
+  
+  .footer {
+    margin-top: -5px;
+    width: 100%;
+    height: auto;
+    background: var(--p);
+  }
+  .footer .logo_footer img {
+    width: 100px;
+  }
+  .footer .footer_grid {
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    width: 100%;
+  }
+  .footer .footer_grid .footer_box {
+    width: 100%;
+    gap: 50px;
+    color: var(--w);
+  }
+  .footer .footer_grid .footer_box p {
+    margin: 5px 0 20px 0;
+  }
+  .footer .footer_grid .footer_box_1 {
+    display: flex;
+    justify-content: center;
+  }
+  .footer .footer_grid .footer_box_1 ul {
+    color: var(--w);
+  }
+  .footer .footer_grid .footer_box_1 ul li {
+    margin-top: 5px;
+    list-style: none;
+  }
+  .footer .footer_grid .footer_box_1 ul li a {
+    text-decoration: none;
+    color: var(--w);
+  }
+  .footer .footer_grid .footer_box_2 {
+    display: flex;
+    justify-content: end;
+  }
+  .footer .footer_grid .footer_box_2 ul {
+    color: var(--w);
+  }
+  .footer .footer_grid .footer_box_2 ul li {
+    margin-top: 5px;
+    list-style: none;
+  }
+  .footer .footer_grid .footer_box_2 ul li a {
+    text-decoration: none;
+    color: var(--w);
+  }
+  .footer .footer_grid .footer_box_2 ul li a i {
+    padding-right: 7px;
+  }
+  .footer .footer_grid .footer_box_2 .media {
+    margin-top: 10px;
+  }
+  .footer .footer_grid .footer_box_2 .media li {
+    display: inline;
+    margin: 10px 5px;
+  }
+  .footer .footer_grid .footer_box_2 .media li a i {
+    font-size: 30px;
+  }
+  .footer .terms {
+    color: var(--w);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .footer .terms a {
+    color: var(--w);
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .footer .desclaimar {
+    margin: 30px 0;
+    color: var(--w);
+    font-weight: 500;
+  }
+  .footer .copy {
+    text-align: center;
+    color: var(--w);
+    padding: 30px 0;
+    font-size: 20px;
+  }

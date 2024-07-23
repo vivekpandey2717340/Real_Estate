@@ -1,0 +1,18 @@
+
+/* Custom styles for the slider dots */
+.slick-dots li button:before {
+    color: var(--w); /* Change the color of the dots */
+    font-size: 12px; /* Change the size of the dots */
+  }
+  
+  /* Active dot */
+  .slick-dots li.slick-active button:before {
+    color: var(--w); /* Change the color of the active dot */
+  }
+  
+  
+  
+  .slick-prev:before, .slick-next:before {
+    color: white; /* Change the color of the arrow icons */
+    font-size: 20px; /* Change the size of the arrow icons */
+  }

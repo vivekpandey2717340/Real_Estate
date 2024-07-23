@@ -1,0 +1,46 @@
+
+.image {
+    position: relative;
+    width: 100%;
+  }
+  .image img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 6px 6px var(--p);
+  }
+  .image .sale_img {
+    position: absolute;
+    top: -20px;
+    right: -34px;
+  }
+  .image .sale_img img {
+    width: 105px;
+    box-shadow: none;
+  }
+  .image .price {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .image .price .price_grid h4 {
+    color: var(--w);
+    background-color: var(--p);
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  .image .price ul li {
+    list-style: none;
+    display: inline-block;
+  }
+  .image .price ul li a {
+    box-shadow: inset 10px 10px 20px #493c3c;
+    background: var(--w);
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .image .price ul li a i {
+    color: var(--w);
+    font-size: 16px;
+  }
+  

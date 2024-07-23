@@ -1,0 +1,138 @@
+.property_detail_grid{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 150px;
+}
+.property_detail_main{
+    height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.details_box
+{
+    width: 100%;
+    padding: 20px;
+    background-color: var(--p);
+    color: var(--w);
+    border: 2px solid var(--w);
+    border-radius: 20px;
+    
+}
+.details_box_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.details_box_list{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.details_box_list a{
+    text-decoration: none;
+    color: var(--b);
+    
+}
+.overview{
+    border-radius: 10px;
+    margin-top: 50px;
+    width: 100%;
+    border: 2px solid var(--b);
+    padding: 20px;
+    box-shadow: 2px 2px 4px var(--p);
+}
+.overview_grid{
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    gap: 20px;
+    
+}
+.overview_grid_box{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+.overview_grid_box_logo img {
+    width: 80px;
+}
+.description{
+    border-radius: 10px;
+    margin-top: 50px;
+    width: 100%;
+    border: 2px solid var(--b);
+    padding: 20px;
+    box-shadow: 2px 2px 4px var(--p);
+}
+.description h1{
+    margin-bottom: 20px;
+}
+.inquer_flex{
+    flex-direction: column;
+}
+.map{
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+.image_slide_grid{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    justify-content: center;
+    width: 100%;
+    margin: 50px 0;
+
+}
+.image_slide_box{
+
+    width: 90%;
+    height: auto;
+    margin: auto;
+    /* display: flex; */
+
+
+}
+.image_slide_box img{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 40px;
+}
+.image_stock{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+}
+.image_stock_box{
+    width: 100%;
+    position: relative;
+}
+.image_stock_box img{
+    width: 100%;
+    border-radius: 10px;
+    
+}
+.image_stock_box_overlay{
+    position: absolute;
+    background: rgba(43, 45, 64, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.similar-properties{
+    margin-top: 50px;
+}

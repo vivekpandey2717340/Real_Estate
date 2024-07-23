@@ -1,0 +1,70 @@
+
+.contact {
+    width: 60%;
+    margin: auto;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-content: center;
+    align-items: center;
+    background: var(--p);
+    color: var(--w);
+    border-radius: 20px;
+  }
+  .contact .contact_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact .contact_content h4 {
+    font-size: 20px;
+  }
+  .contact .contact_btn a {
+    background: var(--g);
+    padding: 20px 70px;
+    border-radius: 20px;
+    color: var(--w);
+    transition: 0.4s ease;
+    text-decoration: none;
+  }
+  .contact .contact_btn a:hover {
+    background: var(--w);
+    color: var(--b);
+  }
+  
+  .tools {
+    background-color: var(--p);
+    margin-top: -10px;
+    width: 100%;
+    height: auto;
+  }
+  .tools .title {
+    text-align: center;
+    color: var(--w);
+    font-size: 30px;
+    padding-top: 20px;
+  }
+  .tools .tools_grid {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    justify-content: space-between;
+  }
+  .tools .tools_grid .tools_box {
+    width: 80%;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  .tools .tools_grid .tools_box a {
+    color: var(--w);
+    text-decoration: none;
+  }
+  .tools .tools_grid .tools_box a i {
+    font-size: 60px;
+  }
+  .tools .tools_grid .tools_box a p {
+    font-size: 20px;
+    line-height: 2;
+  }

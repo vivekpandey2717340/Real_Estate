@@ -1,0 +1,177 @@
+
+.filter-container h2 {
+    margin-top: 0;
+  }
+  
+  .filter-buttons, .categories, .form-buttons {
+    margin-bottom: 15px;
+  }
+  .filter-buttons p, .categories p, .form-buttons p {
+    margin-bottom: 5px;
+  }
+  
+  .filter-buttons button, .categories button, .form-buttons button {
+    background-color: #444455;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .filter-option.selected {
+    background-color: #a9a9b3;
+  }
+  
+  .filter-buttons button:hover, .categories button:hover, .form-buttons button:hover {
+    background-color: #a9a9b3;
+  }
+  
+  .location {
+    margin-bottom: 15px;
+  }
+  
+  .location label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .location select {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .location select::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  .price-range {
+    margin-bottom: 15px;
+  }
+  
+  .price-range label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .price-range input[type=range] {
+    width: calc(100% - 100px);
+  }
+  
+  .price-values {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-buttons button[type=submit], .form-buttons button[type=reset] {
+    width: 45%;
+  }
+  
+  .listing {
+    margin-top: 150px;
+    color: var(--w);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    justify-content: center;
+  }
+  .listing .search_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+  }
+  .listing .listing_div {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+    max-width: 100%;
+    height: 80vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .listing .listing_div .listing_box {
+    margin-bottom: 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    justify-content: center;
+  }
+  .listing .listing_div .listing_box .listing_photo {
+    width: 100%;
+    height: auto;
+  }
+  .listing .listing_div .listing_box .listing_content {
+    position: relative;
+    width: 100%;
+    border-bottom: 2px solid var(--p);
+    border-top: 2px solid var(--p);
+    border-right: 2px solid var(--p);
+    margin-bottom: 4px;
+    padding: 20px;
+    color: var(--b);
+  }
+  .listing .listing_div .listing_box .listing_content h3, .listing .listing_div .listing_box .listing_content p {
+    padding-top: 15px;
+  }
+  .listing .listing_div .listing_box .listing_content p i {
+    margin-right: 8px;
+  }
+  .listing .listing_div .listing_box .listing_content .details {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: var(--p);
+    text-align: center;
+  }
+  .listing .listing_div .listing_box .listing_content a .details  {
+    padding-top: 12px;
+    color: var(--w);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
+  .listing .listing_div .listing_box .listing_content .icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .listing .listing_div .listing_box .listing_content .icon ul li {
+    list-style: none;
+    display: inline-block;
+  }
+  .listing .listing_div .listing_box .listing_content .icon ul li a {
+    box-shadow: inset 10px 10px 20px #493c3c;
+    background: var(--w);
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .listing .listing_div .listing_box .listing_content .icon ul li a i {
+    color: var(--w);
+    font-size: 16px;
+  }
+  
+  .price-range {
+    margin: 15px 0;
+  }
+  
+  .price-range label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .price-range input[type=range] {
+    width: 100%;
+  }
+  
+  .price-values {
+    display: flex;
+    justify-content: space-between;
+  }

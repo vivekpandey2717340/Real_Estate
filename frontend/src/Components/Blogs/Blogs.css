@@ -1,0 +1,26 @@
+
+.blogs_grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    width: 100%;
+  }
+  .blogs_grid .blogs_box {
+    width: 95%;
+    box-shadow: 0px 6px 6px var(--p);
+    color: var(--p);
+  }
+  .blogs_grid .blogs_box .blogs_img {
+    width: 100%;
+  }
+  .blogs_grid .blogs_box .blogs_img img {
+    width: 100%;
+    height: auto;
+  }
+  .blogs_grid .blogs_box .blogs_content {
+    width: 100%;
+    padding: 15px;
+  }
+  .blogs_grid .blogs_box .blogs_content h4 {
+    margin-top: 15px;
+  }

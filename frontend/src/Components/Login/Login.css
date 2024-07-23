@@ -1,0 +1,48 @@
+ .login_form h1 {
+    margin: 20px 0;
+  }
+   .login_form form input {
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+  }
+   .login_form a {
+    text-decoration: none;
+    color: red;
+  }
+   .login_form p {
+    margin-top: 20px;
+    text-align: center;
+  }
+   .login_form ul {
+    text-align: center;
+    margin: 15px 0;
+  }
+   .login_form ul li {
+    list-style: none;
+    display: inline;
+  }
+   .login_form ul li a {
+    color: var(--b);
+    background-color: var(--w);
+    padding: 13px 25px;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+   .login_form h5 {
+    padding-top: 20px;
+  }
+   .login_form h5 a {
+    cursor: pointer;
+  }
+  .login_form .submit{
+    background: var(--g);
+    color: var(--w);
+    cursor: pointer;
+  }
+  .login_form .submit:hover{
+    box-shadow: var(--g) 2px 2px 4px;
+  }

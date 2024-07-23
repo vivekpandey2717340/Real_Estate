@@ -1,0 +1,66 @@
+.experties{
+    margin-top: 50px;
+    background: var(--p);
+    width: 100%;
+    height: 220px;
+}
+.experties h1{
+    text-align: center;
+    padding: 20px;
+    color: var(--w);
+}
+.expertiesContent{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -135px;
+    text-align: center;
+}
+.expertiesContent img{
+    width: 300px;
+    border-radius: 50%;
+}
+.expertiesContent h2{
+    margin: 20px 0;
+}
+.expertiesContent p{
+    font-size: 20px;
+}
+.expertiesContent .arrow{
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--w);
+    filter: drop-shadow(3px 4px 3px var(--p));
+
+}
+.expertiesContent .arrow_left{
+    
+    left: 1rem;
+}
+.expertiesContent .arrow_right{
+    right: 1rem;
+}
+.expertiesContent .indicators{
+    position: absolute;
+    display: flex;
+    bottom: -1rem;
+}
+.indicator{
+    background: var(--w);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    box-shadow: 2px 1px 3px var(--p);
+    margin: 0 5px;
+    cursor: pointer;
+}
+.slide_hidden{
+    display: none;
+}
+.indicator_inactive{
+    background-color: var(--p);
+}

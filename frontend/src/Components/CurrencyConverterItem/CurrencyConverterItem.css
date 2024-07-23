@@ -1,0 +1,81 @@
+.currency_converter_grid{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: center;
+
+}
+.currency_converter_grid_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid var(--p);
+    padding: 20px ;
+    width: 100%;
+
+}
+.currency_grid{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    width: 100%;
+}
+.currency_grid input {
+    width: 90%;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--p);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0 15px 0;}
+.npl input{
+    width: 22.5%;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--p);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+}
+.currency_converter_grid_box button{
+    width: 200px;
+    height: 40px;
+    background: var(--g);
+    color: var(--w);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+.currency_converter_grid_box span{
+    font-weight: 600;
+    font-size: 20px;
+}
+.excahnge_info{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 2px solid var(--p);
+    padding: 20px ;
+    width: 90%;
+    margin-left: 10%;
+
+}
+.excahnge_info h2{
+    text-align: center;
+}
+.excahnge_info_box table{
+    width: 100%;
+    margin-top: 10px;
+
+}
+.excahnge_info_box table td{
+    width: 50%;
+}
+.table_left{
+    text-align: end;
+    padding: 10px;
+}

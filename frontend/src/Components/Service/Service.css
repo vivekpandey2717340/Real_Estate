@@ -1,0 +1,48 @@
+
+.service {
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+  }
+  .service .service_photo {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(rgba(61, 44, 102, 0.64), rgba(61, 44, 102, 0.64)), url("../../assets/image/service.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: var(--w);
+    border-radius: 20px;
+  }
+  .service .service_photo h1 {
+    font-size: 50px;
+    margin-top: 15%;
+  }
+  .service .service_photo p {
+    font-size: 20px;
+    margin-bottom: 25%;
+  }
+  .service .service_grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-items: end;
+    align-items: center;
+  }
+  .service .service_grid .service_box {
+    width: 85%;
+    background: var(--p);
+    height: 250px;
+    border-radius: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 2px solid var(--w);
+    box-shadow: 0px 6px 6px var(--p);
+  }
+  .service .service_grid .service_box a {
+    color: var(--w);
+    text-decoration: none;
+  }
