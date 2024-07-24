@@ -1,6 +1,6 @@
 import express from "express";
 import multer from 'multer';
-import { addBanner, updateBanner} from "../controllers/BannerController.js";
+import { addBanner, updateBanner, LatestBanner} from "../controllers/BannerController.js";
 
 const BannerRouter = express.Router();
 
@@ -18,6 +18,6 @@ const upload = multer({ storage });
 
 BannerRouter.post("/add", upload.single('image'), addBanner);
 BannerRouter.put("/update/:id", upload.single('image'), updateBanner);
-
+BannerRouter.get("/latest", LatestBanner);
 export default BannerRouter;
 

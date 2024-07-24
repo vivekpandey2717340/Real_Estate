@@ -10,8 +10,8 @@ import BlogsRouter from "./routes/BlogsRoute.js"
 import OurexpertiseRouter from "./routes/OurexpertiseRoute.js";
 import ReviewRouter from "./routes/ReviewRoute.js";
 import multer from 'multer';
-import 'dotenv/config.js'
-// dotenv.config();
+import dotenv from 'dotenv' ;
+ dotenv.config();
 // App config
 const app = express();
 const port = process.env.PORT || 4000;
@@ -45,7 +45,7 @@ app.use("/api/property/", PropertyRouter);
 app.use("/api/Banner/", BannerRouter);
 app.use("/api/PopUp/", PopUpRouter);
 app.use("/api/Profile/", ProfileRouter);
-app.use("/api/User", UserRouter)
+app.use("/api/User/", UserRouter)
 app.use("/api/Blogs/",BlogsRouter);
 app.use("/api/Ourexpertise/",OurexpertiseRouter);
 app.use("/api/Review/", ReviewRouter);
