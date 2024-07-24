@@ -1,22 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Banner.css';
+import axios from 'axios';
 
 const Banner = () => {
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');
   const [budget, setBudget] = useState('');
+  const [latestBanner, setLatestBanner] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Fetch the most recent banner when the component mounts
+    const fetchLatestBanner = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/banner/latest');
+        console.log('Banner Data:', response.data); // Log the response data
+        setLatestBanner(response.data);
+      } catch (error) {
+        console.error('Error fetching the latest banner:', error);
+      }
+    };
+
+    fetchLatestBanner();
+  }, []);
+
   const handleClick = () => {
-    // Navigate to Filter component with state
     navigate('/searchResult', { state: { location, category, budget } });
   };
 
   return (
     <div>
-      {/* <!-- Hero Section --> */}
-      <section className="banner">
+ {/* <!-- Hero Section --> */}
+ <section className="banner">
         <div className="container">
           <div className="banner_content">
             <div className="content_grid">
@@ -134,9 +150,18 @@ const Banner = () => {
           </div>
         </div>
       </section>
-      {/* <!-- End Hero Section --> */}
+
+      {/* Preview the latest banner */}
+      {latestBanner ? (
+        <section className="banner-preview">
+          <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
+          <h2>{latestBanner.title}</h2>
+        </section>
+      ) : (
+        <p>Loading banner...</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Banner;
