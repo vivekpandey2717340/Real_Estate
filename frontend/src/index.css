@@ -23,7 +23,7 @@ body {
   max-width: 90%;
   margin: auto;
 }
-Link,a{
+Link,a,button{
   text-decoration: none !important;
   cursor: pointer;
 }

@@ -43,7 +43,7 @@ const updateBanner = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to update banner." });
     }
 };
-
+//// latest banner show
 const LatestBanner = async (req, res) => {
     try {
       const banner = await Banner.findOne().sort({ createdAt: -1 });

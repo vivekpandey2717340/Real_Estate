@@ -152,17 +152,25 @@ const Navbar = ({ isLoggedIn }) => {
                       </li>
                     </ul>
                   </li>
-                  <li onClick={() => setMenu("profile")} className={`${menu === "profile" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""}`}>
-                    <a href="#" className="nav_color">Profile</a>
+                  
+                  <li onClick={() => setMenu("wishlist")} className={`${menu === "wishlist" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} menu_overlay`}>
+                    <Link>
+                      <a  className="nav_color"><img src="../src/assets/image/wishlist_bg.jpg" alt="" /></a>
+                      <span style={{left:'-17px'}}>Wishlist</span>
+                    </Link>
                   </li>
-                  <li onClick={() => setMenu("wishlist")} className={`${menu === "wishlist" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""}`}>
-                    <a href="#" className="nav_color">Wishlist</a>
+                  <li onClick={() => setMenu("profile")} className={`${menu === "profile" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} menu_overlay`}>
+                    <Link to="/profile">
+                      <a  className="nav_color"><img src="../src/assets/image/user-bg.jpg" alt="" /></a>
+                      <span>Profile</span>
+                    </Link>
                   </li>
                   <li onClick={() => setMenu("contact-us")} className={`${menu === "contact-us" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""}`}>
                     <Link to="/contactUs">
                         <a  className="nav_color">Contact Us</a>
                     </Link>
                   </li>
+                  
                   <li className={`login_btn ${isLoggedIn ? "menu_hidden" : ""}`}>
                     <Link to="/loginPage">
                       <a className="nav_color">Login</a>

@@ -43,4 +43,9 @@
     color: var(--w);
     font-size: 16px;
   }
-  
+  .wish_active a{
+    box-shadow: inset 10px 10px 20px #f58181 !important;
+  }
+  .compare_active a{
+    box-shadow: inset 10px 10px 20px #f58181 !important;
+  }

@@ -33,10 +33,16 @@ const Banner = () => {
     <div>
  {/* <!-- Hero Section --> */}
  <section className="banner">
+  <div className='banner_dynamic_img'>
+    <img src="../src/assets/image/banner.jpg" alt="" />
+    <div className="banner_overlay">
+      
+    </div>
+  </div>
         <div className="container">
           <div className="banner_content">
             <div className="content_grid">
-              <div><p>Let Us Find Your Dream</p></div>
+              <div className='banner_content_cont'><p>Let Us Find Your Dream</p></div>
               <div className="content_anim">
                 <p>Home</p>
                 <p>Flat</p>
@@ -44,7 +50,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
-          <div className="search_btn">
+          <div className="search_btn banner_content_cont">
             <select
               className="search_box left"
               value={location}

@@ -205,7 +205,24 @@
     transform: rotate(45deg) translate(-0.28rem, -0.13rem);
     background: var(--w);
   }
-  
+  .menu_overlay{
+    position: relative;
+  }
+  .menu_overlay span{
+    position: absolute;
+    bottom: -31px;
+    border-radius: 5px;
+    left:-10px ;
+    color: var(--w);
+    padding: 5px 10px;
+    background-color: var(--p);
+    display: none;
+  }
+  .menu_overlay:hover span {
+    
+    display: block;
+}
+
   .hamburger-menu #menu_cont {
     margin: -16px 23px;
     width: auto;
@@ -262,7 +279,10 @@
     transform: translateX(-100%);
     opacity: 0;
   }
-  
+  .nav_color img{
+    width:30px;
+    border-radius: 50%;
+  }
   .overlay nav {
     margin-top: 60px;
     width: 100%;
