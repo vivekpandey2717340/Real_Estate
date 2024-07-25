@@ -21,7 +21,7 @@
     z-index: 10;
     background: linear-gradient(rgb(117, 117, 117), rgb(255, 255, 255));
     border-radius: 20px;
-    padding: 50px 50px 50px 50px;
+    padding:0px  50px 50px 50px;
   }
   .login_box .login-body_1 .login_body_box {
     position: relative;

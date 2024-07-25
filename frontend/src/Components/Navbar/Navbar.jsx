@@ -78,21 +78,21 @@ const Navbar = ({ isLoggedIn }) => {
                   <li onClick={() => setMenu("properties")} className={`${menu === "properties" ? "active" : ""} dropdown`}>
                     <a className="nav_color">Properties <i className="fa-solid fa-caret-down"></i></a>
                     <ul className="dropdown_menu">
-                      <li>
-                        <Link to="/searchResult">
-                          <a className="dropdown_menu_p">Home</a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/searchResult">
-                          <a className="dropdown_menu_p">Flat</a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/searchResult">
-                          <a className="dropdown_menu_p">Appartment</a>
-                        </Link>
-                      </li>
+                      <Link to="/searchResult">
+                        <li>                          
+                            <a className="dropdown_menu_p">Home</a>                          
+                        </li>
+                      </Link>
+                      <Link to="/searchResult">
+                        <li>                          
+                            <a className="dropdown_menu_p">Flat</a>                          
+                        </li>
+                      </Link>
+                      <Link to="/searchResult">
+                        <li>
+                            <a className="dropdown_menu_p">Appartment</a>
+                        </li>
+                      </Link>
                       <li className="sub-dropdown">
                         <a href="#" className="dropdown_menu_p">All Properties<i className="fa-solid fa-caret-right" style={{ marginLeft: '30px' }}></i></a>
                         <ul className="sub-dropdown-menu">

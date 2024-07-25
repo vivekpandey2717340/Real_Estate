@@ -12,7 +12,7 @@ const ContactUsPage = () => {
                 <div className="login_image">
                 <img src="../src/assets/image/footer.png" alt="" />
                 </div>
-                <div className="login-body_1  contact_width" >
+                <div className="login-body_1  contact_width" style={{paddingTop:'50px'}} >
                     <ContactUs/>
                     <div className="cross_btn">
                         <Link to="/">
