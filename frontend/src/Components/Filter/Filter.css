@@ -122,6 +122,9 @@
   .listing .listing_div .listing_box .listing_content p i {
     margin-right: 8px;
   }
+  .listing .listing_div .listing_box .listing_content p span{
+    font-weight: 600;
+  }
   .listing .listing_div .listing_box .listing_content .details {
     position: absolute;
     left: 0;
