@@ -3,7 +3,7 @@ import './PropertyItem.css';
 import { Link } from 'react-router-dom';
 
 const PropertyItem = ({ id, name, price, location, content, area, mainImage, saleImage }) => {
-  // State to track if the item is in the wishlist
+  // State to track if the item is in the wishlist or to compare
   const [isWishlist, setIsWishlist] = useState(false);
   const [isCompare, setCompare]= useState(false)
 

@@ -6,8 +6,20 @@
     display: none;
     
 }
-.gallery_box_overlay{
+.overlay_gallery_div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     background: rgba(43, 45, 64, 0.9);
+
+}
+.gallery_box_active{
+    display: block;
+}
+.gallery_box_overlay{
+    
     width: 100%;
     height: 100vh;
     display: flex;

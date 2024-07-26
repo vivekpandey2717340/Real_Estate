@@ -711,3 +711,41 @@ export const blogList=[
     }
 ]
 
+export const FAQList=[
+    {
+        _id:"1",
+        question:"How much loan can be obtained to buy property?",
+        answer:"Banks and financial institutions provide home loans up to a maximum of 1.5 crores. However, the central bank has made arrangements to provide home loans up to 3 crores for first-time home buyers. First-time home buyers can get home loans up to 1.5 crores, and for any amount above that, they can get an additional Home Loan Plus up to another 1.5 crores."
+    },
+    {
+        _id:"2",
+        question:"How much percentage of the collateral value can first-time home buyers get as a home loan?",
+        answer:"The central bank has made arrangements for first-time home buyers to obtain loans from banks and financial institutions up to 70% of the collateral value."
+    },
+    {
+        _id:"3",
+        question:"Do home loan installments remain fixed throughout the loan period?",
+        answer:"The central bank has stated that if banks increase the interest rate during the loan period, they must arrange for the predetermined monthly installment amount to remain unchanged. This means that if the interest rate increases, the size of the installment will increase accordingly. However, the loan period cannot be extended."
+    },
+    {
+        _id:"4",
+        question:"What types of financial institutions provide home loans in Nepal?",
+        answer:"According to the central bank, commercial banks, development banks, and finance companies in Nepal can provide home loans. Microfinance companies are not allowed to offer home loans."
+    },
+    {
+        _id:"5",
+        question:"When should the EMI for a home loan be paid?",
+        answer:"If you have taken a loan to purchase land, you need to start paying the EMI regularly from the 10th of the next month. If you have taken a loan to build a house, you can request a grace period from the bank for repaying the loan. This grace period, which is a concession period, can be up to a maximum of one year."
+    },
+    {
+        _id:"6",
+        question:"Do financial institutions provide joint home loans?",
+        answer:"Yes, joint home loans can be taken by two or more individuals collectively. Such loans can be taken in collaboration with a family member. Spouses, parents, siblings, or children can be involved in a joint home loan. The main reasons for opting for a joint home loan are either the insufficient income of one individual to cover the EMI or the inability to extend the loan tenure due to age constraints."
+    },
+    {
+        _id:"7",
+        question:"How can individuals who have reached an advanced age obtain a joint home loan for a relatively longer tenure?",
+        answer:"If you are 60 years old and require a loan for a tenure of 10 or 15 years, you may not be eligible for such a long-term loan on your own. However, if you apply for the loan as a joint applicant with your spouse, siblings, or children, the bank will consider the age of the joint applicants. The bank will then approve the loan based on the age of the joint applicants, allowing for a longer loan tenure."
+    }
+]
+

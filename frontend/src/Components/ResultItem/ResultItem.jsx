@@ -1,8 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 
 const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,furnishedStatus,Parking,builtYear}) => {
-  return (
+    // State to track if the item is in the wishlist or to compare
+  const [isWishlist, setIsWishlist] = useState(false);
+  const [isCompare, setCompare]= useState(false)
+
+  // Function to toggle the wishlist state and compare btn
+  const toggleWishlist = () => {
+    setIsWishlist(prevState => !prevState);
+  };
+  const togglecompare=()=>{
+    setCompare(prevState=> !prevState)
+  }
+    return (
     <div>
         
         <Link to={`/propertyDetails/${id}`}>
@@ -28,7 +39,6 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
                         <h3 id="content">{content}</h3>
                         <p id="location"><i className="fa-solid fa-location-dot"></i>{location}</p>
                         <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area}</p>
-                        <p id="area"><i className="fa-solid fa-chart-area"></i><span>Furnished Status: </span>{furnishedStatus}</p>
                         <p id="area"><i className="fa-solid fa-chart-area"></i><span>Parking: </span>{Parking}</p>
                         <p id="area"><i className="fa-solid fa-chart-area"></i><span>Build Year: </span>{builtYear}</p>
                         
@@ -40,8 +50,14 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
                         
                         <div className="icon">
                             <ul>
-                                <li id="compare"><a href=""><i className="fa-solid fa-code-compare"></i></a></li>
-                                <li id="wishlist"><a id="wish_btn" ><i className="fa-regular fa-heart "></i></a></li>
+                                <li id="compare" style={{ marginRight: '5px' }} className={isCompare ? 'compare_active' : ''}>
+                                    <a onClick={(e) => { e.preventDefault(); togglecompare(); }}><i className="fa-solid fa-code-compare"></i></a>
+                                </li>
+                                <li id="wishlist" className={isWishlist ? 'wish_active' : ''}>
+                                    <a id="wish_btn" onClick={(e) => { e.preventDefault(); toggleWishlist(); }}>
+                                    <i className="fa-regular fa-heart"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>                
                     </div>                
