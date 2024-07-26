@@ -12,7 +12,7 @@ import BlogDetails from './Components/BlogDetails/BlogDetails';
 import Tools from './pages/Tools/Tools';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
-
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const App = () => {
         <Route path='/tools' element={<Tools />} />
         <Route path='/contactUs' element={<ContactUsPage />} />
         <Route path='/loginPage' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/profile' element={< ProfilePage/>} />
       </Routes>
       {showNavbarAndFooter && <Footer />}
     </div>

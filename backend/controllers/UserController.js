@@ -103,6 +103,7 @@ const countUser = async (req, res) => {
     res.json({ success: false, message: "Error" });
   }
 };
+/////get user id
 const getUser = async (req, res) => {
   try {
     const user = await UserModel.findById(req.user.id); // `req.user.id` comes from the middleware
