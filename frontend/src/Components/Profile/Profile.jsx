@@ -12,7 +12,7 @@ const Profile = () => {
                     <div className='my_profile'>
                         <div>
                             <h1 style={{float:'left'}}>My Profile</h1>
-                            <Link to="">
+                            <Link to="/wishlist">
                                 <h2 style={{float:'right', color:'var(--b)'}}>My Wishlist <img src="../src/assets/image/wishlist.png" alt="" /></h2>
                             </Link>
                         </div>

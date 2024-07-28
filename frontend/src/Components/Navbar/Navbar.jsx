@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ isLoggedIn }) => {
   const [menu, setMenu] = useState("Home");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavigation = (category) => {
     navigate('/tools', { state: { category } });
@@ -36,7 +37,7 @@ const Navbar = ({ isLoggedIn }) => {
       } else if (window.innerWidth > 2000) {
         element.style.maxWidth = '80%';
       } else if (window.innerWidth > 1500) {
-        element.style.maxWidth = '85%';
+        element.style.maxWidth = '80%';
       } else if (window.innerWidth > 1200) {
         element.style.maxWidth = '90%';
       } else if (window.innerWidth > 1000) {
@@ -56,6 +57,33 @@ const Navbar = ({ isLoggedIn }) => {
       window.removeEventListener('resize', adjustContainerWidth);
     };
   }, []);
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/') {
+      setMenu('Home');
+    } else if (path.startsWith('/searchResult')) {
+      setMenu('properties');
+    } else if (path.startsWith('/propertyDetails')) {
+      setMenu('properties');
+    } else if (path.startsWith('/aboutUs')) {
+      setMenu('about-us');
+    } else if (path.startsWith('/blogDetails')) {
+      setMenu('blog');
+    } else if (path.startsWith('/blogs')) {
+      setMenu('blog');
+    } else if (path.startsWith('/tools')) {
+      setMenu('tools');
+    } else if (path.startsWith('/wishlist')) {
+      setMenu('wishlist');
+    } else if (path.startsWith('/profile')) {
+      setMenu('profile');
+    } else if (path.startsWith('/contactUs')) {
+      setMenu('contact-us');
+    } else {
+      setMenu('');
+    }
+  }, [location.pathname]);
 
   return (
     <div>
@@ -154,7 +182,7 @@ const Navbar = ({ isLoggedIn }) => {
                   </li>
                   
                   <li onClick={() => setMenu("wishlist")} className={`${menu === "wishlist" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} menu_overlay`}>
-                    <Link>
+                    <Link to="/wishlist">
                       <a  className="nav_color"><img src="../src/assets/image/wishlist_bg.jpg" alt="" /></a>
                       <span style={{left:'-17px'}}>Wishlist</span>
                     </Link>
@@ -181,8 +209,6 @@ const Navbar = ({ isLoggedIn }) => {
             </div>
           </div>
         </div>
-
-
       </header>
     </div>
   );

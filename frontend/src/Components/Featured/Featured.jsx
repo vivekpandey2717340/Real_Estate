@@ -31,7 +31,7 @@ const Featured = ({ propertiesCategory }) => {
                     <div className="new_properties_grid" style={{  paddingBottom: '50px' }}>
                         <div id="specific_hot-section-container">
                             {limitedFeaturedProperties.map((item, index) => (
-                                <PropertyItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} description={item.description} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} />
+                                <PropertyItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} />
                             ))}
                         </div>
                     </div>

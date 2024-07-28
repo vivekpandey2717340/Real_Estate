@@ -1,0 +1,17 @@
+.compare_item td img{
+    width: 100px;
+    height: auto;
+}
+.compare_item  ul li{
+    list-style: none;
+    display: inline-block;
+}
+.compare_item  ul  a {
+    box-shadow: inset 10px 10px 20px #493c3c;
+    background: var(--w);
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .wish_active a{
+    box-shadow: inset 10px 10px 20px #f58181 !important;
+  }
