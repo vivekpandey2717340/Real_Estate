@@ -1,8 +1,33 @@
-import React from 'react'
+import React,{useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
+import { StoreContext } from '../../context/StoreContext';
 
-const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,furnishedStatus,Parking,builtYear}) => {
-  return (
+const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Parking,roadAccess}) => {
+    // State to track if the item is in the wishlist or to compare
+  
+  const { addToCompareList, compareList } = useContext(StoreContext);
+
+  // Check if the item is already in the compareList
+  const isComparelist = compareList.some(item => item.id === id);
+
+  const toggleComparelist = (e) => {
+    e.preventDefault();
+    const property = { id, name, price, location,  area, mainImage };
+    addToCompareList(property);
+  };
+
+
+  const { addToWishlist, wishlist } = useContext(StoreContext);
+
+  // Check if the item is already in the wishlist
+  const isWishlistItem = wishlist.some(item => item.id === id);
+
+  const toggleWishlist = (e) => {
+    e.preventDefault();
+    const property = { id, name, price, location, content, area, mainImage, saleImage,roadAccess };
+    addToWishlist(property);
+  };
+    return (
     <div>
         
         <Link to={`/propertyDetails/${id}`}>
@@ -11,8 +36,8 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
                 {/* <!-- loop --> */}
                 <div className="listing_box">          
                     <div className="listing_photo">
-                        <div className="image">
-                            <img src={mainImage} alt=""style={{boxShadow:'none'}}/>
+                        <div className="image" style={{borderRadius:'0'}}>
+                            <img src={mainImage} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
                             <div className="sale_img">
                                 <img src={saleImage} alt=""/>
                             </div>
@@ -24,24 +49,29 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
                         </div>
                     </div>
                     <div className="listing_content"> 
-                        <h4 id="type">{name}</h4>
-                        <h3 id="content">{content}</h3>
-                        <p id="location"><i className="fa-solid fa-location-dot"></i>{location}</p>
-                        <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area}</p>
-                        <p id="area"><i className="fa-solid fa-chart-area"></i><span>Furnished Status: </span>{furnishedStatus}</p>
-                        <p id="area"><i className="fa-solid fa-chart-area"></i><span>Parking: </span>{Parking}</p>
-                        <p id="area"><i className="fa-solid fa-chart-area"></i><span>Build Year: </span>{builtYear}</p>
-                        
-                            <a>
-                                <div className="details">                           
-                                    View Details                           
-                                </div>
-                            </a>  
+                        <div className=''>
+                            <h4 id="type">{name}</h4>
+                            <h3 id="content" >{content}</h3>
+                            <p id="location"><i className="fa-solid fa-location-dot"></i>{location}</p>
+                            <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area}</p>
+                            <p id="area"><i class="fa-solid fa-square-parking"></i><span>Parking: </span>{Parking}</p>
+                        </div>
+                        <a>
+                            <div className="details">                           
+                                View Details                           
+                            </div>
+                        </a>  
                         
                         <div className="icon">
                             <ul>
-                                <li id="compare"><a href=""><i className="fa-solid fa-code-compare"></i></a></li>
-                                <li id="wishlist"><a id="wish_btn" ><i className="fa-regular fa-heart "></i></a></li>
+                                <li id="compare" style={{ marginRight: '5px' }} className={isComparelist ? 'compare_active' : ''}>
+                                    <a onClick={ toggleComparelist }><i className="fa-solid fa-code-compare"></i></a>
+                                </li>
+                                <li id="wishlist" className={isWishlistItem ? 'wish_active' : ''}>
+                                    <a id="wish_btn" onClick={toggleWishlist}>
+                                    <i className="fa-regular fa-heart"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>                
                     </div>                

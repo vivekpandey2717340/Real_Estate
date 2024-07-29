@@ -1,14 +1,15 @@
 // PropertyDetails.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Details from '../../Components/Details/Details';
 import ImageGallery from '../../Components/ImageGallery/ImageGallery';
 
 const PropertyDetails = () => {
+  const [isSliderShow, setIsSliderShow] = useState(false);
 
   return (
     <div>
-      <ImageGallery/>
-      <Details path="/propertyDetails/:id"/>
+      <ImageGallery isSliderShow={isSliderShow} setIsSliderShow={setIsSliderShow} />
+      <Details path="/propertyDetails/:id" setIsSliderShow={setIsSliderShow} />
     </div>
   );
 };

@@ -34,7 +34,7 @@ const Banner = () => {
   };
 
   return (
-    <div>
+    <div className='banner_position'>
       {/* 
      
       {latestBanner ? (
@@ -48,6 +48,7 @@ const Banner = () => {
        */}
  {/* <!-- Hero Section --> */}
       <section className="banner">
+<<<<<<< HEAD
       {latestBanner ? (
           <div className="banner_dynamic_img">
             <img
@@ -57,11 +58,26 @@ const Banner = () => {
             />
             <div className="banner_overlay">
               <h2>{latestBanner.title}</h2>
+=======
+        
+          <div className='banner_dynamic_img'>
+          <img src="../src/assets/image/banner.jpg" alt="" />
+          <div className="banner_overlay">
+          
+          </div>
+        </div>
+         
+        {/* {latestBanner ? (
+          <div className='banner_dynamic_img'>
+          <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
+          <div className="banner_overlay">
+          <h2>{latestBanner.title}</h2>
+>>>>>>> 82859ce6da7372f0168a39f724c4d147bddadbb0
           </div>
         </div>
           ) : (
             <p>Loading banner...</p>
-          )}
+          )} */}
         
         
         <div className="container">
@@ -75,6 +91,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
+          {/* Search Box */}
           <div className="search_btn banner_content_cont">
             <select
               className="search_box left"
@@ -82,81 +99,15 @@ const Banner = () => {
               onChange={(e) => setLocation(e.target.value)}
             >
                 <option value="">Select Location</option>
-                <option value="achham">Achham</option>
-                <option value="arghakhanchi">Arghakhanchi</option>
-                <option value="baglung">Baglung</option>
-                <option value="baitadi">Baitadi</option>
-                <option value="bajhang">Bajhang</option>
-                <option value="bajura">Bajura</option>
-                <option value="banke">Banke</option>
-                <option value="bara">Bara</option>
-                <option value="bardiya">Bardiya</option>
                 <option value="bhaktapur">Bhaktapur</option>
-                <option value="bhojpur">Bhojpur</option>
-                <option value="chitwan">Chitwan</option>
-                <option value="dadeldhura">Dadeldhura</option>
-                <option value="dailekh">Dailekh</option>
-                <option value="dang">Dang</option>
-                <option value="darchula">Darchula</option>
-                <option value="dhading">Dhading</option>
-                <option value="dhankuta">Dhankuta</option>
-                <option value="dhanusha">Dhanusha</option>
-                <option value="dholkha">Dholkha</option>
-                <option value="dolpa">Dolpa</option>
-                <option value="doti">Doti</option>
-                <option value="gorkha">Gorkha</option>
-                <option value="gulmi">Gulmi</option>
-                <option value="humla">Humla</option>
-                <option value="ilam">Ilam</option>
-                <option value="jajarkot">Jajarkot</option>
-                <option value="jhapa">Jhapa</option>
-                <option value="jumla">Jumla</option>
-                <option value="kailali">Kailali</option>
-                <option value="kalikot">Kalikot</option>
-                <option value="kanchanpur">Kanchanpur</option>
-                <option value="kapilvastu">Kapilvastu</option>
-                <option value="kaski">Kaski</option>
+                <option value="birendranagar">Birendranagar</option>
+                <option value="deukhuri">Deukhuri</option>
+                <option value="godawari">Godawari</option>
+                <option value="hetauda">Hetauda</option>
+                <option value="janakpur">Janakpur</option>
                 <option value="kathmandu">Kathmandu</option>
-                <option value="kavrepalanchok">Kavrepalanchok</option>
-                <option value="khotang">Khotang</option>
-                <option value="lamjung">Lamjung</option>
-                <option value="lalitpur">Lalitpur</option>
-                <option value="mahottari">Mahottari</option>
-                <option value="makwanpur">Makwanpur</option>
-                <option value="manang">Manang</option>
-                <option value="morang">Morang</option>
-                <option value="mugu">Mugu</option>
-                <option value="mustang">Mustang</option>
-                <option value="myagdi">Myagdi</option>
-                <option value="nawalpur">Nawalpur</option>
-                <option value="nuwakot">Nuwakot</option>
-                <option value="okhaldhunga">Okhaldhunga</option>
-                <option value="palpa">Palpa</option>
-                <option value="panchthar">Panchthar</option>
-                <option value="parbat">Parbat</option>
-                <option value="parsa">Parsa</option>
-                <option value="pyuthan">Pyuthan</option>
-                <option value="ramechhap">Ramechhap</option>
-                <option value="rasuwa">Rasuwa</option>
-                <option value="rautahat">Rautahat</option>
-                <option value="rolpa">Rolpa</option>
-                <option value="rukum">Rukum</option>
-                <option value="rupandehi">Rupandehi</option>
-                <option value="salyan">Salyan</option>
-                <option value="sankhuwasabha">Sankhuwasabha</option>
-                <option value="saptari">Saptari</option>
-                <option value="sarlahi">Sarlahi</option>
-                <option value="sindhuli">Sindhuli</option>
-                <option value="sindhupalchok">Sindhupalchok</option>
-                <option value="siraha">Siraha</option>
-                <option value="solukhumbu">Solukhumbu</option>
-                <option value="sunsari">Sunsari</option>
-                <option value="surkhet">Surkhet</option>
-                <option value="syangja">Syangja</option>
-                <option value="tanahun">Tanahun</option>
-                <option value="taplejung">Taplejung</option>
-                <option value="terhathum">Terhathum</option>
-                <option value="udayapur">Udayapur</option>
+                <option value="lalitpur">Lalitpur</option>                        
+                <option value="pokhara">Pokhara</option>
             </select>
             <select
               className="search_box"

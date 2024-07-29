@@ -33,7 +33,7 @@ const Tools = () => {
                         </a>
                     </div>
                     <div className="tools_box" onClick={() => handleNavigation('Currency Converter')}>
-                        <a >
+                        <a>
                             <i className="fa-solid fa-coins"></i><br/>
                             <p>Currency Conveter</p>
                         </a>

@@ -6,9 +6,8 @@ const AboutBanner = () => {
     <div className='about_banner'>
         <div  className='container'>
             <div className='about_banner_content'>
-                <div style={{height:'100%'}}>
-                    <h1>About Us</h1>
-                </div>
+              <h1>About Us</h1>
+              <h4>Your Trusted Partner in Excellence</h4>
             </div>
         </div>
 
