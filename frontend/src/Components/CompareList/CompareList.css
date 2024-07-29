@@ -1,0 +1,62 @@
+.main_compare_box_hide {
+    display: none;
+}
+
+.main_compare_box_show {
+    display: block;
+}
+
+.compare_box {
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    z-index: 999999;
+    transition: 0.4s ease;
+    width: 700px;
+}
+
+.click_show_compare {
+    visibility: visible;
+}
+
+.up_compare_box {
+    top: calc(100vh - 35px);
+    transition: 0.4s ease;
+}
+
+.hide_compare_box {
+    visibility: hidden;
+}
+
+.compare_bg {
+    box-shadow: 0px 1px 10px 2px gray;
+    background-color: var(--w);
+    width: 100%;
+    border-radius: 10px;
+    max-height: 500px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.compare_btn {
+    float: right;
+    clear: both;
+}
+
+.compare_btn button {
+    margin: 10px 10px 0 0;
+    border: none;
+    background: none;
+    padding: 0 10px 10px 0;
+}
+
+.compare_btn button i {
+    font-size: 20px;
+}
+
+.compare_bg table {
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+}

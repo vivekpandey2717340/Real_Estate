@@ -18,7 +18,7 @@ const Filter = () => {
                     <h5 style={{padding:'20px', color:'var(--b)'}}>Add additional filters to get desire result</h5>
                 </div> 
                 {propertyList.map((item,index)=>{
-                     return <ResultItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} furnishedStatus={item.furnishedStatus} Parking={item.Parking} builtYear={item.builtYear}/>
+                     return <ResultItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} furnishedStatus={item.furnishedStatus} Parking={item.Parking} builtYear={item.builtYear} roadAccess={item.roadAccess}/>
                 })}
               </div>
             </div>

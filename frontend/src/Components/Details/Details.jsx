@@ -6,11 +6,10 @@ import Slides from '../Slides/Slides';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import PropertyItem from '../PropertyItem/PropertyItem'; 
 
-const Details = ({onClose }) => {
+const Details = ({ setIsSliderShow }) => {
   const { id } = useParams(); // Get ID from URL params
   const { propertyList } = useContext(StoreContext); // Access property list from context
   const [property, setProperty] = useState(null); // State to hold property details
-  const [showGallery, setShowGallery] = useState(false); // State to control gallery visibility
 
   useEffect(() => {
     // Fetch property details based on ID
@@ -48,18 +47,18 @@ const Details = ({onClose }) => {
     { type: 'image', src: property.image7 },
   ].filter(item => item.src); // Filter out any items with empty src
 
-  const handleImageStockClick = () => {
-    setShowGallery(true);
-  };
+    // Function to toggle the SliderShow state and compare btn
+    const toggleSliderShow = () => {
+      console.log('Slider show toggled');
+      setIsSliderShow(prevState => !prevState);
+    };
+    
 
-  const handleCloseGallery = () => {
-    setShowGallery(false);
-  }
+  
 
   return (
+    
     <div className="container">
-
-      
       <div className="property_detail_grid">
         {/* Image and details Section */}
         <div className="property_detail_main">
@@ -83,19 +82,15 @@ const Details = ({onClose }) => {
               {/* image slider end */}
 
               {/* image gallery box */}
-              <div className='image_stock'>
-                <div className='image_stock_box'onClick={handleImageStockClick}>
+              <div className='image_stock' onClick={(e) => { e.preventDefault(); toggleSliderShow(); }}>
+                <div className='image_stock_box'>
                   <img src={property.mainImage} alt="" />
                   <div className='image_stock_box_overlay'>
                       <p>+ See All</p>
                   </div>
                 </div>
-
               </div>
-              {showGallery && (
-                <ImageGallery  onClose={handleCloseGallery} />
-              )}
-              {/* image gallery box end*/}
+              
 
             </div>
             {/*end Image slider box*/}

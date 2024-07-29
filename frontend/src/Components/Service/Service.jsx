@@ -15,9 +15,11 @@ const Service = () => {
         {/* <!-- Our Service --> */}
         <section className="container">
             <div className="service">
-                <div className="service_photo">
-                    <h1>Our <br/>Service</h1>
-                    <p>List it on Real Estate and get genuine leads</p>
+                <div style={{display:'flex', alignItems:'center'}}>
+                    <div className="service_photo">
+                        <h1>Our <br/>Service</h1>
+                        <p>List it on Real Estate and get genuine leads</p>
+                    </div>
                 </div>
                 <div className="service_grid">
                     <div className="service_box" >
@@ -30,7 +32,12 @@ const Service = () => {
                     <div className="service_box" onClick={() => handleNavigation('Home Loan')}><h1><a >Home Loan</a></h1> </div>
                     <div className="service_box"><h1>
                         <Link to="/searchResult">
-                            <a>Buy A Home</a>
+                            <a>Rent A Home</a>
+                        </Link></h1>
+                    </div>                       
+                    <div className="service_box"><h1>
+                        <Link to="/searchResult">
+                            <a>Find A Falt</a>
                         </Link></h1>
                     </div>                       
                 </div>

@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import Slides from '../Slides/Slides';
+import './ImageGallery.css';
 
-import './ImageGallery.css'
-
-const ImageGallery = ({onClose }) => {
+const ImageGallery = ({ isSliderShow, setIsSliderShow }) => {
     const { id } = useParams(); // Get ID from URL params
     const { propertyList } = useContext(StoreContext); // Access property list from context
     const [property, setProperty] = useState(null); // State to hold property details
@@ -18,7 +17,7 @@ const ImageGallery = ({onClose }) => {
   
     if (!property) return <div></div>; 
   
-    // import image for  all images and videos for slider
+    // import image for all images and videos for slider
     const media = [
       { type: 'image', src: property.mainImage },
       { type: 'image', src: property.image2 },
@@ -30,23 +29,22 @@ const ImageGallery = ({onClose }) => {
       { type: 'video', src: property.video },
       { type: 'video', src: property.video2 }
     ].filter(item => item.src); // Filter out any items with empty src
-
   
-    
-  return (
-    <div className='gallery_box'>
-        <div className='gallery_box_overlay' onClick={onClose}>
-            <div className='gallery_slider'>
-               <div  className='gallery_slider_box'>
-                    <Slides media={media} />
-                    <div className='gallery_slider_crossbtn' onClick={onClose}>
-                        <i className="fa-solid fa-xmark" ></i>
-                    </div>
-               </div>
+    return (
+    <div className={`gallery_box ${isSliderShow ? 'gallery_box_active' : ''}`}>
+      <div className="overlay_gallery_div" onClick={() => setIsSliderShow(false)}></div>
+      <div className='gallery_box_overlay'>
+        <div className='gallery_slider'>
+          <div className='gallery_slider_box'>
+            <Slides media={media} />
+            <div className='gallery_slider_crossbtn' onClick={() => setIsSliderShow(false)}>
+              <i className="fa-solid fa-xmark"></i>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-  )
+    );
 }
 
-export default ImageGallery
+export default ImageGallery;

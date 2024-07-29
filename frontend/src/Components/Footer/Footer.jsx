@@ -1,7 +1,15 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+
 import './Footer.css'
 
 const Footer = () => {
+    const navigate = useNavigate();
+
+  const handleNavigation = (category) => {
+    navigate('/tools', { state: { category } });
+    setMenu('tools');
+  };
   return (
     <div>
             {/* <!-- Footer Part --> */}
@@ -24,25 +32,47 @@ const Footer = () => {
                         </div>
                         <div className="footer_box_1">
                             <ul><h3>Category</h3>
-                                <li><a href="#">Falt</a></li>
-                                <li><a href="#">House</a></li>
-                                <li><a href="#">Appartment</a></li>
+                                <li>
+                                    <Link to="/searchResult">
+                                        <a>Falt</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/searchResult">
+                                        <a>House</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/searchResult">
+                                        <a>Apartment</a>
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                         <div className="footer_box_1">
                             <ul><h3>Tools</h3>
-                                <li><a href="#">Home Loan</a></li>
-                                <li><a href="#">Unit Converter</a></li>
-                                <li><a href="#">EMI</a></li>
-                                <li><a href="#">Currency Converter</a></li>
-                                <li><a href="#">Download Agreement</a></li>
+                                <li onClick={() => handleNavigation('EMI')}>
+                                    <a >EMI</a>
+                                </li>
+                                <li onClick={() => handleNavigation('Unit Converter')}>
+                                    <a >Unit Converter</a>
+                                </li>
+                                <li onClick={() => handleNavigation('Home Loan')}>
+                                    <a >Home Loan</a>
+                                </li>
+                                <li onClick={() => handleNavigation('Currency Converter')}>
+                                    <a >Currency Converter</a>
+                                </li>
+                                <li onClick={() => handleNavigation('Download')}>
+                                    <a >Download Agreement</a>
+                                </li>
                             </ul>
                         </div>
                         <div className="footer_box_2">
                             <div>
                                 <ul><h3>Contact Us</h3>
-                                    <li><a href="#"><i className="fa-solid fa-envelope"></i>info@twbcreates.com</a></li>
-                                    <li><a href="#"><i className="fa-solid fa-phone"></i>+977-9809673319</a></li>
+                                    <li><a href="mailto:info@twbcreates.com" target="_blank"><i className="fa-solid fa-envelope"></i>info@twbcreates.com</a></li>
+                                    <li><a href="callto:+9779809673319"><i className="fa-solid fa-phone"></i>+977-9809673319</a></li>
                                 </ul >
                                 <ul className="media"><h3  style={{paddingBottom:'10px'}}>Follow Us On</h3>
                                     <li><a href="#"><i className="fa-brands fa-facebook"></i></a></li>

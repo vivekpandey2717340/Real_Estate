@@ -95,7 +95,7 @@
     margin: auto;
     display: grid;
     justify-content: center;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 10% 80% 10%;
   }
   .navbar .nav_content .logo_desktop {
     width: 100%;
@@ -107,7 +107,7 @@
   }
   .navbar .nav_content nav {
     width: 100%;
-    text-align: end;
+    text-align: center;
     margin-top: 25px;
     transition: 0.4s;
   }
@@ -123,6 +123,17 @@
     color: var(--b);
     font-weight: 500;
     transition: color 0.3s ease;
+  }
+  .nav_btn{
+    margin-top: 15px;
+    text-align: end;
+  }
+  .nav_btn ul li {
+    list-style: none;
+    display: inline;
+    transition: 0.2s;
+    padding: 0px 2px;
+    
   }
   .navbar .nav_content nav ul li a{
     text-decoration: none;
@@ -212,7 +223,7 @@
     position: absolute;
     bottom: -31px;
     border-radius: 5px;
-    left:-10px ;
+    left:0px ;
     color: var(--w);
     padding: 5px 10px;
     background-color: var(--p);
@@ -282,6 +293,7 @@
   .nav_color img{
     width:30px;
     border-radius: 50%;
+    margin-left: 20px;
   }
   .overlay nav {
     margin-top: 60px;

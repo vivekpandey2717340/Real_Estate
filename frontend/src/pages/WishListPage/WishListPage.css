@@ -1,0 +1,11 @@
+.wishlist-properties{
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+
+}
+.wishlist-page{
+    margin-top: 120px;
+}

@@ -13,6 +13,10 @@ import Tools from './pages/Tools/Tools';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import WishListPage from './pages/WishListPage/WishListPage';
+import StoreContextProvider from './context/StoreContext';
+import Comparelist from './Components/CompareList/CompareList';
+
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,23 +38,27 @@ const App = () => {
   };
 
   return (
-    <div>
-      {showNavbarAndFooter && <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />}
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/searchResult' element={<SearchResult />} />
-        <Route path='/properties' element={<Properties />} />
-        <Route path='/aboutUs' element={<AboutUs />} />
-        <Route path='/propertyDetails/:id/*' element={<PropertyDetails />} />
-        <Route path='/blogs' element={<Blog />} />
-        <Route path='/blogDetails/:id' element={<BlogDetails />} />
-        <Route path='/tools' element={<Tools />} />
-        <Route path='/contactUs' element={<ContactUsPage />} />
-        <Route path='/loginPage' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path='/profile' element={< ProfilePage/>} />
-      </Routes>
-      {showNavbarAndFooter && <Footer />}
-    </div>
+    <StoreContextProvider>
+      <div>
+        {showNavbarAndFooter && <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />}
+        <Comparelist/>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/searchResult' element={<SearchResult />} />
+          <Route path='/properties' element={<Properties />} />
+          <Route path='/aboutUs' element={<AboutUs />} />
+          <Route path='/propertyDetails/:id/*' element={<PropertyDetails />} />
+          <Route path='/blogs' element={<Blog />} />
+          <Route path='/blogDetails/:id' element={<BlogDetails />} />
+          <Route path='/tools' element={<Tools />} />
+          <Route path='/contactUs' element={<ContactUsPage />} />
+          <Route path='/loginPage' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/profile' element={<ProfilePage />} />
+          <Route path='/wishlist' element={<WishListPage />} />
+        </Routes>
+        {showNavbarAndFooter && <Footer />}
+      </div>
+    </StoreContextProvider>
   );
 };
 

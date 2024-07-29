@@ -1,6 +1,6 @@
 .blogs_box {
     width: 95%;
-    box-shadow: 0px 6px 6px var(--p);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px !important;
     color: var(--p);
   }
  .blogs_box .blogs_img {

@@ -9,7 +9,8 @@
     align-items: center;
     background: var(--p);
     color: var(--w);
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .contact .contact_content {
     display: flex;
@@ -67,4 +68,11 @@
   .tools .tools_grid .tools_box a p {
     font-size: 20px;
     line-height: 2;
+  }
+
+  .tools_box:hover .tools_box a{
+    color: aqua;
+  }
+  .tools_box:hover .tools_box i{
+    color: aqua;
   }
