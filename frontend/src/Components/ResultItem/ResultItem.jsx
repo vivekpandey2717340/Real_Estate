@@ -36,8 +36,8 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
                 {/* <!-- loop --> */}
                 <div className="listing_box">          
                     <div className="listing_photo">
-                        <div className="image">
-                            <img src={mainImage} alt=""style={{boxShadow:'none'}}/>
+                        <div className="image" style={{borderRadius:'0'}}>
+                            <img src={mainImage} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
                             <div className="sale_img">
                                 <img src={saleImage} alt=""/>
                             </div>

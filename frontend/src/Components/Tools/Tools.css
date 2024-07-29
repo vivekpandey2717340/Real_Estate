@@ -9,7 +9,8 @@
     align-items: center;
     background: var(--p);
     color: var(--w);
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .contact .contact_content {
     display: flex;

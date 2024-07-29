@@ -2,20 +2,32 @@
 .image {
     position: relative;
     width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
   }
   .image img {
     width: 100%;
-    height: auto;
-    box-shadow: 0px 6px 6px var(--p);
+    height: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: 0.3s ease;
   }
   .image .sale_img {
     position: absolute;
-    top: -20px;
-    right: -34px;
+    top: 10px;
+    right: 10px;
   }
   .image .sale_img img {
-    width: 105px;
+    width:55px;
     box-shadow: none;
+    border-radius: 5px;
+
   }
   .image .price {
     position: absolute;
@@ -45,7 +57,23 @@
   }
   .wish_active a{
     box-shadow: inset 10px 10px 20px #f58181 !important;
+    
   }
   .compare_active a{
     box-shadow: inset 10px 10px 20px #f58181 !important;
+  }
+  
+  .content{
+    padding: 30px 20px 20px 20px ;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .content .content_cont h5,.content .content_cont h4, .content .content_cont p{
+    padding-top: 10px;
+  }
+  .new_properties_box:hover .image img{
+    transform: scale(1.1);
+  }
+  .new_properties_box:hover .image .sale_img img{
+    transform: scale(1);
   }

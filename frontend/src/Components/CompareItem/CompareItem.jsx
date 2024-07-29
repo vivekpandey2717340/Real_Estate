@@ -28,7 +28,7 @@ const CompareItem = ({ id, name, price, location, content, area, mainImage, sale
           <img src={mainImage} alt={name}  />
         </Link>
       </td>
-      <td><h4>{name}</h4></td>
+      <td>{name}</td>
       <td><p>{area}</p></td>
       <td><p>{price}</p></td>
       <td>

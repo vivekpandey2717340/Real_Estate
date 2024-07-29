@@ -1,0 +1,6 @@
+.listing_photo img {
+    border-radius: 0;
+}
+.listing .listing_div .listing_box .listing_content {
+    margin-bottom: 0 !important;
+}

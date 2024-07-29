@@ -29,52 +29,6 @@
   .new_properties {
     width: 100%;
   }
-  
-  .image {
-    position: relative;
-    width: 100%;
-  }
-  .image img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0px 6px 6px var(--p);
-  }
-  .image .sale_img {
-    position: absolute;
-    top: -20px;
-    right: -34px;
-  }
-  .image .sale_img img {
-    width: 105px;
-    box-shadow: none;
-  }
-  .image .price {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-  }
-  .image .price .price_grid h4 {
-    color: var(--w);
-    background-color: var(--p);
-    padding: 5px 10px;
-    border-radius: 20px;
-  }
-  .image .price ul li {
-    list-style: none;
-    display: inline-block;
-  }
-  .image .price ul li a {
-    box-shadow: inset 10px 10px 20px #493c3c;
-    background: var(--w);
-    border-radius: 50%;
-    padding: 5px;
-  }
-  .image .price ul li a i {
-    color: var(--w);
-    font-size: 16px;
-  }
-  
   #specific_hot-section-container, #specific_new-section-container, #specific_premium-section-container, #specific_featured-section-container {
     width: 100%;
     display: grid;
@@ -94,10 +48,7 @@
     margin-top: -10px;
     background: var(--w);
   }
-  .new_properties_box .content h5, .new_properties_box .content h4, .new_properties_box .content p, .featured_properties_box .content h5, .featured_properties_box .content h4, .featured_properties_box .content p, .hot_properties_box .content h5, .hot_properties_box .content h4, .hot_properties_box .content p, .premium_properties_box .content h5, .premium_properties_box .content h4, .premium_properties_box .content p {
-    padding-top: 15px;
-    padding-left: 15px;
-  }
+  
   .new_properties_box .content p, .featured_properties_box .content p, .hot_properties_box .content p, .premium_properties_box .content p {
     color: rgb(86, 85, 85);
   }
@@ -107,13 +58,14 @@
   .new_properties_box .content .details, .featured_properties_box .content .details, .hot_properties_box .content .details, .premium_properties_box .content .details {
     margin-top: 10px;
     width: 100%;
-    height: 30px;
+    height: 40px;
     background: var(--p);
     text-align: center;
     align-items: center;
+    border-radius: 10px;
   }
   .new_properties_box .content .details a, .featured_properties_box .content .details a, .hot_properties_box .content .details a, .premium_properties_box .content .details a {
-    padding-top: 7px;
+    padding-top: 10px;
     color: var(--w);
     text-decoration: none;
     display: flex;

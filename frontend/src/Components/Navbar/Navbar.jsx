@@ -29,13 +29,13 @@ const Navbar = ({ isLoggedIn }) => {
   const adjustContainerWidth = () => {
     document.querySelectorAll('.container').forEach(element => {
       if (window.innerWidth > 5000) {
-        element.style.maxWidth = '60%';
+        element.style.maxWidth = '50%';
       } else if (window.innerWidth > 4000) {
-        element.style.maxWidth = '65%';
+        element.style.maxWidth = '55%';
       } else if (window.innerWidth > 3000) {
+        element.style.maxWidth = '65%';
+      } else if (window.innerWidth >  2000) {
         element.style.maxWidth = '75%';
-      } else if (window.innerWidth > 2000) {
-        element.style.maxWidth = '80%';
       } else if (window.innerWidth > 1500) {
         element.style.maxWidth = '80%';
       } else if (window.innerWidth > 1200) {
@@ -180,19 +180,6 @@ const Navbar = ({ isLoggedIn }) => {
                       </li>
                     </ul>
                   </li>
-                  
-                  <li onClick={() => setMenu("wishlist")} className={`${menu === "wishlist" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} menu_overlay`}>
-                    <Link to="/wishlist">
-                      <a  className="nav_color"><img src="../src/assets/image/wishlist_bg.jpg" alt="" /></a>
-                      <span style={{left:'-17px'}}>Wishlist</span>
-                    </Link>
-                  </li>
-                  <li onClick={() => setMenu("profile")} className={`${menu === "profile" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} menu_overlay`}>
-                    <Link to="/profile">
-                      <a  className="nav_color"><img src="../src/assets/image/user-bg.jpg" alt="" /></a>
-                      <span>Profile</span>
-                    </Link>
-                  </li>
                   <li onClick={() => setMenu("contact-us")} className={`${menu === "contact-us" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""}`}>
                     <Link to="/contactUs">
                         <a  className="nav_color">Contact Us</a>
@@ -202,10 +189,36 @@ const Navbar = ({ isLoggedIn }) => {
                   <li className={`login_btn ${isLoggedIn ? "menu_hidden" : ""}`}>
                     <Link to="/loginPage">
                       <a className="nav_color">Login</a>
+                      
                     </Link>
                   </li>
                 </ul>
               </nav>
+            </div>
+            <div className='nav_btn'>
+              <ul >
+                <li onClick={() => setMenu("wishlist")} className={`${menu === "wishlist" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} menu_overlay `}>
+                  <Link to="/wishlist">
+                    <a  className="nav_color"><img src="../src/assets/image/wishlist_bg.jpg" alt="" /></a>
+                    <span >Wishlist</span>
+                  </Link>
+                </li>
+                <li onClick={() => setMenu("profile")} className={`${menu === "profile" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""} dropdown `}>
+                  <a  className="nav_color"><img src="../src/assets/image/user-bg.jpg" alt="" /></a>
+                    <ul className="dropdown_menu">
+                      <Link to="/profile">
+                        <li>                          
+                            <a className="dropdown_menu_p">Profile</a>                          
+                        </li>
+                      </Link>
+                      <Link to="/">
+                        <li>                          
+                            <a className="dropdown_menu_p">Log Out</a>                          
+                        </li>
+                      </Link>
+                    </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-// StoreContextProvider.jsx
 import { createContext, useState } from "react";
 import { propertyList, blogList, FAQList } from "../assets/assets";
 
