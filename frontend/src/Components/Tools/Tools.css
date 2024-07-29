@@ -69,3 +69,10 @@
     font-size: 20px;
     line-height: 2;
   }
+
+  .tools_box:hover .tools_box a{
+    color: aqua;
+  }
+  .tools_box:hover .tools_box i{
+    color: aqua;
+  }

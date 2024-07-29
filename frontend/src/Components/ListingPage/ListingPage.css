@@ -32,9 +32,8 @@
   #specific_hot-section-container, #specific_new-section-container, #specific_premium-section-container, #specific_featured-section-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 23% 23% 23% 23%;
+    grid-template-columns: 24% 24% 24% 24%;
     justify-content: space-between;
-    gap: 25px;
   }
   
   .new_properties_box, .featured_properties_box, .hot_properties_box, .premium_properties_box {

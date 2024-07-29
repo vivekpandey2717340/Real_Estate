@@ -44,7 +44,15 @@ const Banner = () => {
        */}
  {/* <!-- Hero Section --> */}
       <section className="banner">
-        {latestBanner ? (
+        
+          <div className='banner_dynamic_img'>
+          <img src="../src/assets/image/banner.jpg" alt="" />
+          <div className="banner_overlay">
+          
+          </div>
+        </div>
+         
+        {/* {latestBanner ? (
           <div className='banner_dynamic_img'>
           <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
           <div className="banner_overlay">
@@ -53,7 +61,7 @@ const Banner = () => {
         </div>
           ) : (
             <p>Loading banner...</p>
-          )}
+          )} */}
         
         
         <div className="container">

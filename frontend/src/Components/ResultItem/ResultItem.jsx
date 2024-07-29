@@ -2,7 +2,7 @@ import React,{useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext';
 
-const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,furnishedStatus,Parking,builtYear}) => {
+const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Parking,roadAccess}) => {
     // State to track if the item is in the wishlist or to compare
   
   const { addToCompareList, compareList } = useContext(StoreContext);
@@ -24,7 +24,7 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
 
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, name, price, location, content, area, mainImage, saleImage };
+    const property = { id, name, price, location, content, area, mainImage, saleImage,roadAccess };
     addToWishlist(property);
   };
     return (
@@ -55,7 +55,6 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,fur
                             <p id="location"><i className="fa-solid fa-location-dot"></i>{location}</p>
                             <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area}</p>
                             <p id="area"><i class="fa-solid fa-square-parking"></i><span>Parking: </span>{Parking}</p>
-                            {/* <p id="area"><i class="fa-solid fa-timeline"></i><span>Build Year: </span>{builtYear}</p> */}
                         </div>
                         <a>
                             <div className="details">                           

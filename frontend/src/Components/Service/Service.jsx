@@ -37,7 +37,7 @@ const Service = () => {
                     </div>                       
                     <div className="service_box"><h1>
                         <Link to="/searchResult">
-                            <a>Rent A Home</a>
+                            <a>Find A Falt</a>
                         </Link></h1>
                     </div>                       
                 </div>
