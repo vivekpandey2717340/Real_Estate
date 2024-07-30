@@ -9,6 +9,8 @@ import UserRouter from "./routes/UserRoute.js";
 import BlogsRouter from "./routes/BlogsRoute.js"
 import OurexpertiseRouter from "./routes/OurexpertiseRoute.js";
 import ReviewRouter from "./routes/ReviewRoute.js";
+import WishlistRouter from "./routes/wishlistRoute.js";
+import CompareRouter from "./routes/compareRoute.js";
 import multer from 'multer';
 import dotenv from 'dotenv' ;
  dotenv.config();
@@ -49,7 +51,8 @@ app.use("/api/User/", UserRouter)
 app.use("/api/Blogs/",BlogsRouter);
 app.use("/api/Ourexpertise/",OurexpertiseRouter);
 app.use("/api/Review/", ReviewRouter);
-
+app.use('/api/Wishlist', WishlistRouter);
+app.use('/api/Compare', CompareRouter);
 
 
 

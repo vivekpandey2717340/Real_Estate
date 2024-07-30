@@ -1,34 +1,73 @@
-import { createContext, useState } from "react";
-import { propertyList, blogList, FAQList } from "../assets/assets";
+import React, { createContext, useState, useEffect } from 'react';
+import { blogList, FAQList } from "../assets/assets";
+import axios from 'axios';
 
 export const StoreContext = createContext(null);
 
-const StoreContextProvider = (props) => {
+const StoreContextProvider = ({ children }) => {
+  const [propertyList, setPropertyList] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [compareList, setComparelist] = useState([]);
   const [isCompareClicked, setIsCompareClicked] = useState(false);
+  const userId = 'user_id_placeholder'; // Replace with actual user ID logic
 
-  const addToWishlist = (property) => {
-    setWishlist((prevWishlist) => {
-      const isAlreadyInWishlist = prevWishlist.some(item => item.id === property.id);
-      if (isAlreadyInWishlist) {
-        return prevWishlist.filter(item => item.id !== property.id); // Remove if already in wishlist
-      } else {
-        return [...prevWishlist, property]; // Add if not in wishlist
+  useEffect(() => {
+    const fetchPropertyList = async () => {
+      try {
+        const propertyListResponse = await axios.get('http://localhost:4000/api/property/list');
+        setPropertyList(propertyListResponse.data.data); // Ensure 'data' key here
+      } catch (error) {
+        console.error('Error fetching properties:', error);
       }
-    });
+    };
+
+    const fetchLists = async () => {
+      try {
+        const wishlistResponse = await axios.get(`http://localhost:4000/api/wishlist/${userId}`);
+        setWishlist(wishlistResponse.data.data.properties); // Ensure 'data' key here
+
+        const compareResponse = await axios.get(`http://localhost:4000/api/compare/${userId}`);
+        setComparelist(compareResponse.data.data.properties); // Ensure 'data' key here
+      } catch (error) {
+        console.error('Error fetching lists:', error);
+      }
+    };
+
+    fetchPropertyList();
+    fetchLists();
+  }, [userId]);
+
+  const addToWishlist = async (property) => {
+    try {
+      await axios.post(`http://localhost:4000/api/wishlist/${userId}`, { propertyId: property._id });
+      setWishlist((prevWishlist) => {
+        const isAlreadyInWishlist = prevWishlist.some(item => item._id === property._id);
+        if (isAlreadyInWishlist) {
+          return prevWishlist.filter(item => item._id !== property._id); // Remove if already in wishlist
+        } else {
+          return [...prevWishlist, property]; // Add if not in wishlist
+        }
+      });
+    } catch (error) {
+      console.error('Error adding to wishlist:', error);
+    }
   };
 
-  const addToCompareList = (property) => {
-    setComparelist((prevComparelist) => {
-      const isAlreadyInComparelist = prevComparelist.some(item => item.id === property.id);
-      if (isAlreadyInComparelist) {
-        return prevComparelist.filter(item => item.id !== property.id); // Remove if already in comparelist
-      } else {
-        setIsCompareClicked(true); // Set compare clicked to true
-        return [...prevComparelist, property]; // Add if not in comparelist
-      }
-    });
+  const addToCompareList = async (property) => {
+    try {
+      await axios.post(`http://localhost:4000/api/compare/${userId}`, { propertyId: property._id });
+      setComparelist((prevComparelist) => {
+        const isAlreadyInComparelist = prevComparelist.some(item => item._id === property._id);
+        if (isAlreadyInComparelist) {
+          return prevComparelist.filter(item => item._id !== property._id); // Remove if already in comparelist
+        } else {
+          setIsCompareClicked(true); // Set compare clicked to true
+          return [...prevComparelist, property]; // Add if not in comparelist
+        }
+      });
+    } catch (error) {
+      console.error('Error adding to compare list:', error);
+    }
   };
 
   const contextValue = {
@@ -45,7 +84,7 @@ const StoreContextProvider = (props) => {
 
   return (
     <StoreContext.Provider value={contextValue}>
-      {props.children}
+      {children}
     </StoreContext.Provider>
   );
 };
