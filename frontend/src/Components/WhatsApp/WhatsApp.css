@@ -1,0 +1,21 @@
+.whatsapp_btn{
+    position: fixed;
+    bottom: 13px;
+    z-index: 99999999;
+    width: 100%;
+    
+}
+.whatsapp_btn .whatsapp_img {
+    width:70px;
+    height: auto;
+}
+.whatsapp_btn .whatsapp_img img {
+    width: 100%;
+    height: auto;    
+}
+.whatsapp_box{
+    display: flex;
+    justify-content:end;
+    width: 100%;
+   
+}

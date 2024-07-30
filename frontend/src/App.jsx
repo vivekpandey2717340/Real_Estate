@@ -16,6 +16,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import WishListPage from './pages/WishListPage/WishListPage';
 import StoreContextProvider from './context/StoreContext';
 import Comparelist from './Components/CompareList/CompareList';
+import WhatsApp from './Components/WhatsApp/WhatsApp';
 
 const App = () => {
   const location = useLocation();
@@ -40,8 +41,9 @@ const App = () => {
   return (
     <StoreContextProvider>
       <div>
-        {showNavbarAndFooter && <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />}
+        {showNavbarAndFooter && <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} /> }
         <Comparelist/>
+        <WhatsApp/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/searchResult' element={<SearchResult />} />
