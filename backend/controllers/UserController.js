@@ -115,5 +115,27 @@ const getUser = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
+const updateUser = async (req, res) => {
+  try {
+    const { name, email, phoneNumber, location, dob } = req.body;
+    const user = await UserModel.findById(req.user.id);
 
-export {loginUser,registerUser,listUser,deleteUser, countUser, getUser};
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    user.name = name || user.name;
+    user.email = email || user.email;
+    user.phoneNumber = phoneNumber || user.phoneNumber;
+    user.location = location || user.location;
+    user.dob = dob || user.dob;
+
+    const updatedUser = await user.save();
+    res.json({ success: true, user: updatedUser });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+export {loginUser,registerUser,listUser,deleteUser, countUser, getUser,updateUser};

@@ -48,25 +48,25 @@ const Banner = () => {
        */}
  {/* <!-- Hero Section --> */}
       <section className="banner">
-<<<<<<< HEAD
-      {latestBanner ? (
-          <div className="banner_dynamic_img">
-            <img
-              src={`http://localhost:4000/uploads/${latestBanner.image}`}
-              //http://localhost:4000/uploads/${latestBanner.image}
-              alt={latestBanner.title}
-            />
-            <div className="banner_overlay">
-              <h2>{latestBanner.title}</h2>
-=======
+{/* <<<<<<< HEAD */}
+{/* //       {latestBanner ? (
+{/* //           <div className="banner_dynamic_img">
+//             <img */}
+{/* //               src={`http://localhost:4000/uploads/${latestBanner.image}`}
+//               //http://localhost:4000/uploads/${latestBanner.image}
+//               alt={latestBanner.title}
+//             />
+//             <div className="banner_overlay">
+//               <h2>{latestBanner.title}</h2>
+// =======
         
-          <div className='banner_dynamic_img'>
-          <img src="../src/assets/image/banner.jpg" alt="" />
-          <div className="banner_overlay">
+//           <div className='banner_dynamic_img'>
+//           <img src="../src/assets/image/banner.jpg" alt="" />
+//           <div className="banner_overlay">
           
-          </div>
-        </div>
-         
+//           </div>
+//         </div>
+          // */} 
         {/* {latestBanner ? (
           <div className='banner_dynamic_img'>
           <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
