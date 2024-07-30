@@ -35,51 +35,14 @@ const Banner = () => {
 
   return (
     <div className='banner_position'>
-      {/* 
      
-      {latestBanner ? (
-        <section className="banner-preview">
-          <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
-          <h2>{latestBanner.title}</h2>
-        </section>
-      ) : (
-        <p>Loading banner...</p>
-      )}
-       */}
- {/* <!-- Hero Section --> */}
       <section className="banner">
-{/* <<<<<<< HEAD */}
-{/* //       {latestBanner ? (
-{/* //           <div className="banner_dynamic_img">
-//             <img */}
-{/* //               src={`http://localhost:4000/uploads/${latestBanner.image}`}
-//               //http://localhost:4000/uploads/${latestBanner.image}
-//               alt={latestBanner.title}
-//             />
-//             <div className="banner_overlay">
-//               <h2>{latestBanner.title}</h2>
-// =======
-        
-//           <div className='banner_dynamic_img'>
-//           <img src="../src/assets/image/banner.jpg" alt="" />
-//           <div className="banner_overlay">
-          
-//           </div>
-//         </div>
-          // */} 
-        {/* {latestBanner ? (
           <div className='banner_dynamic_img'>
-          <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
-          <div className="banner_overlay">
-          <h2>{latestBanner.title}</h2>
->>>>>>> 82859ce6da7372f0168a39f724c4d147bddadbb0
+           <img src="../src/assets/image/banner.jpg" alt="" />
+           <div className="banner_overlay">
+          
           </div>
         </div>
-          ) : (
-            <p>Loading banner...</p>
-          )} */}
-        
-        
         <div className="container">
           <div className="banner_content">
             <div className="content_grid">

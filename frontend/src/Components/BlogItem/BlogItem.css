@@ -2,18 +2,67 @@
     width: 95%;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px !important;
     color: var(--p);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
  .blogs_box .blogs_img {
     width: 100%;
+    height: 250px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+    overflow: hidden;
   }
  .blogs_box .blogs_img img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
  .blogs_box .blogs_content {
     width: 100%;
     padding: 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
   }
  .blogs_box .blogs_content h4 {
     margin-top: 15px;
+  }
+ .blogs_box .blogs_content h5 {
+    margin-top: 15px;
+    background: var(--p);
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--w);
+    border-radius: 10px;
+  }
+  .blogs_after{
+    position: absolute;
+    top: 0;
+    left: -50%;
+    
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: 0.4s ease;
+    opacity: 0;
+  }
+  .blogs_after span{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 10px 20px;
+    color: var(--w);
+    border-radius: 10px;
+    background-color: rgb(245, 86, 86);
+
+  }
+  .blogs_box:hover .blogs_after{
+    left: 0;
+    opacity: 1;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
