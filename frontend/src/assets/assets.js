@@ -569,7 +569,7 @@ export const propertyList=[
         floor:"3",
         direction:"North Facing",
         hall:"3",
-        furnishedStatus:"Semi-Furnished",
+        PropertyStatus:"Semi-Furnished",
         totalFloor:"5",
         roadAccess:"12 feet",
         Parking:"3 Cars & 1 Bike",
