@@ -28,6 +28,12 @@
     align-items: center;
   }
   .category_grid .category_box img{
-    width: 70px;
-
+    width: 80px;
+  }
+  .category_grid .category_box h4{
+    margin: 10px 0;
+    color: var(--b);
+  }
+  .category_grid .category_box p{
+    color: var(--b);
   }
