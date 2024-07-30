@@ -16,7 +16,12 @@ const Banner = () => {
       try {
         const response = await axios.get('http://localhost:4000/api/banner/latest');
         console.log('Banner Data:', response.data); // Log the response data
-        setLatestBanner(response.data);
+        if (response.data && response.data.image) {
+          setLatestBanner({
+            image: response.data.image,
+            title: response.data.title,
+          });
+        }
       } catch (error) {
         console.error('Error fetching the latest banner:', error);
       }
@@ -24,7 +29,6 @@ const Banner = () => {
 
     fetchLatestBanner();
   }, []);
-
   const handleClick = () => {
     navigate('/searchResult', { state: { location, category, budget } });
   };
@@ -44,19 +48,31 @@ const Banner = () => {
        */}
  {/* <!-- Hero Section --> */}
       <section className="banner">
+{/* <<<<<<< HEAD */}
+{/* //       {latestBanner ? (
+{/* //           <div className="banner_dynamic_img">
+//             <img */}
+{/* //               src={`http://localhost:4000/uploads/${latestBanner.image}`}
+//               //http://localhost:4000/uploads/${latestBanner.image}
+//               alt={latestBanner.title}
+//             />
+//             <div className="banner_overlay">
+//               <h2>{latestBanner.title}</h2>
+// =======
         
-          <div className='banner_dynamic_img'>
-          <img src="../src/assets/image/banner.jpg" alt="" />
-          <div className="banner_overlay">
+//           <div className='banner_dynamic_img'>
+//           <img src="../src/assets/image/banner.jpg" alt="" />
+//           <div className="banner_overlay">
           
-          </div>
-        </div>
-         
+//           </div>
+//         </div>
+          // */} 
         {/* {latestBanner ? (
           <div className='banner_dynamic_img'>
           <img src={`http://localhost:4000/uploads/${latestBanner.image}`} alt={latestBanner.title} />
           <div className="banner_overlay">
           <h2>{latestBanner.title}</h2>
+>>>>>>> 82859ce6da7372f0168a39f724c4d147bddadbb0
           </div>
         </div>
           ) : (

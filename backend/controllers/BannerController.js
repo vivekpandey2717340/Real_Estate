@@ -45,16 +45,17 @@ const updateBanner = async (req, res) => {
 };
 //// latest banner show
 const LatestBanner = async (req, res) => {
-    try {
-      const banner = await Banner.findOne().sort({ createdAt: -1 });
-  
-      if (!banner) {
-        return res.status(404).json({ message: 'No banners found' });
-      }
-  
-      res.status(200).json(banner);
-    } catch (error) {
-      res.status(500).json({ message: 'Error fetching latest banner', error });
+  try {
+    const banner = await Banner.findOne().sort({ createdAt: -1 });
+
+    if (!banner) {
+      return res.status(404).json({ message: 'No banners found' });
     }
-  };
+
+    res.status(200).json({ image: banner.image, title: banner.title });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching latest banner', error });
+  }
+};
+
 export { addBanner, updateBanner, LatestBanner };
