@@ -13,11 +13,13 @@ const Category = () => {
                     <h1>Popular Categories</h1>
                 </div>
                 <div className="category_grid">
-                    <div className='category_box'>
-                        <img src="../src/assets/image/home.png" alt="" />
-                        <h4>Where Dreams Come True!</h4>
-                        <p>"Modern flats with comfort and convenience. Find your perfect flat today!"</p>
-                    </div>
+                    <Link to="/searchResult">
+                        <div className='category_box'>
+                            <img src="../src/assets/image/home.png" alt="" />
+                            <h4>Where Dreams Come True!</h4>
+                            <p>"Beautiful homes in peaceful communities. Buy your ideal home today!"</p>
+                        </div>
+                    </Link> 
                     <div className='category_box'>
                         <img src="../src/assets/image/blueprint.png" alt="" />
                         <h4> Buy Your Perfect Flat Today!</h4>

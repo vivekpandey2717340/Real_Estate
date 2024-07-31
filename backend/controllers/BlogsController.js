@@ -4,11 +4,11 @@ import path from 'path';
 
 // Create a new Blogs
 const addBlogs = async (req, res) => {
-    const { title,content } = req.body;
+    const { title,content,category } = req.body;
     const image = req.file ? req.file.filename : null;
 
     try {
-        const newBlogs = new Blogs({ title,content, image });
+        const newBlogs = new Blogs({ title,content,category, image });
         await newBlogs.save();
         res.json({ success: true, message: "Blogs added successfully." });
     } catch (error) {
@@ -20,7 +20,7 @@ const addBlogs = async (req, res) => {
 // Update an existing Blogs
 const updateBlogs = async (req, res) => {
     const blogsId = req.params.id;
-    const { title, content } = req.body;
+    const { title, content,category } = req.body;
     const image = req.file ? req.file.filename : null;
 
     try {
@@ -35,6 +35,7 @@ const updateBlogs = async (req, res) => {
 
         blogs.title = title;
         blogs.content = content;
+        blogs.category = category;
         if (image) blogs.image = image;
 
         await blogs.save();
@@ -44,5 +45,16 @@ const updateBlogs = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to update Blogs." });
     }
 };
+// List all properties
+const listBlogs = async (req, res) => {
+    try {
+        const blogs = await Blogs.find();
+        res.json({ success: true, blogs });
+    } catch (error) {
+        console.error("Error fetching Blogs:", error);
+        res.status(500).json({ success: false, message: "Failed to fetch Blogs." });
+    }
+};
 
-export { addBlogs, updateBlogs };
+
+export { addBlogs, updateBlogs, listBlogs };

@@ -38,7 +38,7 @@ const Details = ({ setIsSliderShow }) => {
 
   // import image for  all images and videos for slider
   const media = [
-    { type: 'image', src: property.mainImage },
+    { type: 'image', src: property.image },
     { type: 'image', src: property.image2 },
     { type: 'image', src: property.image3 },
     { type: 'image', src: property.image4 },
@@ -65,8 +65,8 @@ const Details = ({ setIsSliderShow }) => {
           <div className='details_box'>
             <div className='details_box_title'>
               <div>
-                <h1>{property.name}</h1>
-                <p>{property.location}</p>
+                <h1>{property.title}</h1>
+                <p>{property.city +", " +property.state}</p>
               </div>
               <div >
                 <h3>{property.price}</h3>
@@ -84,7 +84,7 @@ const Details = ({ setIsSliderShow }) => {
               {/* image gallery box */}
               <div className='image_stock' onClick={(e) => { e.preventDefault(); toggleSliderShow(); }}>
                 <div className='image_stock_box'>
-                  <img src={property.mainImage} alt="" />
+                  <img src={property.image} alt="" />
                   <div className='image_stock_box_overlay'>
                       <p>+ See All</p>
                   </div>
@@ -178,7 +178,7 @@ const Details = ({ setIsSliderShow }) => {
                 </div>
                 <div  className="overview_grid_box_content">
                   <p>Status</p>
-                  <h4>{property.furnishedStatus}</h4>
+                  <h4>{property.propertyStatus}</h4>
                 </div>
               </div>
               <div className="overview_grid_box">
@@ -225,7 +225,7 @@ const Details = ({ setIsSliderShow }) => {
           <div className='description' id='description'>
             <div >
               <h1>Description</h1>
-              <div  dangerouslySetInnerHTML={{ __html: property.description }} />
+              <div  dangerouslySetInnerHTML={{ __html: property.longDescription }} />
             </div>
           </div>
           {/*End  Description Section */}
@@ -272,9 +272,9 @@ const Details = ({ setIsSliderShow }) => {
             <PropertyItem
               key={item._id}
               id={item._id}
-              name={item.name}
-              price={item.price}
-              location={item.location}
+              name={item.title}
+              price={"Rs." +item.price +" /-"}
+              location={item.city +", " +item.state}
               content={item.content}
               area={item.area}
               mainImage={item.mainImage}
