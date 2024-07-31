@@ -21,14 +21,17 @@ const PropertyItem = ({ id, title, price, address, content, area, images, saleIm
     const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
     addToWishlist(property);
   };
-  const imageUrl = Array.isArray(images) && images.length > 0 ? `http://backend/uploads/${images[0]}` : defaultImageUrl;
-
+  
+  const imageUrl = Array.isArray(images) && images.length > 0 ? images[0].replace('\\', '/') : '';
   return (
+    // C:\Users\Satish\Documents\Real_Estate\backend\uploads\1721758240811_IMG-20200517-WA0010.jpg
+    // C:\Users\Satish\Documents\Real_Estate\frontend\src\assets\image\aboutBannerImage.jpg
+    //C:\Users\Satish\Documents\Real_Estate\frontend\src\Components\PropertyItem\PropertyItem.jsx
     <>
       <Link to={`/propertyDetails/${id}`} style={{ textDecoration: 'none', color: 'var(--b)' }}>
         <div className="new_properties_box">
             <div className="image">
-              <img src={imageUrl} alt="abc" />
+              <img src={imageUrl} alt="" />
               {console.log("imageUrl")}
               <div className="sale_img">
                 <img src="../src/assets/image/sale.jpg" alt="" />
