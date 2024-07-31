@@ -11,7 +11,7 @@ const AllProperties = ({propertiesCategory}) => {
       <div className="all_properties" id="all_properties">
         {propertyList.map((item,index)=>{
           if(propertiesCategory==="All" || propertiesCategory===item.category)
-            return <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} saleImage={item.saleImage} roadAccess={item.roadAccess} />
+            return <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} />
           })}
       </div>
     </div>   

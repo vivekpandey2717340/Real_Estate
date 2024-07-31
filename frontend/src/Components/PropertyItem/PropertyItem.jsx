@@ -4,7 +4,7 @@ import './PropertyItem.css';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 
-const PropertyItem = ({ id, title, price, address, content, area, images, saleImage, roadAccess }) => {
+const PropertyItem = ({ id, title, price, address, content, area,sellingType, images, roadAccess }) => {
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
   console.log(images);
   const isComparelist = compareList.some(item => item.id === id);
@@ -34,7 +34,8 @@ const PropertyItem = ({ id, title, price, address, content, area, images, saleIm
               <img src={imageUrl} alt="" />
               {console.log("imageUrl")}
               <div className="sale_img">
-                <img src="../src/assets/image/sale.jpg" alt="" />
+              {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
+              {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           
               </div>  
               <div className="price">
                 <div className="price_grid" style={{ float: 'left' }}>
