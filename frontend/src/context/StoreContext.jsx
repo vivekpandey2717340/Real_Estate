@@ -16,14 +16,21 @@ const StoreContextProvider = ({ children }) => {
     const fetchPropertyList = async () => {
       try {
         const propertyListResponse = await axios.get('http://localhost:4000/api/property/list');
-        setPropertyList(propertyListResponse.data.data);
+        const properties = propertyListResponse.data.data;
+        
+        // Log images for each property
+        properties.forEach(property => {
+          console.log(`Property ID: ${property._id}, Image URL: ${property.image}`);
+        });
+
+        setPropertyList(properties);
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
     };
     const fetchBlogList = async () => {
       try {
-        const blogListResponse = await axios.get('http://localhost:4000/api/Blogs/list');
+        const blogListResponse = await axios.get('http://localhost:4000/api/Blog/list');
         setBlogList(blogListResponse.data.data);
       } catch (error) {
         console.error('Error fetching blogs:', error);
