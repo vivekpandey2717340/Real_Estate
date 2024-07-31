@@ -4,13 +4,13 @@ import './PropertyItem.css';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 
-const PropertyItem = ({ id, name, price, location, content, area, mainImage, saleImage, roadAccess }) => {
+const PropertyItem = ({ id, title, price, address, content, area, images, saleImage, roadAccess }) => {
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
 
   const isComparelist = compareList.some(item => item.id === id);
   const toggleComparelist = (e) => {
     e.preventDefault();
-    const property = { id, name, price, location, area, mainImage };
+    const property = { id, title, price, address, area, images };
     addToCompareList(property);
     setIsCompareClicked(true);
   };
@@ -18,7 +18,7 @@ const PropertyItem = ({ id, name, price, location, content, area, mainImage, sal
   const isWishlistItem = wishlist.some(item => item.id === id);
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, name, price, location, content, area, mainImage, saleImage,roadAccess };
+    const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
     addToWishlist(property);
   };
 
@@ -27,7 +27,7 @@ const PropertyItem = ({ id, name, price, location, content, area, mainImage, sal
       <Link to={`/propertyDetails/${id}`} style={{ textDecoration: 'none', color: 'var(--b)' }}>
         <div className="new_properties_box">
             <div className="image">
-              <img src={mainImage} alt="" />
+              <img src={images} alt="abc" />
               <div className="sale_img">
                 <img src={saleImage} alt="" />
               </div>
@@ -53,9 +53,9 @@ const PropertyItem = ({ id, name, price, location, content, area, mainImage, sal
           </div>
           <div className="content">
             <div className="content_cont">
-              <h5 id="type">{name}</h5>
+              <h5 id="type">{title}</h5>
               <h4 id="content">{content}</h4>
-              <p id="location"><i className="fa-solid fa-location-dot"></i>{location}</p>
+              <p id="address"><i className="fa-solid fa-location-dot"></i>{address}</p>
               <p id="area"><i className="fa-solid fa-chart-area"></i>{area}</p>
               <p id="roadAccess"><i className="fa-solid fa-road"></i>{roadAccess}</p>
               <div className="details">
