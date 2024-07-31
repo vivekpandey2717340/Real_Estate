@@ -5,16 +5,21 @@ import fs from 'fs';
 const addProperty = async (req, res) => {
     const {
         title, content, propertyType, sellingType, bathroom, kitchen, hall, bhk, propertyStatus, bedroom,
-        balcony, area, floor, price, city, state, totalFloor, areaSize, address, description, isFeatured,
-        isNew, isPremium, isHotSelling
+        balcony, area, floor, price, city, state, totalFloor, areaSize, address, description,builtYear,Parking,roadAccess,
+        direction,category,
+       
     } = req.body;
 
     // Collect file names from req.files
-    const images = [];
-    if (req.files.image) images.push(req.files.image[0].filename);
-    if (req.files.image2) images.push(req.files.image2[0].filename);
-    if (req.files.image3) images.push(req.files.image3[0].filename);
-    if (req.files.image4) images.push(req.files.image4[0].filename);
+    const images = req.files['images'] ? req.files['images'][0].path : null;
+        const image2 = req.files['image2'] ? req.files['image2'][0].path : null;
+        const image3 = req.files['image3'] ? req.files['image3'][0].path : null;
+        const image4 = req.files['image4'] ? req.files['image4'][0].path : null;
+        const video = req.files['video'] ? req.files['video'][0].path : null;
+        const droneShootVideo = req.files['droneShootVideo'] ? req.files['droneShootVideo'][0].path : null;
+        const floorPlanImage = req.files['floorPlanImage'] ? req.files['floorPlanImage'][0].path : null;
+        const groundFloorPlanImage = req.files['groundFloorPlanImage'] ? req.files['groundFloorPlanImage'][0].path : null;
+
 
     // Create a new Property instance
     const Property = new PropertyModel({
@@ -38,16 +43,20 @@ const addProperty = async (req, res) => {
         areaSize,
         address,
         description,
-        isFeatured,
-        isNew,
-        isPremium,
-        isHotSelling,
+        roadAccess,
+        direction,
+        Parking,
+        builtYear,
+        category,
         images,
-        video: req.files.video ? req.files.video[0].filename : null,
-        droneShootVideo: req.files.droneShootVideo ? req.files.droneShootVideo[0].filename : null,
-        floorPlanImage: req.files.floorPlanImage ? req.files.floorPlanImage[0].filename : null,
-        groundFloorPlanImage: req.files.groundFloorPlanImage ? req.files.groundFloorPlanImage[0].filename : null
-    });
+        image2,
+        image3,
+        image4,
+        video,
+        droneShootVideo,
+        floorPlanImage,
+        groundFloorPlanImage
+       });
 
     try {
         // Save the property to the database

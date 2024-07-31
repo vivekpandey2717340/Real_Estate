@@ -225,7 +225,7 @@ const Details = ({ setIsSliderShow }) => {
           <div className='description' id='description'>
             <div >
               <h1>Description</h1>
-              <div  dangerouslySetInnerHTML={{ __html: property.description }} />
+              <div  dangerouslySetInnerHTML={{ __html: property.longDescription }} />
             </div>
           </div>
           {/*End  Description Section */}

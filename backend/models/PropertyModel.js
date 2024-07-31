@@ -81,21 +81,26 @@ const PropertySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isFeatured: {
-        type: Boolean,
-        required: false
+    roadAccess: {
+        type: String,
+        required: true
     },
-    isNew: {
-        type: Boolean,
-        required: false
+    direction: {
+        type: String,
+        required: true
     },
-    isPremium: {
-        type: Boolean,
-        required: false
+    Parking: {
+        type: String,
+        required: true
     },
-    isHotSelling: {
-        type: Boolean,
-        required: false
+    builtYear: {
+        type: Number,
+        required: true
+    },
+    
+    category: {
+        type: String,
+        required: true
     },
     images: {
         type: [String],

@@ -18,7 +18,7 @@ export const propertyList=[
         totalFloor:"5",
         roadAccess:"12 feet",
         Parking:"3 Cars & 1 Bike",
-        image2:"../src/assets/image/Five.jpg",
+        images:"../src/assets/image/Five.jpg",
         image3:"../src/assets/image/Four.jpg",
         image4:"../src/assets/image/two.jpg",
         image5:"../src/assets/image/Three.jpg",
