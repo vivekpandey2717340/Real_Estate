@@ -19,7 +19,7 @@ const ImageGallery = ({ isSliderShow, setIsSliderShow }) => {
   
     // import image for all images and videos for slider
     const media = [
-      { type: 'image', src: property.mainImage },
+      { type: 'image', src: property.image },
       { type: 'image', src: property.image2 },
       { type: 'image', src: property.image3 },
       { type: 'image', src: property.image4 },
