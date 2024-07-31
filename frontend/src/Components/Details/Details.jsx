@@ -38,7 +38,7 @@ const Details = ({ setIsSliderShow }) => {
 
   // import image for  all images and videos for slider
   const media = [
-    { type: 'image', src: property.image },
+    { type: 'image', src: property.images },
     { type: 'image', src: property.image2 },
     { type: 'image', src: property.image3 },
     { type: 'image', src: property.image4 },
@@ -217,6 +217,33 @@ const Details = ({ setIsSliderShow }) => {
                   <h4>{property.builtYear}</h4>
                 </div>
               </div>
+              <div className="overview_grid_box">
+                <div  className="overview_grid_box_logo">
+                  <img src="../src/assets/image/balcony.png" alt="" />
+                </div>
+                <div  className="overview_grid_box_content">
+                  <p>Balcony</p>
+                  <h4>{property.balcony}</h4>
+                </div>
+              </div>
+              <div className="overview_grid_box">
+                <div  className="overview_grid_box_logo">
+                  <img src="../src/assets/image/address.png" alt="" />
+                </div>
+                <div  className="overview_grid_box_content">
+                  <p>Address</p>
+                  <h4>{property.address}</h4>
+                </div>
+              </div>
+              <div className="overview_grid_box">
+                <div  className="overview_grid_box_logo">
+                  <img src="../src/assets/image/bhk.png" alt="" />
+                </div>
+                <div  className="overview_grid_box_content">
+                  <p>BHK</p>
+                  <h4>{property.bhk}</h4>
+                </div>
+              </div>
             </div>
           </div>
           {/* End overview Section */}
@@ -225,7 +252,7 @@ const Details = ({ setIsSliderShow }) => {
           <div className='description' id='description'>
             <div >
               <h1>Description</h1>
-              <div  dangerouslySetInnerHTML={{ __html: property.longDescription }} />
+              <div  dangerouslySetInnerHTML={{ __html: property.description }} />
             </div>
           </div>
           {/*End  Description Section */}
@@ -268,16 +295,17 @@ const Details = ({ setIsSliderShow }) => {
       <div className="similar-properties">
         <h2>Similar Properties</h2>
         <div id="specific_hot-section-container">
-          {similarProperties.map(item => (
+          {similarProperties.map((item, index)=> (
             <PropertyItem
-              key={item._id}
+              key={index}
               id={item._id}
-              name={item.title}
+              title={item.title}
               price={"Rs." +item.price +" /-"}
-              location={item.city +", " +item.state}
+              address={item.address}
               content={item.content}
               area={item.area}
-              mainImage={item.mainImage}
+              images={item.images}
+              roadAccess={item.roadAccess}
               saleImage={item.saleImage}
             />
           ))}
