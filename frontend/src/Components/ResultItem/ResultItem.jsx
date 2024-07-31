@@ -2,7 +2,7 @@ import React,{useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext';
 
-const ResultItem = ({id,title,price,address,content,area,image,saleImage,Parking,roadAccess}) => {
+const ResultItem = ({id,title,price,address,content,area,images,saleImage,Parking,roadAccess}) => {
     // State to track if the item is in the wishlist or to compare
   
   const { addToCompareList, compareList } = useContext(StoreContext);
@@ -12,7 +12,7 @@ const ResultItem = ({id,title,price,address,content,area,image,saleImage,Parking
 
   const toggleComparelist = (e) => {
     e.preventDefault();
-    const property = { id, title, price, address,  area, image };
+    const property = { id, title, price, address,  area, images };
     addToCompareList(property);
   };
 
@@ -24,7 +24,7 @@ const ResultItem = ({id,title,price,address,content,area,image,saleImage,Parking
 
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, title, price, address, content, area, image, saleImage,roadAccess };
+    const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
     addToWishlist(property);
   };
     return (
@@ -37,7 +37,7 @@ const ResultItem = ({id,title,price,address,content,area,image,saleImage,Parking
                 <div className="listing_box">          
                     <div className="listing_photo">
                         <div className="image" style={{borderRadius:'0'}}>
-                            <img src={image} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
+                            <img src={images} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
                             <div className="sale_img">
                                 <img src={saleImage} alt=""/>
                             </div>

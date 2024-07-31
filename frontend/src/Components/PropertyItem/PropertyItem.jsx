@@ -6,7 +6,7 @@ import { StoreContext } from '../../context/StoreContext';
 
 const PropertyItem = ({ id, title, price, address, content, area, images, saleImage, roadAccess }) => {
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
-
+  console.log(images);
   const isComparelist = compareList.some(item => item.id === id);
   const toggleComparelist = (e) => {
     e.preventDefault();
@@ -21,16 +21,18 @@ const PropertyItem = ({ id, title, price, address, content, area, images, saleIm
     const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
     addToWishlist(property);
   };
+  const imageUrl = Array.isArray(images) && images.length > 0 ? `http://backend/uploads/${images[0]}` : defaultImageUrl;
 
   return (
     <>
       <Link to={`/propertyDetails/${id}`} style={{ textDecoration: 'none', color: 'var(--b)' }}>
         <div className="new_properties_box">
             <div className="image">
-              <img src={images} alt="abc" />
+              <img src={imageUrl} alt="abc" />
+              {console.log("imageUrl")}
               <div className="sale_img">
-                <img src={saleImage} alt="" />
-              </div>
+                <img src="../src/assets/image/sale.jpg" alt="" />
+              </div>  
               <div className="price">
                 <div className="price_grid" style={{ float: 'left' }}>
                   <h4 id="price">{price}</h4>

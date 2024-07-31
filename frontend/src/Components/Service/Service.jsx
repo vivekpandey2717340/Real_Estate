@@ -11,7 +11,7 @@ const Service = () => {
         setMenu('tools');
     };
   return (
-    <div>
+    <div className='service_bg'>
         {/* <!-- Our Service --> */}
         <section className="container">
             <div className="service">

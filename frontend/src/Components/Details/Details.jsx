@@ -271,15 +271,8 @@ const Details = ({ setIsSliderShow }) => {
                     <input type="number" name='number' required /><br />
                     <label htmlFor="email">Email</label> <br />
                     <input type="email" name='email' required /><br />
-                    <label htmlFor="Inqueryfor">Inquery For</label><br />
-                    <select name="inqueryFor" id="inqueryFor">
-                        <option value="">Select</option>
-                        <option value="Sale">Sale Properties</option>
-                        <option value="Rent">Rent Properties</option>
-                        <option value="Buy">Buy Properties</option>
-                    </select><br />
                     <label htmlFor="mssage">Message</label><br />
-                    <textarea name="messaage" id="message" cols={50} rows={5}></textarea><br />
+                    <textarea name="messaage" id="message" cols={50} rows={10}></textarea><br />
                     <input type="submit"  value="Submit" className='submit_btn'  name='inquery_message'/>
                     
                 </form>

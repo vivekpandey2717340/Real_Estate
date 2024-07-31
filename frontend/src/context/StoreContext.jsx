@@ -20,7 +20,7 @@ const StoreContextProvider = ({ children }) => {
         
         // Log images for each property
         properties.forEach(property => {
-          console.log(`Property ID: ${property._id}, Image URL: ${property.image}`);
+          console.log(`Property ID: ${property._id}, Image URL: ${property.images}`);
         });
 
         setPropertyList(properties);
