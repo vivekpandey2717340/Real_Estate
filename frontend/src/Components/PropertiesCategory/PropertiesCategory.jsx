@@ -5,10 +5,10 @@ const PropertiesCategory = ({propertiesCategory,setPropertiesCategory}) => {
 
     
     const all ="All"
-    const featured = "Featured"
-    const NewProperties= "New Properties"
-    const PremiumProperties= "Premium Properties"
-    const HotSelling="Hot Selling";
+    const isFeatured = "Featured"
+    const isNew= "New Properties"
+    const isPremium= "Premium Properties"
+    const isHotSelling="Hot Selling";
 
   return (
     <div>
@@ -21,24 +21,24 @@ const PropertiesCategory = ({propertiesCategory,setPropertiesCategory}) => {
                   {all}
                 </p>
               </div>
-              <div onClick={()=>setPropertiesCategory(prev=>prev===featured?"All":featured)}  className={`${propertiesCategory === featured ? "active" : ""} all_category_box center_box`}>
+              <div onClick={()=>setPropertiesCategory(prev=>prev===isFeatured?"All":isFeatured)}  className={`${propertiesCategory === isFeatured ? "active" : ""} all_category_box center_box`}>
                 <p>
-                  {featured}
+                  {isFeatured}
                 </p>
               </div>
-              <div onClick={()=>setPropertiesCategory(prev=>prev===NewProperties?"All":NewProperties)}  className={`${propertiesCategory === NewProperties ? "active" : ""} all_category_box center_box`}>
+              <div onClick={()=>setPropertiesCategory(prev=>prev===isNew?"All":isNew)}  className={`${propertiesCategory === isNew ? "active" : ""} all_category_box center_box`}>
                 <p>
-                  {NewProperties}
+                  {isNew}
                 </p>
               </div>
-              <div onClick={()=>setPropertiesCategory(prev=>prev===PremiumProperties?"All":PremiumProperties)}  className={`${propertiesCategory === PremiumProperties ? "active" : ""} all_category_box center_box`}>
+              <div onClick={()=>setPropertiesCategory(prev=>prev===isPremium?"All":isPremium)}  className={`${propertiesCategory === isPremium ? "active" : ""} all_category_box center_box`}>
                 <p>
-                  {PremiumProperties}
+                  {isPremium}
                 </p>
               </div>
-              <div onClick={()=>setPropertiesCategory(prev=>prev===HotSelling?"All":HotSelling)}  className={`${propertiesCategory === HotSelling ? "active" : ""} all_category_box right`}>
+              <div onClick={()=>setPropertiesCategory(prev=>prev===isHotSelling?"All":isHotSelling)}  className={`${propertiesCategory === isHotSelling ? "active" : ""} all_category_box right`}>
                 <p>
-                  {HotSelling}
+                  {isHotSelling}
                 </p>
               </div>
             </div>
