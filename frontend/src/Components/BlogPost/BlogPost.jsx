@@ -7,8 +7,11 @@ import { Link } from 'react-router-dom'
 import './BlogPost.css'
 
 const BlogPost = ({setCategory,propertiesCategory}) => {
-    const {blogList} = useContext(StoreContext)
+    const {blogList} = useContext(StoreContext);
     const { propertyList } = useContext(StoreContext);
+    
+    console.log('blogList:', blogList);
+    console.log('propertyList:', propertyList);
 
     // shuffle function
     const shuffleArray = (array) => {
@@ -20,7 +23,7 @@ const BlogPost = ({setCategory,propertiesCategory}) => {
       };
 
       // Filter the news based on the "News" category
-    const News = blogList.filter(item => 
+      const News = blogList.filter(item => 
         setCategory === "News" || item.category === "News" 
       );
 
