@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import './Details.css';
 import Slides from '../Slides/Slides';
-import ImageGallery from '../ImageGallery/ImageGallery';
 import PropertyItem from '../PropertyItem/PropertyItem'; 
 
 const Details = ({ setIsSliderShow }) => {
@@ -84,7 +83,7 @@ const Details = ({ setIsSliderShow }) => {
               {/* image gallery box */}
               <div className='image_stock' onClick={(e) => { e.preventDefault(); toggleSliderShow(); }}>
                 <div className='image_stock_box'>
-                  <img src={property.image} alt="" />
+                  <img src={property.images} alt="" />
                   <div className='image_stock_box_overlay'>
                       <p>+ See All</p>
                   </div>

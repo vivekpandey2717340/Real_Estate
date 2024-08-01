@@ -34,8 +34,8 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
               <img src={imageUrl} alt="" />
               {console.log("imageUrl")}
               <div className="sale_img">
-              {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
-              {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           
+                {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
+                {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           
               </div>  
               <div className="price">
                 <div className="price_grid" style={{ float: 'left' }}>
