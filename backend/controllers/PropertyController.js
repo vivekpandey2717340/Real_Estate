@@ -84,6 +84,38 @@ const listProperty = async (req, res) => {
         if (propertyType) filters.propertyType = propertyType;
 
         const properties = await PropertyModel.find(filters);
+
+        // Define the base URL for images
+        const baseUrl = 'http://localhost:4000/images/';
+
+        // Prepend the base URL to each image and remove 'uploads' part
+        properties.forEach(property => {
+            if (property.images && Array.isArray(property.images)) {
+                property.images = property.images.map(image => {
+                    // Remove 'uploads\\' or 'uploads/' and replace with base URL
+                    return image.replace(/(\\|\/)?uploads(\\|\/)/, baseUrl);
+                });
+            }
+            if (property.image2 && Array.isArray(property.image2)) {
+                property.image2 = property.image2.map(image => {
+                    // Remove 'uploads\\' or 'uploads/' and replace with base URL
+                    return image.replace(/(\\|\/)?uploads(\\|\/)/, baseUrl);
+                });
+            }
+            if (property.image3 && Array.isArray(property.image3)) {
+                property.image3 = property.image3.map(image => {
+                    // Remove 'uploads\\' or 'uploads/' and replace with base URL
+                    return image.replace(/(\\|\/)?uploads(\\|\/)/, baseUrl);
+                });
+            }
+            if (property.image4 && Array.isArray(property.image4)) {
+                property.image4 = property.image4.map(image => {
+                    // Remove 'uploads\\' or 'uploads/' and replace with base URL
+                    return image.replace(/(\\|\/)?uploads(\\|\/)/, baseUrl);
+                });
+            }
+        });
+
         res.json({ success: true, data: properties });
     } catch (error) {
         console.error("Error listing properties:", error);

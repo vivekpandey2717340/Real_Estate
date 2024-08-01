@@ -44,5 +44,14 @@ const updateOurexpertise = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to update." });
     }
 };
+const getOurexpertise = async (req, res) => {
+    try {
+        const expertiseList = await Ourexpertise.find().sort({ createdAt: -1 });
+        res.json(expertiseList);
+    } catch (error) {
+        console.error("Error fetching expertise:", error);
+        res.status(500).json({ success: false, message: "Failed to fetch expertise." });
+    }
+};
 
-export { addOurexpertise, updateOurexpertise };
+export { addOurexpertise, updateOurexpertise, getOurexpertise };

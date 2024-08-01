@@ -1,24 +1,33 @@
-import express from "express";
-import cors from "cors";
-import { connectDB } from "./config/db.js";
-import PropertyRouter from "./routes/PropertyRoute.js";
-import BannerRouter from "./routes/BannerRoute.js";
-import PopUpRouter from "./routes/PopUpRoute.js";
-import ProfileRouter from "./routes/ProfileRoute.js"
-import UserRouter from "./routes/UserRoute.js";
-import BlogsRouter from "./routes/BlogsRoute.js"
-import OurexpertiseRouter from "./routes/OurexpertiseRoute.js";
-import ReviewRouter from "./routes/ReviewRoute.js";
-import WishlistRouter from "./routes/wishlistRoute.js";
-import CompareRouter from "./routes/compareRoute.js";
+import express from 'express';
+import cors from 'cors';
 import multer from 'multer';
-import dotenv from 'dotenv' ;
- dotenv.config();
+import dotenv from 'dotenv';
+import { connectDB } from './config/db.js';
+import PropertyRouter from './routes/PropertyRoute.js';
+import BannerRouter from './routes/BannerRoute.js';
+import PopUpRouter from './routes/PopUpRoute.js';
+import ProfileRouter from './routes/ProfileRoute.js';
+import UserRouter from './routes/UserRoute.js';
+import BlogsRouter from './routes/BlogsRoute.js';
+import OurexpertiseRouter from './routes/OurexpertiseRoute.js';
+import ReviewRouter from './routes/ReviewRoute.js';
+import WishlistRouter from './routes/WishlistRoute.js';
+import CompareRouter from './routes/CompareRoute.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+dotenv.config();
+
+// Get __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // App config
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Middleware 
+// Middleware
 app.use(express.json());
 app.use(cors());
 
@@ -26,11 +35,15 @@ app.use(cors());
 connectDB();
 
 // Set static folder for image uploads
-app.use("/images", express.static('uploads'));
+app.use('/images', express.static(path.join(__dirname, 'uploads')));
 
+// Ensure the 'uploads' directory exists
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 // Configure Multer for file uploads
-
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -43,21 +56,19 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // API endpoints
-app.use("/api/property/", PropertyRouter);
-app.use("/api/Banner/", BannerRouter);
-app.use("/api/PopUp/", PopUpRouter);
-app.use("/api/Profile/", ProfileRouter);
-app.use("/api/User/", UserRouter)
-app.use("/api/Blogs/",BlogsRouter);
-app.use("/api/Ourexpertise/",OurexpertiseRouter);
-app.use("/api/Review/", ReviewRouter);
-app.use('/api/Wishlist', WishlistRouter);
-app.use('/api/Compare', CompareRouter);
+app.use('/api/property', PropertyRouter);
+app.use('/api/banner', BannerRouter);
+app.use('/api/popup', PopUpRouter);
+app.use('/api/profile', ProfileRouter);
+app.use('/api/user', UserRouter);
+app.use('/api/blogs', BlogsRouter);
+app.use('/api/ourexpertise', OurexpertiseRouter);
+app.use('/api/review', ReviewRouter);
+app.use('/api/wishlist', WishlistRouter);
+app.use('/api/compare', CompareRouter);
 
-
-
-app.get("/", (req, res) => {
-    res.send("Hi VIVEK API Is Working");
+app.get('/', (req, res) => {
+    res.send('Hi VIVEK API Is Working');
 });
 
 app.listen(port, () => {

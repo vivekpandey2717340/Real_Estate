@@ -44,5 +44,16 @@ const updateReview = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to update." });
     }
 };
+// Get all reviews
+const getReview = async (req, res) => {
+    try {
+        const reviews = await Review.find().sort({ createdAt: -1 });
+        res.json(reviews);
+    } catch (error) {
+        console.error("Error fetching reviews:", error);
+        res.status(500).json({ success: false, message: "Failed to fetch reviews." });
+    }
+};
 
-export { addReview, updateReview };
+
+export { addReview, updateReview, getReview };

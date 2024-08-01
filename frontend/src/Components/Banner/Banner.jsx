@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Banner.css';
 import axios from 'axios';
 
@@ -15,7 +15,6 @@ const Banner = () => {
     const fetchLatestBanner = async () => {
       try {
         const response = await axios.get('http://localhost:4000/api/banner/latest');
-        console.log('Banner Data:', response.data); // Log the response data
         if (response.data && response.data.image) {
           setLatestBanner({
             image: response.data.image,
@@ -29,19 +28,20 @@ const Banner = () => {
 
     fetchLatestBanner();
   }, []);
+
   const handleClick = () => {
     navigate('/searchResult', { state: { location, category, budget } });
   };
 
   return (
     <div className='banner_position'>
-     
       <section className="banner">
-          <div className='banner_dynamic_img'>
-           <img src="../src/assets/image/banner.jpg" alt="" />
-           <div className="banner_overlay">
-          
-          </div>
+        <div className='banner_dynamic_img'>
+          <img 
+            src={latestBanner ? latestBanner.image : "../src/assets/images/banner.jpg"} 
+            alt={latestBanner ? latestBanner.title : "Banner"} 
+          />
+          <div className="banner_overlay"></div>
         </div>
         <div className="container">
           <div className="banner_content">
@@ -50,7 +50,7 @@ const Banner = () => {
               <div className="content_anim">
                 <p>Home</p>
                 <p>Flat</p>
-                <p>Appartment</p>
+                <p>Apartment</p>
               </div>
             </div>
           </div>
@@ -61,16 +61,8 @@ const Banner = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             >
-                <option value="">Select Location</option>
-                <option value="bhaktapur">Bhaktapur</option>
-                <option value="birendranagar">Birendranagar</option>
-                <option value="deukhuri">Deukhuri</option>
-                <option value="godawari">Godawari</option>
-                <option value="hetauda">Hetauda</option>
-                <option value="janakpur">Janakpur</option>
-                <option value="kathmandu">Kathmandu</option>
-                <option value="lalitpur">Lalitpur</option>                        
-                <option value="pokhara">Pokhara</option>
+              <option value="">Select Location</option>
+              {/* Add more options */}
             </select>
             <select
               className="search_box"
@@ -78,9 +70,7 @@ const Banner = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Select Category</option>
-              <option value="Home">Home</option>
-              <option value="Flat">Flat</option>
-              <option value="Apartment">Apartment</option>
+              {/* Add more options */}
             </select>
             <input
               type="text"
@@ -89,14 +79,16 @@ const Banner = () => {
               onChange={(e) => setBudget(e.target.value)}
               placeholder="Budget"
             />
-            <div style={{cursor:'pointer'}} className="search_box right" onClick={handleClick}>
-               <a >Search</a>
+            <div 
+              style={{ cursor: 'pointer' }} 
+              className="search_box right" 
+              onClick={handleClick}
+            >
+              Search
             </div>
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 };
