@@ -44,18 +44,20 @@ const updateBanner = async (req, res) => {
     }
 };
 //// latest banner show
-const LatestBanner = async (req, res) => {
+export const LatestBanner = async (req, res) => {
   try {
-    const banner = await Banner.findOne().sort({ createdAt: -1 });
-
-    if (!banner) {
-      return res.status(404).json({ message: 'No banners found' });
-    }
-
-    res.status(200).json({ image: banner.image, title: banner.title });
+      const latestBanner = await Banner.findOne().sort({ createdAt: -1 }); // Assuming banners have a createdAt field
+      if (latestBanner) {
+          res.json({
+              image: `http://localhost:4000/images/${latestBanner.image}`, // Adjust based on how you store image paths
+              title: latestBanner.title,
+          });
+      } else {
+          res.status(404).json({ message: 'No banner found' });
+      }
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching latest banner', error });
+      res.status(500).json({ message: 'Server error', error });
   }
 };
 
-export { addBanner, updateBanner, LatestBanner };
+export { addBanner, updateBanner };

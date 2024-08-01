@@ -69,7 +69,7 @@ const ListingPage = ({ propertiesCategory }) => {
           <div className="new_properties_grid" style={{ paddingBottom: '50px' }}>
             <div id="specific_hot-section-container">
                 {limitedHotProperties.map((item, index) => (
-                    <PropertyItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} roadAccess={item.roadAccess}/>
+                    <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} mainImage={item.mainImage} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
                 ))}
             </div>
           </div>
@@ -94,7 +94,7 @@ const ListingPage = ({ propertiesCategory }) => {
                 <div className="new_properties_grid">
                 <div id="specific_hot-section-container">
                     {limitedNewProperties.map((item, index) => (
-                        <PropertyItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} roadAccess={item.roadAccess}/>
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
                     ))}
                 </div> 
                 </div>
@@ -117,7 +117,7 @@ const ListingPage = ({ propertiesCategory }) => {
             <div className="new_properties_grid" style={{ paddingBottom: '70px' }}>
                 <div id="specific_hot-section-container">
                     {limitedPremiumProperties.map((item, index) => (
-                        <PropertyItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} roadAccess={item.roadAccess}/>
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
                     ))}
                 </div>
             </div>
@@ -142,7 +142,7 @@ const ListingPage = ({ propertiesCategory }) => {
                     <div className="new_properties_grid" style={{ paddingBottom: '70px' }}>
                     <div id="specific_hot-section-container">
                         {limitedFeaturedProperties.map((item, index) => (
-                            <PropertyItem key={index} id={item._id} name={item.name} price={item.price} location={item.location} content={item.content} area={item.area} mainImage={item.mainImage} saleImage={item.saleImage} roadAccess={item.roadAccess}/>
+                            <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
                         ))}
                     </div>
                     </div>

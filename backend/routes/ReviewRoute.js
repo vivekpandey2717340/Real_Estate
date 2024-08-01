@@ -1,6 +1,6 @@
 import express from "express";
 import multer from 'multer';
-import { addReview, updateReview} from "../controllers/ReviewController.js";
+import { addReview, updateReview, getReview} from "../controllers/ReviewController.js";
 
 const ReviewRouter = express.Router();
 
@@ -18,5 +18,6 @@ const upload = multer({ storage });
 
 ReviewRouter.post("/add", upload.single('image'), addReview);
 ReviewRouter.put("/update/:id", upload.single('image'), updateReview);
+ReviewRouter.get("/all", getReview);
 
 export default ReviewRouter;

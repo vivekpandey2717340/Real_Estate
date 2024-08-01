@@ -2,7 +2,7 @@ import React,{useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext';
 
-const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Parking,roadAccess}) => {
+const ResultItem = ({id,title,price,address,content,area,images,sellingType,Parking,roadAccess}) => {
     // State to track if the item is in the wishlist or to compare
   
   const { addToCompareList, compareList } = useContext(StoreContext);
@@ -12,7 +12,7 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Par
 
   const toggleComparelist = (e) => {
     e.preventDefault();
-    const property = { id, name, price, location,  area, mainImage };
+    const property = { id, title, price, address,  area, images };
     addToCompareList(property);
   };
 
@@ -24,7 +24,7 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Par
 
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, name, price, location, content, area, mainImage, saleImage,roadAccess };
+    const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
     addToWishlist(property);
   };
     return (
@@ -37,9 +37,10 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Par
                 <div className="listing_box">          
                     <div className="listing_photo">
                         <div className="image" style={{borderRadius:'0'}}>
-                            <img src={mainImage} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
+                            <img src={images} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
                             <div className="sale_img">
-                                <img src={saleImage} alt=""/>
+                            {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
+                            {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />} 
                             </div>
                             <div className="price">
                                 <div className="price_grid"style={{float:'right'}}>
@@ -50,9 +51,9 @@ const ResultItem = ({id,name,price,location,content,area,mainImage,saleImage,Par
                     </div>
                     <div className="listing_content"> 
                         <div className=''>
-                            <h4 id="type">{name}</h4>
+                            <h4 id="type">{title}</h4>
                             <h3 id="content" >{content}</h3>
-                            <p id="location"><i className="fa-solid fa-location-dot"></i>{location}</p>
+                            <p id="location"><i className="fa-solid fa-location-dot"></i>{address}</p>
                             <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area}</p>
                             <p id="area"><i class="fa-solid fa-square-parking"></i><span>Parking: </span>{Parking}</p>
                         </div>
