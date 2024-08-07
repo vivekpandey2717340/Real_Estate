@@ -17,23 +17,23 @@ const Details = ({ setIsSliderShow }) => {
   }, [id, propertyList]); // Dependencies: ID (from URL), propertyList (context data)
 
   if (!property) return <div>Loading...</div>; 
-  // Extract category of the current property
-  const { category } = property;
+ // Extract category of the current property
+ const { category } = property;
 
-   // Utility function to shuffle array
-   const shuffleArray = (array) => {
-    let shuffledArray = array.slice(); // Create a copy of the array
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-    return shuffledArray;
-  };
+ // Utility function to shuffle array
+ const shuffleArray = (array) => {
+  let shuffledArray = array.slice(); // Create a copy of the array
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
 
-  // Filter similar properties based on the category and shuffle the array
-  const similarProperties = shuffleArray(
-    propertyList.filter(item => item.category === category && item._id !== id)
-  ).slice(0, 4); // Limit to 4 random similar properties
+// Filter similar properties based on the category and shuffle the array
+const similarProperties = shuffleArray(
+  propertyList.filter(item => item.category === category && item._id !== id)
+).slice(0, 4); // Limit to 4 random similar properties
 
   // import image for  all images and videos for slider
   const media = [
@@ -287,9 +287,9 @@ const Details = ({ setIsSliderShow }) => {
       <div className="similar-properties">
         <h2>Similar Properties</h2>
         <div id="specific_hot-section-container">
-          {similarProperties.map((item, index)=> (
+          {similarProperties.map(item=> (
             <PropertyItem
-              key={index}
+              key={item._id}
               id={item._id}
               title={item.title}
               price={"Rs." +item.price +" /-"}
@@ -298,7 +298,7 @@ const Details = ({ setIsSliderShow }) => {
               area={item.area}
               images={item.images}
               roadAccess={item.roadAccess}
-              saleImage={item.saleImage}
+              sellingType={item.sellingType}
             />
           ))}
         </div>

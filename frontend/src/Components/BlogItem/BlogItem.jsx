@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './BlogItem.css'
 
-const BlogItem = ({id,image,shotContent,time}) => {
+const BlogItem = ({id,image,title,time}) => {
   return (
 
     <div>
@@ -15,7 +15,7 @@ const BlogItem = ({id,image,shotContent,time}) => {
                 </div>
             </div>
             <div className="blogs_content">
-                <h4>{shotContent}</h4>
+                <h4>{title}</h4>
                 <h5>{time}</h5>
             </div>
           </div>

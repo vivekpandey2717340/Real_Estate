@@ -42,7 +42,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
   const Property = blogList.filter((item) => setCategory === 'Property' || item.category === 'Property');
   const shuffledPropertyNews = shuffleArray([...Property]);
 
-  const Lifestyle = blogList.filter((item) => setCategory === 'Lifestyle' || item.category === 'Property');
+  const Lifestyle = blogList.filter((item) => setCategory === 'Lifestyle' || item.category === 'Lifestyle');
   const shuffledLifestyleNews = shuffleArray([...Lifestyle]);
 
   const Finance = blogList.filter((item) => setCategory === 'Finance' || item.category === 'Finance');
@@ -76,7 +76,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
                 key={index}
                 id={item._id}
                 image={`http://localhost:4000/images/${item.image}`}
-                shotContent={item.shotContent}
+                title={item.title}
                 time={item.time}
               />
             ))}
@@ -94,7 +94,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
                 key={index}
                 id={item._id}
                 image={`http://localhost:4000/images/${item.image}`}
-                shotContent={item.shotContent}
+                title={item.title}
                 time={item.time}
               />
             ))}
@@ -139,7 +139,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
                 key={index}
                 id={item._id}
                 image={`http://localhost:4000/images/${item.image}`}
-                shotContent={item.shotContent}
+                title={item.title}
                 time={item.time}
               />
             ))}
@@ -157,7 +157,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
                 key={index}
                 id={item._id}
                 image={`http://localhost:4000/images/${item.image}`}
-                shotContent={item.shotContent}
+                title={item.title}
                 time={item.time}
               />
             ))}
