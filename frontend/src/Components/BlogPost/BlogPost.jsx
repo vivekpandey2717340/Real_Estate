@@ -104,27 +104,27 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
 
       {/* Featured Property */}
       <div className='blog_featured_bg'>
-                <div className='container'>
-                    <div className="properties_title blogs_property" >
-                        <div><h1 style={{color:'var(--w)'}}>Featured Proeprties</h1></div>
-                        <Link to="/properties" style={{textDecoration:'none'}}>
-                            <div className="button">
-                                <a style={{color:'var(--w)'}}>
-                                    View All
-                                </a>
-                            </div>
-                        </Link>
+        <div className='container'>
+            <div className="properties_title blogs_property" >
+                <div><h1 style={{color:'var(--w)'}}>Featured Proeprties</h1></div>
+                <Link to="/properties" style={{textDecoration:'none'}}>
+                    <div className="button">
+                        <a style={{color:'var(--w)'}}>
+                            View All
+                        </a>
                     </div>
-                    
-                    <div className="new_properties_grid" style={{ paddingBottom: '50px' }}>
-                        <div id="specific_hot-section-container">
-                            {limitedFeaturedProperties.map((item, index) => (
-                                <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
-                            ))}
-                        </div>
-                    </div>
+                </Link>
+            </div>
+            
+            <div className="new_properties_grid" style={{ paddingBottom: '50px' }}>
+                <div id="specific_hot-section-container">
+                    {limitedFeaturedProperties.map((item, index) => (
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                    ))}
                 </div>
             </div>
+        </div>
+      </div>
             {/* End Featured Property */}
 
       <section className="container">

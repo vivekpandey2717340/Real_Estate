@@ -38,7 +38,6 @@
   }
   .service .service_grid .service_box {
     width: 100%;
-    background: var(--p);
     height: 250px;
     border-radius: 30px;
     align-items: center;
@@ -48,6 +47,6 @@
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
   .service .service_grid .service_box a {
-    color: var(--w);
+    color: var(--b);
     text-decoration: none;
   }

@@ -4,6 +4,7 @@ import { StoreContext } from '../../context/StoreContext';
 import './Details.css';
 import Slides from '../Slides/Slides';
 import PropertyItem from '../PropertyItem/PropertyItem'; 
+import InqueryForm from '../InqueryForm/InqueryForm';
 
 const Details = ({ setIsSliderShow }) => {
   const { id } = useParams(); // Get ID from URL params
@@ -34,6 +35,7 @@ const Details = ({ setIsSliderShow }) => {
 const similarProperties = shuffleArray(
   propertyList.filter(item => item.category === category && item._id !== id)
 ).slice(0, 4); // Limit to 4 random similar properties
+console.log("Filtered Similar Properties:", similarProperties);
 
   // import image for  all images and videos for slider
   const media = [
@@ -48,7 +50,6 @@ const similarProperties = shuffleArray(
 
     // Function to toggle the SliderShow state and compare btn
     const toggleSliderShow = () => {
-      console.log('Slider show toggled');
       setIsSliderShow(prevState => !prevState);
     };
     
@@ -68,7 +69,7 @@ const similarProperties = shuffleArray(
                 <p>{property.city +", " +property.state}</p>
               </div>
               <div >
-                <h3>{property.price}</h3>
+                <h3>Rs.{property.price} /-</h3>
               </div>
             </div>
             {/* image Slider box*/}
@@ -114,7 +115,7 @@ const similarProperties = shuffleArray(
                 </div>
                 <div  className="overview_grid_box_content">
                   <p>Built Area</p>
-                  <h4>{property.area}</h4>
+                  <h4>{property.area} sq.ft</h4>
                 </div>
               </div>
               <div className="overview_grid_box">
@@ -186,7 +187,7 @@ const similarProperties = shuffleArray(
                 </div>
                 <div  className="overview_grid_box_content">
                   <p>Road Access</p>
-                  <h4>{property.roadAccess}</h4>
+                  <h4>{property.roadAccess} feet</h4>
                 </div>
               </div>
               <div className="overview_grid_box">
@@ -213,7 +214,7 @@ const similarProperties = shuffleArray(
                 </div>
                 <div  className="overview_grid_box_content">
                   <p>Build year</p>
-                  <h4>{property.builtYear}</h4>
+                  <h4>{property.builtYear} AD</h4>
                 </div>
               </div>
               <div className="overview_grid_box">
@@ -262,19 +263,7 @@ const similarProperties = shuffleArray(
         {/* Form */}
         <div className='inqueryForm inquer_flex' >
             <div className='form' style={{background:'var(--p)',color:'var(--w)'}}>
-                <form action="" method='post'>
-                    <h1>Send Us A Message</h1>
-                    <label htmlFor="name">Full Name</label><br />
-                    <input type="text" name='name' required /><br />
-                    <label htmlFor="number">Phone Number</label><br />
-                    <input type="number" name='number' required /><br />
-                    <label htmlFor="email">Email</label> <br />
-                    <input type="email" name='email' required /><br />
-                    <label htmlFor="mssage">Message</label><br />
-                    <textarea name="messaage" id="message" cols={50} rows={10}></textarea><br />
-                    <input type="submit"  value="Submit" className='submit_btn'  name='inquery_message'/>
-                    
-                </form>
+              <InqueryForm />
             </div>
             <div className='map' id='map'>
               <div  dangerouslySetInnerHTML={{ __html: property.map }} />
@@ -292,7 +281,7 @@ const similarProperties = shuffleArray(
               key={item._id}
               id={item._id}
               title={item.title}
-              price={"Rs." +item.price +" /-"}
+              price={item.price}
               address={item.address}
               content={item.content}
               area={item.area}

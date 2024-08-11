@@ -10,7 +10,6 @@ const WhatsApp = () => {
                     <a href="https://wa.me/9779809673319" target="_blank" rel="noopener noreferrer">
                         <img src="../src/assets/image/whatsapp.png" alt="" />
                     </a>
-                    
                 </div>
             </div>
         </div>
