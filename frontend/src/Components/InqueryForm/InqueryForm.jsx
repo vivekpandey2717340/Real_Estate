@@ -4,7 +4,7 @@ const InqueryForm = () => {
   return (
     
         <form action="" method='post'>
-            <h1>Send Us A Message</h1>
+            <h1>Send us a inquery</h1>
             <label htmlFor="name">Full Name</label><br />
             <input type="text" name='name' required /><br />
             <label htmlFor="number">Phone Number</label><br />

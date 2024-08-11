@@ -62,7 +62,15 @@ const Banner = () => {
               onChange={(e) => setLocation(e.target.value)}
             >
               <option value="">Select Location</option>
-              {/* Add more options */}
+              <option value="bhaktapur">Bhaktapur</option>
+              <option value="birendranagar">Birendranagar</option>
+              <option value="deukhuri">Deukhuri</option>
+              <option value="godawari">Godawari</option>
+              <option value="hetauda">Hetauda</option>
+              <option value="janakpur">Janakpur</option>
+              <option value="kathmandu">Kathmandu</option>
+              <option value="lalitpur">Lalitpur</option>                        
+              <option value="pokhara">Pokhara</option>
             </select>
             <select
               className="search_box"
@@ -70,7 +78,9 @@ const Banner = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Select Category</option>
-              {/* Add more options */}
+              <option value="home">Home</option>
+              <option value="flat">Flat</option>
+              <option value="apartment">Apartment</option>
             </select>
             <input
               type="text"

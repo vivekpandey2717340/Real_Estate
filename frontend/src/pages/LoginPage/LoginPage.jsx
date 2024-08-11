@@ -1,15 +1,23 @@
-// LoginPage.jsx (Page)
-import React, { useState } from 'react';
+
+import React, { useState,useEffect } from 'react';
 import './LoginPage.css';
 import Login from '../../Components/Login/Login';
 import SignUp from '../../Components/SignUp/SignUp';
 import ForgetPassword from '../../Components/ForgetPassword/ForgetPassword';
 import Token from '../../Components/Token/Token';
 import NewPassowrd from '../../Components/NewPassowrd/NewPassowrd';
+import UpdateForm from '../../Components/UpdateForm/UpdateForm';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const LoginPage = ({ setIsLoggedIn }) => {
+  const location = useLocation();
   const [currentView, setCurrentView] = useState('login');
+  useEffect(() => {
+    if (location.state && location.state.currentView) {
+      setCurrentView(location.state.currentView);
+    }
+  }, [location.state]);
 
   const renderComponent = () => {
     switch (currentView) {
@@ -23,6 +31,8 @@ const LoginPage = ({ setIsLoggedIn }) => {
         return <Token setCurrentView={setCurrentView} />;
       case 'newpassword':
         return <NewPassowrd setCurrentView={setCurrentView} />;
+      case 'updateform':
+        return <UpdateForm setCurrentView={setCurrentView} />;
       default:
         return <Login setCurrentView={setCurrentView} setIsLoggedIn={setIsLoggedIn} />;
     }
