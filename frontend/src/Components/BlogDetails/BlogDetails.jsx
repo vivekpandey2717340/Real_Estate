@@ -1,12 +1,30 @@
 // BlogDetails.jsx
-import React, { useContext } from 'react';
+import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { StoreContext } from '../../context/StoreContext';
 import './BlogDetails.css';
 
 const BlogDetails = () => {
   const { id } = useParams(); // Get the blog ID from the URL
-  const { blogList } = useContext(StoreContext); // Access blog list from context
+  const [blogList, setBlogList] = useState([]);  
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/blogs/list');
+        if (response.data.success) {
+          setBlogList(response.data.blogs);
+        }
+      } catch (error) {
+        console.error('Error fetching Blogs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);// Access blog list from context
 
   const blog = blogList.find(blog => blog._id === id);
 
@@ -18,7 +36,7 @@ const BlogDetails = () => {
             <h4>{blog.title}</h4>
             <div className='blog_details_grid'>
                 <div className="blog_details_img">
-                    <img src={blog.image} alt={blog.name} />
+                    <img src={`http://localhost:4000/images/${blog.image}`} alt={blog.name} />
                 </div>
                 <div className="blog_details_content">
                     <p>{blog.content}</p>

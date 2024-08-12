@@ -1,5 +1,6 @@
 .main_compare_box_hide {
     display: none;
+    
 }
 
 .main_compare_box_show {
@@ -13,6 +14,7 @@
     z-index: 999999;
     transition: 0.4s ease;
     width: 700px;
+    z-index: 99999999999999999999;
 }
 
 .click_show_compare {

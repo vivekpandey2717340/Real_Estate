@@ -34,12 +34,12 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
               <img src={imageUrl} alt="" />
               {console.log("imageUrl")}
               <div className="sale_img">
-              {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
-              {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           
+                {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
+                {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           
               </div>  
               <div className="price">
                 <div className="price_grid" style={{ float: 'left' }}>
-                  <h4 id="price">{price}</h4>
+                  <h4 id="price">Rs.{price} /-</h4>
                 </div>
                 <div style={{ float: 'right' }}>
                   <ul>
@@ -62,8 +62,8 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
               <h5 id="type">{title}</h5>
               <h4 id="content">{content}</h4>
               <p id="address"><i className="fa-solid fa-location-dot"></i>{address}</p>
-              <p id="area"><i className="fa-solid fa-chart-area"></i>{area}</p>
-              <p id="roadAccess"><i className="fa-solid fa-road"></i>{roadAccess}</p>
+              <p id="area"><i className="fa-solid fa-chart-area"></i>{area} sq.ft</p>
+              <p id="roadAccess"><i className="fa-solid fa-road"></i>{roadAccess} feet</p>
               <div className="details">
                 <a>View Details</a>
               </div>

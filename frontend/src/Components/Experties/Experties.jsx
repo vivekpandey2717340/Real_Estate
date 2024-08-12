@@ -31,7 +31,7 @@ const Experties = () => {
   return (
     <div>
       <div className='experties'>
-        <h1>Our Expertise</h1>
+        <h1>Our Expertes</h1>
       </div>
       <div className='container'>
         <div className='expertiesContent'>

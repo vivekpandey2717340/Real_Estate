@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import './CompareItem.css';
 import { StoreContext } from '../../context/StoreContext';
 
-const CompareItem = ({ id, name, price, location, content, area, mainImage, saleImage }) => {
+const CompareItem = ({ id, title, price, location, content, area, images, saleImage }) => {
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
   const isComparelist = compareList.some(item => item.id === id);
 
   const toggleComparelist = (e) => {
     e.preventDefault();
-    const property = { id, name, price,  area, mainImage };
+    const property = { id, title, price,  area, images };
     addToCompareList(property);
     setIsCompareClicked(true);
   };
@@ -17,7 +17,7 @@ const CompareItem = ({ id, name, price, location, content, area, mainImage, sale
   const isWishlistItem = wishlist.some(item => item.id === id);
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, name, price, location, content, area, mainImage, saleImage };
+    const property = { id, title, price, location, content, area, images, saleImage };
     addToWishlist(property);
   };
 
@@ -25,12 +25,12 @@ const CompareItem = ({ id, name, price, location, content, area, mainImage, sale
     <tr className="compare_item" style={{textAlign:'center', paddingTop:'10px'}}>
       <td >
         <Link to={`/propertyDetails/${id}`}>
-          <img src={mainImage} alt={name}  />
+          <img src={images} alt={title}  />
         </Link>
       </td>
-      <td>{name}</td>
-      <td><p>{area}</p></td>
-      <td><p>{price}</p></td>
+      <td>{title}</td>
+      <td><p>{area} sq.ft</p></td>
+      <td><p>Rs.{price} /-</p></td>
       <td>
         <ul>
           <li id="compare" style={{ listStyle: 'none', marginRight: '5px' }} className={isComparelist ? '' : ''}>

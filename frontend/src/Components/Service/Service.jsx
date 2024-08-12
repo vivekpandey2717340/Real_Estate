@@ -12,7 +12,6 @@ const Service = () => {
     };
   return (
     <div className='service_bg'>
-        {/* <!-- Our Service --> */}
         <section className="container">
             <div className="service">
                 <div style={{display:'flex', alignItems:'center'}}>
@@ -22,29 +21,27 @@ const Service = () => {
                     </div>
                 </div>
                 <div className="service_grid">
-                    <div className="service_box" >
+                    <Link to="/searchResult" className="service_box">
                         <h1>
-                            <Link to="/searchResult">
-                                <a>Buy A Home</a>
-                            </Link>
+                            Buy A Home
                         </h1>
-                    </div>
-                    <div className="service_box" onClick={() => handleNavigation('Home Loan')}><h1><a >Home Loan</a></h1> </div>
-                    <div className="service_box"><h1>
-                        <Link to="/searchResult">
-                            <a>Rent A Home</a>
-                        </Link></h1>
-                    </div>                       
-                    <div className="service_box"><h1>
-                        <Link to="/searchResult">
-                            <a>Find A Falt</a>
-                        </Link></h1>
-                    </div>                       
+                    </Link>
+                    <div className="service_box" onClick={() => handleNavigation('Home Loan')}><h1>Home Loan</h1> </div>
+                    <Link to="/searchResult" className="service_box">
+                        
+                            <h1>
+                                Rent A Home
+                            </h1>
+                    </Link> 
+                    <Link to="/searchResult" className="service_box"> 
+                        <h1>
+                            Find A Falt
+                        </h1> 
+                    </Link>                       
                 </div>
             </div>
             
         </section>
-        {/* <!--End Our Service --> */}
     </div>
   )
 }

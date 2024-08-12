@@ -188,8 +188,7 @@ const Navbar = ({ isLoggedIn }) => {
                   
                   <li className={`login_btn ${isLoggedIn ? "menu_hidden" : ""}`}>
                     <Link to="/loginPage">
-                      <a className="nav_color">Login</a>
-                      
+                      <a className="nav_color">Login</a>                      
                     </Link>
                   </li>
                 </ul>

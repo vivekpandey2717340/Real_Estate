@@ -44,7 +44,7 @@ const ResultItem = ({id,title,price,address,content,area,images,sellingType,Park
                             </div>
                             <div className="price">
                                 <div className="price_grid"style={{float:'right'}}>
-                                    <h4 id="price">{price}</h4>
+                                    <h4 id="price">Rs.{price}/-</h4>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ const ResultItem = ({id,title,price,address,content,area,images,sellingType,Park
                             <h4 id="type">{title}</h4>
                             <h3 id="content" >{content}</h3>
                             <p id="location"><i className="fa-solid fa-location-dot"></i>{address}</p>
-                            <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area}</p>
+                            <p id="area"><i className="fa-solid fa-chart-area"></i><span>Area: </span>{area} sq.ft</p>
                             <p id="area"><i class="fa-solid fa-square-parking"></i><span>Parking: </span>{Parking}</p>
                         </div>
                         <a>

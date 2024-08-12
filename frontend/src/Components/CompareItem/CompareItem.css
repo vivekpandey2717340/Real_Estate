@@ -1,6 +1,7 @@
 .compare_item td img{
     width: 100px;
     height: auto;
+    object-fit: cover;
 }
 .compare_item  ul li{
     list-style: none;

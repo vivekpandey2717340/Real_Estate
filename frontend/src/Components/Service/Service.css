@@ -5,6 +5,7 @@
     grid-template-columns: 35% 65%;
     justify-content: center;
     grid-gap: 20px;
+    transition: box-shadow 2s ease-in;
   }
   .service .service_photo {
     width: 100%;
@@ -35,19 +36,28 @@
     justify-items: end;
     align-items: center;
     grid-gap: 20px;
+    transition: box-shadow 2s ease-in;
   }
   .service .service_grid .service_box {
     width: 100%;
-    background: var(--p);
     height: 250px;
     border-radius: 30px;
     align-items: center;
     display: flex;
+    cursor: pointer;
     justify-content: center;
     border: 1px solid var(--w);
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    
   }
-  .service .service_grid .service_box a {
-    color: var(--w);
-    text-decoration: none;
+  .service .service_grid .service_box h1
+   {
+    transition: transform 0.3s ease-in-out;
+  }
+  .service .service_grid .service_box:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  }
+  .service .service_grid .service_box:hover h1{
+    transform: scale(1.1);
   }
