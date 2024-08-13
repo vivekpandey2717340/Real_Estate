@@ -5,8 +5,7 @@ import BlogsItem from '../../component/BlogsItem/BlogsItem'
 
 const Blogs = () => {
   return (
-    <div style={{padding:'20px'}} >
-        
+    <div style={{padding:'20px'}} >       
 
         <BlogsItem/>
     </div>

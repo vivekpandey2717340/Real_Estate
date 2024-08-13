@@ -8,6 +8,7 @@ import './App.css'
 import Banner from './pages/Banner/Banner'
 import Blogs from './pages/Blogs/Blogs'
 import BlogAdd from './pages/BlogAdd/BlogAdd'
+import UserList from './pages/UserList/UserList'
 
 const App = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const App = () => {
               <Route path='/banner' element={<Banner/>}/>
               <Route path='/blogs' element={<Blogs/>}/>             
               <Route path='/addblogs' element={<BlogAdd/>}/>             
+              <Route path='/userList' element={<UserList/>}/>             
 
 
             </Routes>
