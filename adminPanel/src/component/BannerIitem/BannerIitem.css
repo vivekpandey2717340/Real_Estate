@@ -24,7 +24,7 @@
     width: 50%;
 }
 
-.banner_form form input,.banner_form form textarea{
+.banner_form form input,.banner_form form textarea,.banner_form form select{
     height: 40px;
     border: 1px solid var(--gray);
     background: none;

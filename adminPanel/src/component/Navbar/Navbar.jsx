@@ -20,6 +20,15 @@ const Navbar = () => {
     else if (path.startsWith('/userList')) {
       setMenu('userList');
     }
+    else if (path.startsWith('/expertList')) {
+      setMenu('expertList');
+    }
+    else if (path.startsWith('/addExpert')) {
+      setMenu('expertList');
+    }
+    else if (path.startsWith('/editExpert')) {
+      setMenu('expertList');
+    }
     else {
       setMenu('dashboard');
     }
@@ -110,8 +119,8 @@ const Navbar = () => {
                   <p>Blogs</p>
                 </li>
               </Link>
-              <Link>
-                <li>
+              <Link to="/expertList">
+                <li  onClick={() => setMenu("expertList")} className={menu === "expertList" ? "liActive" : ""}>
                   <span>
                     <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="128" cy="120" fill="none" r="40" stroke="#000" stroke-miterlimit="10" stroke-width="16"/>

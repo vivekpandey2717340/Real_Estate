@@ -10,7 +10,7 @@ const AddBlogs = () => {
     const displayMessageofBlogs=(event)=>{
         event.preventDefault(); // Prevent the default form submission behavior
         setMessage('Blogs added successfully!');
-        navigate("/")
+        
         
     }
   return ( 
@@ -28,8 +28,17 @@ const AddBlogs = () => {
                 <label htmlFor="image"> Select Image</label><br />
                 <input type="file"  name='image' required/><br />
                 <label htmlFor="title">Title</label><br />
-                <input type="text" name='title'required /><br />
-                <label htmlFor="conent">Cotent</label> <br />
+                <input type="text" name='title'  /><br />
+                <label htmlFor="category">Category</label> <br />
+                <select name="category" id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="News">News</option>
+                    <option value="Property">Property</option>
+                    <option value="LifeStyle">LifeStyle</option>
+                    <option value="Finance">Finance</option>
+                </select>
+                <br />
+                <label htmlFor="conent">Content</label> <br />
                 <textarea name="content" id="content" rows="7" required></textarea><br />
                 <div style={{display:'flex', justifyContent:'center'}}>
                     <input type="submit" value='Add Blogs' name='addBlogs'/>
