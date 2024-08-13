@@ -12,7 +12,7 @@ const AddBlogs = () => {
   return (
     <div className='banner_box' >
         <div className='back_link'>
-            <h4> &gt;&gt; </h4> <Link to='/dashboard'><h4>Dashboard </h4></Link><h4>/</h4><h4> Blogs</h4>
+            <h4> &gt;&gt; </h4> <Link to='/dashboard'><h4>Dashboard </h4></Link><h4>/</h4><Link to='/blogs'><h4> Blogs</h4></Link><h4>/</h4><h4>Add Blogs</h4>
             
         </div> 
         <hr/>
