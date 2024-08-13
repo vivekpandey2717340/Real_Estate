@@ -8,6 +8,7 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
   console.log(images);
   const isComparelist = compareList.some(item => item.id === id);
+  
   const toggleComparelist = (e) => {
     e.preventDefault();
     const property = { id, title, price, address, area, images };
@@ -18,15 +19,13 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
   const isWishlistItem = wishlist.some(item => item.id === id);
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
+    const property = { id, title, price, address, content, area, images, sellingType,roadAccess };
     addToWishlist(property);
   };
   
   const imageUrl = Array.isArray(images) && images.length > 0 ? images[0].replace('\\', '/') : '';
   return (
-    // C:\Users\Satish\Documents\Real_Estate\backend\uploads\1721758240811_IMG-20200517-WA0010.jpg
-    // C:\Users\Satish\Documents\Real_Estate\frontend\src\assets\image\aboutBannerImage.jpg
-    //C:\Users\Satish\Documents\Real_Estate\frontend\src\Components\PropertyItem\PropertyItem.jsx
+   
     <>
       <Link to={`/propertyDetails/${id}`} style={{ textDecoration: 'none', color: 'var(--b)' }}>
         <div className="new_properties_box">

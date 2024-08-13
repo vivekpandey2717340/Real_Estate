@@ -1,0 +1,15 @@
+.user_table{
+    width: 100%;
+    margin-top: 20px;
+
+}
+.user_table table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--gray);
+}
+.user_table table th, .user_table table td{
+    width: 20%;
+    height: 40px;
+    padding: 10px;
+}
