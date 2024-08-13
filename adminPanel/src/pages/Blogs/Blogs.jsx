@@ -5,6 +5,7 @@ import BlogsItem from '../../component/BlogsItem/BlogsItem'
 const Blogs = () => {
   return (
     <div>
+        
         <BlogsItem/>
     </div>
   )
