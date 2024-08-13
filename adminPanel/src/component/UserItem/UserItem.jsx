@@ -8,7 +8,7 @@ const UserItem = () => {
         {
             id:"1",
             name:"Satish",
-            number:"9809673319",
+            phoneNumber:"9809673319",
             email:"satis@gmail.com",
             dob:"2058/02/07",
             address:"Lokanthali",
@@ -43,7 +43,7 @@ const UserItem = () => {
                   {users.map((user) => (
                     <tr key={user.id}>
                        <td>{user.name || N/A}</td>
-                       <td>{user.number || N/A}</td>
+                       <td>{user.phoneNumber || N/A}</td>
                        <td>{user.email || N/A}</td>
                        <td>{user.address || N/A}</td>
                        <td>{user.dob || N/A}</td>
