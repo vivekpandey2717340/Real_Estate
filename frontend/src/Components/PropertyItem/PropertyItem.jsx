@@ -24,9 +24,7 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
   
   const imageUrl = Array.isArray(images) && images.length > 0 ? images[0].replace('\\', '/') : '';
   return (
-    // C:\Users\Satish\Documents\Real_Estate\backend\uploads\1721758240811_IMG-20200517-WA0010.jpg
-    // C:\Users\Satish\Documents\Real_Estate\frontend\src\assets\image\aboutBannerImage.jpg
-    //C:\Users\Satish\Documents\Real_Estate\frontend\src\Components\PropertyItem\PropertyItem.jsx
+   
     <>
       <Link to={`/propertyDetails/${id}`} style={{ textDecoration: 'none', color: 'var(--b)' }}>
         <div className="new_properties_box">
