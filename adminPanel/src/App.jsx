@@ -6,6 +6,8 @@ import {BrowserRouter, Routes, Route,useLocation} from 'react-router-dom'
 import TopNav from './component/TopNav/TopNav'
 import './App.css'
 import Banner from './pages/Banner/Banner'
+import Blogs from './pages/Blogs/Blogs'
+import BlogAdd from './pages/BlogAdd/BlogAdd'
 
 const App = () => {
   const location = useLocation();
@@ -20,6 +22,8 @@ const App = () => {
               <Route path='/'element={<Login/>}/>
               <Route path='/dashboard' element={<Dashboard/>}/>
               <Route path='/banner' element={<Banner/>}/>
+              <Route path='/blogs' element={<Blogs/>}/>             
+              <Route path='/addblogs' element={<BlogAdd/>}/>             
 
 
             </Routes>

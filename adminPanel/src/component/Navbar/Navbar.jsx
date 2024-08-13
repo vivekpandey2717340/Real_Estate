@@ -10,8 +10,12 @@ const Navbar = () => {
     const path = location.pathname;
       if (path.startsWith('/dashboard')) {
       setMenu('dashboard');
-    } if (path.startsWith('/banner')) {
+    }else if (path.startsWith('/banner')) {
       setMenu('banner');
+    }else if (path.startsWith('/blogs')) {
+      setMenu('blogs');
+    }else if (path.startsWith('/addblogs')) {
+      setMenu('blogs');
     }
     else {
       setMenu('dashboard');
@@ -93,8 +97,8 @@ const Navbar = () => {
                   <p>User</p>
                 </li>
               </Link>
-              <Link>
-                <li>
+              <Link to="/blogs">
+                <li onClick={() => setMenu("blogs")} className={menu === "blogs" ? "liActive" : ""}>
                   <span>
                     <svg height="25" version="1.1" viewBox="0 0 96 96" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <path d="M59.5 20h-23c-6.056 0-10.624 4.296-10.624 10s4.568 10 10.624 10h23c8.5 0 16.5 10.52 16.5 18.672v1.656c0 8.204-7.864 15.672-16.5 15.672h-23c-8.48 0-16.5-7.82-16.5-16.092v-49.72c0-5.904-4.204-10.188-10-10.188s-10 4.284-10 10.188v49.812c0 0.228 0.060 0.436 0.128 0.64-0.072 0.204-0.128 0.416-0.128 0.64 0 19.792 15.692 34.72 36.5 34.72h23c21.152 0 36.5-14.132 36.5-33.608v-3.172c0-20.892-17.056-39.22-36.5-39.22z" fill="#000000"/>
