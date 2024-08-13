@@ -115,6 +115,7 @@ const getUser = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
+//update
 const updateUser = async (req, res) => {
   try {
     const { name, email, phoneNumber, location, dob } = req.body;
