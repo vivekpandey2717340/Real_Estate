@@ -11,7 +11,7 @@ import UserRouter from './routes/UserRoute.js';
 import BlogsRouter from './routes/BlogsRoute.js';
 import OurexpertiseRouter from './routes/OurexpertiseRoute.js';
 import ReviewRouter from './routes/ReviewRoute.js';
-import WishlistRouter from './routes/WishlistRoute.js';
+import WishlistRouter from './routes/wishlistRoute.js';
 import CompareRouter from './routes/CompareRoute.js';
 import fs from 'fs';
 import path from 'path';
