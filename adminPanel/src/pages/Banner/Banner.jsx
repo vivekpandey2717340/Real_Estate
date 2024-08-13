@@ -1,8 +1,12 @@
 import React from 'react'
+import BannerIitem from '../../component/BannerIitem/BannerIitem'
+
 
 const Banner = () => {
   return (
-    <div>Banner</div>
+    <div style={{padding:'20px'}}>
+      <BannerIitem/>
+    </div>
   )
 }
 

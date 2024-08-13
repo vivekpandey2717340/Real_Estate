@@ -8,6 +8,7 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
   console.log(images);
   const isComparelist = compareList.some(item => item.id === id);
+  
   const toggleComparelist = (e) => {
     e.preventDefault();
     const property = { id, title, price, address, area, images };
@@ -18,7 +19,7 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
   const isWishlistItem = wishlist.some(item => item.id === id);
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
+    const property = { id, title, price, address, content, area, images, sellingType,roadAccess };
     addToWishlist(property);
   };
   
