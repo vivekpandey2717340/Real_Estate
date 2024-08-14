@@ -118,7 +118,7 @@ const PropertyItem = () => {
                             </select>
                         </div>
                         <button onClick={setAll}  style={{background:'green'}}>
-                            Clear
+                            Clear All
                         </button>
                         
                     </div>
