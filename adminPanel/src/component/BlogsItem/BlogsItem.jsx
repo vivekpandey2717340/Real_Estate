@@ -1,68 +1,95 @@
-import React from 'react'
-import './BlogsItem.css'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './BlogsItem.css';
+import { Link } from 'react-router-dom';
 
 const BlogsItem = () => {
-  const blogs = [
-    {
-      id: 1,
-      image: "../src/assets/images/logo.png",
-      title: "Satish",
-      category:"News",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    // Add more blog entries here...
-  ];
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  // Function to fetch blogs from the backend
+  const fetchBlogs = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/blogs/list');
+      if (response.data.success) {
+        setBlogs(response.data.blogs);
+      } else {
+        setError('Failed to fetch blogs.');
+      }
+    } catch (err) {
+      console.error('Error fetching blogs:', err);
+      setError('An error occurred while fetching the blogs.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
 
   // Function to truncate content to 50 words
   const truncateContent = (content, wordLimit) => {
     const words = content.split(' ');
     if (words.length > wordLimit) {
-        return words.slice(0, wordLimit).join(' ') + '...';
+      return words.slice(0, wordLimit).join(' ') + '...';
     }
     return content;
   };
+
   return (
     <div className='blogs_list'>
-        <div>
-            <div className='back_link'>
-            <h4> &gt;&gt; </h4> <Link to='/dashboard'><h4>Dashboard </h4></Link><h4>/</h4><h4> Blogs</h4>
-            </div> 
-            <hr style={{marginTop:'20px'}}/>
-            <div className='Dashboard_title'>
-                <h1>Blogs List</h1>
-                <Link to="/addblogs">
-                    <button>Add Blogs</button>
-                </Link>
-            </div>
-        </div>
-        <div className='blog_table'>
-            <table border="2" >
-                <thead>
-                  <th>S.N</th>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Content</th>
-                </thead>
-                {/* fetch the data from here (Loop start) */}
-
-                <tbody>
-                  {blogs.map((blog) => (
-                    <tr key={blog.id}>
-                      <td className='table_sn'>{blog.id}</td>
-                      <td className='table_img'><img src={blog.image} alt={blog.title} /></td>
-                      <td className='table_title'>{blog.title}</td>
-                      <td className='table_category'>{blog.category}</td>
-                      <td className='table_content'>{truncateContent(blog.content, 50)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-                {/* Loop end */}
-            </table>
+      <div>
+        <div className='back_link'>
+          <h4> &gt;&gt; </h4> 
+          <Link to='/dashboard'><h4>Dashboard </h4></Link>
+          <h4>/</h4>
+          <h4> Blogs</h4>
         </div> 
-    </div>
-  )
-}
+        <hr style={{ marginTop: '20px' }} />
+        <div className='Dashboard_title'>
+          <h1>Blogs List</h1>
+          <Link to="/addblogs">
+            <button>Add Blogs</button>
+          </Link>
+        </div>
+      </div>
 
-export default BlogsItem
+      <div className='blog_table'>
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p className="error-message">{error}</p>
+        ) : (
+          <table border="2">
+            <thead>
+              <tr>
+                <th >S.N</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              {blogs.map((blog, index) => (
+                <tr key={blog._id}>
+                  <td className='table_sn'>{index + 1}</td>
+                  <td className='table_img'>
+                    <img src={`http://localhost:4000/images/${blog.image}`} alt={blog.title} />
+                  </td>
+                  <td className='table_title'>{blog.title}</td>
+                  <td className='table_category'>{blog.category}</td>
+                  <td className='table_content'>{truncateContent(blog.content, 50)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div> 
+    </div>
+  );
+};
+
+export default BlogsItem;

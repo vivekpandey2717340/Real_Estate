@@ -29,6 +29,15 @@ const Navbar = () => {
     else if (path.startsWith('/editExpert')) {
       setMenu('expertList');
     }
+    else if (path.startsWith('/property')) {
+      setMenu('property');
+    }
+    else if (path.startsWith('/editProperty')) {
+      setMenu('property');
+    }
+    else if (path.startsWith('/addProperty')) {
+      setMenu('property');
+    }
     else {
       setMenu('dashboard');
     }
@@ -85,8 +94,8 @@ const Navbar = () => {
                   <p>Banner</p>
                 </li>
               </Link>
-              <Link>
-                <li>
+              <Link to='/property'>
+                <li onClick={() => setMenu("property")} className={menu === "property" ? "liActive" : ""}>
                   <span>
                     <svg version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g class="st0" id="grid_system"/><g id="_icons"><g>

@@ -12,6 +12,9 @@ import UserList from './pages/UserList/UserList'
 import Experts from './pages/Experts/Experts'
 import AddExperts from './pages/AddExperts/AddExperts'
 import EditExperts from './pages/EditExperts/EditExperts'
+import Property from './pages/Property/Property'
+import AddProperty from './pages/AddProperty/AddProperty'
+import EditPropertyItem from './component/EditPropertyItem/EditPropertyItem'
 
 const App = () => {
   const location = useLocation();
@@ -32,6 +35,10 @@ const App = () => {
           <Route path='/expertList' element={<Experts/>}/>
           <Route path='/addExpert' element={<AddExperts/>}/>
           <Route path='/editExpert' element={<EditExperts/>}/>
+          <Route path='/property' element={<Property/>}/>
+          <Route path='/addProperty' element={<AddProperty/>}/>
+          <Route path='/editProperty' element={<EditPropertyItem/>}/>
+
         </Routes>
       </div> 
     </div>

@@ -1,5 +1,5 @@
 #login_show{
-  background: linear-gradient(rgb(117, 117, 117), rgb(255, 255, 255));
+  background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
 }
 .login_box {
     height: 100vh;
@@ -19,7 +19,7 @@
   }
   .login_box .login-body_1 {
     z-index: 10;
-    background: linear-gradient(rgb(117, 117, 117), rgb(255, 255, 255));
+    background: linear-gradient(rgb(255, 255, 255), rgb(246, 244, 244));
     border-radius: 20px;
     padding:0px  40px 20px 40px;
   }

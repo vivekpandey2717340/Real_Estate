@@ -1,8 +1,11 @@
 import React from 'react'
+import EditExpertItem from '../../component/EditExpertItem/EditExpertItem'
 
 const EditExperts = () => {
   return (
-    <div>EditExperts</div>
+    <div>
+      <EditExpertItem/>
+    </div>
   )
 }
 

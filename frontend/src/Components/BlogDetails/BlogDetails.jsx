@@ -2,7 +2,6 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { StoreContext } from '../../context/StoreContext';
 import './BlogDetails.css';
 
 const BlogDetails = () => {
@@ -17,7 +16,7 @@ const BlogDetails = () => {
           setBlogList(response.data.blogs);
         }
       } catch (error) {
-        console.error('Error fetching Blogs:', error);
+        
       } finally {
         setLoading(false);
       }
