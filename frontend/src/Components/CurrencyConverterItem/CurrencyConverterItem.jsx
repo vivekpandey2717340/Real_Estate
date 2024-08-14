@@ -85,27 +85,27 @@ const CurrencyConverterItem = () => {
           <h2>At Exchange Rate Of</h2>
           <table>
             <tr>
-              <td className='table_left'>1 Japanese Yen equals :</td>
+              <td className='table_right'>1 Japanese Yen equals :</td>
               <td><span>NRP</span> 0.85</td>
             </tr>
             <tr>
-              <td className='table_left'>1 United States Dollar equals :</td>
+              <td className='table_right'>1 United States Dollar equals :</td>
               <td><span>NRP</span> 133.74</td>
             </tr>
             <tr>
-              <td className='table_left'>1 Australian Dollar equals :</td>
+              <td className='table_right'>1 Australian Dollar equals :</td>
               <td><span>NRP</span> 89.08</td>
             </tr>
             <tr>
-              <td className='table_left'>1 Indian Rupee equals :</td>
+              <td className='table_right'>1 Indian Rupee equals :</td>
               <td><span>NRP</span> 1.60</td>
             </tr>
             <tr>
-              <td className='table_left'>1 Chinese Yuan equals :</td>
+              <td className='table_right'>1 Chinese Yuan equals :</td>
               <td><span>NRP</span> 18.39</td>
             </tr>
             <tr>
-              <td className='table_left'>1 British Pounds  equals : </td>
+              <td className='table_right'>1 British Pounds  equals :</td>
               <td><span>NRP</span> 173.02</td>
             </tr>
 
