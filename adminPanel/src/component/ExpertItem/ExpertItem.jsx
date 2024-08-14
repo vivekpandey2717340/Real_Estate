@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './ExpertItem.css'
 
 const ExpertItem = () => {
   const experts = [
@@ -54,9 +55,9 @@ const ExpertItem = () => {
                       <td className='table_img'><img src={expert.image} alt={expert.name} /></td>
                       <td className='table_title'>{expert.name}</td>
                       <td className='table_content'>{truncateContent(expert.content, 50)}</td>
-                      <td>
-                        <Link to="editExpert"><button>Edit</button></Link>
-                        <button>Delete</button>
+                      <td style={{textAlign:'center'}}>
+                        <Link to="/editExpert" ><button className='edit_btn'>Edit</button></Link>
+                        <button className='delete_btn'>Delete</button>
                       </td>
                     </tr>
                   ))}
