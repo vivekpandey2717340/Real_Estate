@@ -65,7 +65,7 @@ const BlogsItem = () => {
           <table border="2">
             <thead>
               <tr>
-                <th>S.N</th>
+                <th >S.N</th>
                 <th>Image</th>
                 <th>Title</th>
                 <th>Category</th>

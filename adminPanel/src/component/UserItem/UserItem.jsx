@@ -42,6 +42,7 @@ const UserItem = () => {
                 <table border="2">
                     <thead>
                         <tr>
+                            <th style={{width:'20px'}}>S.N</th>
                             <th>Name</th>
                             <th>PhoneNumber</th>
                             <th>Email</th>
@@ -51,10 +52,11 @@ const UserItem = () => {
                     </thead>
                     <tbody>
                         {users.length > 0 ? (
-                            users.map((user) => (
-                                <tr key={user._id}>
+                            users.map((user, index) => (
+                                <tr key={user.id}>
+                                    <td className='table_sn'>{index + 1}</td>
                                     <td>{user.name || 'N/A'}</td>
-                                    <td>{user.number || 'N/A'}</td>
+                                    <td>{user.phoneNumber || 'N/A'}</td>
                                     <td>{user.email || 'N/A'}</td>
                                     <td>{user.address || 'N/A'}</td>
                                     <td>{user.dob || 'N/A'}</td>
