@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
   const [propertyList, setPropertyList] = useState([]);
-  const[blogList, setBlogList] = useState([]);
+
   const [wishlist, setWishlist] = useState([]);
   const [compareList, setComparelist] = useState([]);
   const [isCompareClicked, setIsCompareClicked] = useState(false);
@@ -28,14 +28,7 @@ const StoreContextProvider = ({ children }) => {
         console.error('Error fetching properties:', error);
       }
     };
-    const fetchBlogList = async () => {
-      try {
-        const blogListResponse = await axios.get('http://localhost:4000/api/Blog/list');
-        setBlogList(blogListResponse.data.data);
-      } catch (error) {
-        console.error('Error fetching blogs:', error);
-      }
-    };
+    
 
     const fetchLists = async () => {
       try {
@@ -50,7 +43,7 @@ const StoreContextProvider = ({ children }) => {
     };
   
     fetchPropertyList();
-    fetchBlogList();
+   
     fetchLists();
   }, [userId]);
 
@@ -89,7 +82,6 @@ const StoreContextProvider = ({ children }) => {
 
   const contextValue = {
     propertyList,
-    blogList,
     FAQList,
     wishlist,
     addToWishlist,
