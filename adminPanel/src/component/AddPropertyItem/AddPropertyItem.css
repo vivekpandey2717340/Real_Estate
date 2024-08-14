@@ -5,3 +5,7 @@
     justify-content: center;
     gap: 20px;
 }
+.property_form form h4 {
+    margin-top: 15px;
+
+}

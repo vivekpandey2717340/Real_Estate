@@ -11,10 +11,69 @@ const PropertyItem = () => {
         address:"Lokanthali",
         image:"../src/assets/images/logo.png",
         category:"Hot Selling",
+        status:"Avialable",
+        sellingType:'Rent',
+        },
+       { id:"1",
+        title:"House 1",
+        price:"2300",
+        address:"Lokanthali",
+        image:"../src/assets/images/logo.png",
+        category:"Featured",
         status:"Sold",
+        sellingType:'Rent',
+        },
+       { id:"1",
+        title:"House 1",
+        price:"2300",
+        address:"Lokanthali",
+        image:"../src/assets/images/logo.png",
+        category:"New Properties",
+        status:"Avialable",
+        sellingType:'Sale',
+        },
+       { id:"1",
+        title:"House 1",
+        price:"2300",
+        address:"Lokanthali",
+        image:"../src/assets/images/logo.png",
+        category:"Premium Properties",
+        status:"Avialable",
+        sellingType:'Sale',
         },
     ];
-    const {propertyCategory} = useState('All')
+    
+    // State for category and status
+    const [propertyCategory, setPropertyCategory] = useState('All');
+    const [propertyStatus, setPropertyStatus] = useState('All');
+    const [sellingType, setSellingType] = useState('All');
+
+    // Handler for category change
+    const handleCategoryChange = (e) => {
+        setPropertyCategory(e.target.value);
+    };
+
+    // Handler for status change
+    const handleStatusChange = (e) => {
+        setPropertyStatus(e.target.value);
+    };
+    // Handler for status change
+    const handleSellingType = (e) => {
+        setSellingType(e.target.value);
+    };
+
+    // Filter properties based on category and status
+    const filteredProperties = Property.filter((property) => {
+        const categoryMatch = propertyCategory === 'All' || property.category === propertyCategory;
+        const statusMatch = propertyStatus === 'All' || property.status === propertyStatus;
+        const setSellingTypeMatch = sellingType === 'All' || property.sellingType === sellingType;
+        return categoryMatch && statusMatch && setSellingTypeMatch;
+    });
+    const setAll = () => {
+        setPropertyCategory('All');
+        setPropertyStatus('All');
+        setSellingType('All');
+    };
   return (
     <div>
         <div className='blogs_list'>
@@ -24,10 +83,15 @@ const PropertyItem = () => {
                 </div> 
                 <hr style={{marginTop:'20px'}}/>
                 <div className='Dashboard_title'>
-                    <h1>Property List</h1>
+                    <div style={{display:'flex',alignItems:'center',gap:'50px'}}>
+                        <h1>Property List</h1>
+                        <Link to="/addProperty">
+                                <button>Add Property</button>
+                        </Link>
+                    </div>
                     <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
                         <div className='catergory_box'>
-                            <select name="category" id="category">
+                            <select name="category" id="category"  value={propertyCategory} onChange={handleCategoryChange}>
                                 <option value="">Select Category</option>
                                 <option value="Hot Selling">Hot Selling</option>
                                 <option value="Featured">Featured</option>
@@ -38,16 +102,25 @@ const PropertyItem = () => {
 
                         </div>
                         <div className='status_box'>
-                            <select name="status" id="status">
+                            <select name="status" id="status" value={propertyStatus} onChange={handleStatusChange}>
                                 <option value="">Select Status</option>
                                 <option value="Sold">Sold</option>
                                 <option value="Avialable">Avialable</option>
                                 <option value="All">All</option>
                             </select>
                         </div>
-                        <Link to="/addProperty">
-                            <button>Add Property</button>
-                        </Link>
+                        <div className='sellingType_box'>
+                            <select name="sellingType_box" id="sellingType_box" value={sellingType} onChange={handleSellingType}>
+                                <option value="">Selling Tyoe</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Sale">Sale</option>
+                                <option value="All">All</option>
+                            </select>
+                        </div>
+                        <button onClick={setAll}  style={{background:'green'}}>
+                            Clear
+                        </button>
+                        
                     </div>
                 </div>
             </div>
@@ -58,6 +131,7 @@ const PropertyItem = () => {
                     <th>Title</th>
                     <th>Price</th>
                     <th>Address</th>
+                    <th>Selling Type</th>
                     <th>Image</th>
                     <th>Category</th>
                     <th>Action</th>
@@ -65,12 +139,13 @@ const PropertyItem = () => {
                     {/* fetch the data from here (Loop start) */}
 
                     <tbody>
-                    {Property.map((Propertys,index) => (
+                    {filteredProperties.map((Propertys,index) => (
                         <tr key={Propertys.id}>
                         <td className='table_sn'>{index +1}</td>
                         <td>{Propertys.title}</td>
                         <td>{Propertys.price}</td>
                         <td>{Propertys.address}</td>
+                        <td>{Propertys.sellingType}</td>
                         <td className='table_img'><img src={Propertys.image} alt={Propertys.title} /></td>
                         <td className='table_title'>{Propertys.category}</td>
                         <td style={{textAlign:'center',width:'150px'}}>
