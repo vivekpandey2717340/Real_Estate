@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './BlogsItem.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const BlogsItem = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  // Function to fetch blogs from the backend
   const fetchBlogs = async () => {
     try {
       const response = await axios.get('http://localhost:4000/api/blogs/list');
@@ -29,7 +29,18 @@ const BlogsItem = () => {
     fetchBlogs();
   }, []);
 
-  // Function to truncate content to 50 words
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this blog?")) {
+      try {
+        await axios.delete(`http://localhost:4000/api/blogs/${id}`);
+        setBlogs(blogs.filter((blog) => blog._id !== id));
+      } catch (err) {
+        console.error('Error deleting blog:', err);
+        setError('An error occurred while deleting the blog.');
+      }
+    }
+  };
+
   const truncateContent = (content, wordLimit) => {
     const words = content.split(' ');
     if (words.length > wordLimit) {
@@ -65,7 +76,7 @@ const BlogsItem = () => {
           <table border="2">
             <thead>
               <tr>
-                <th >S.N</th>
+                <th>S.N</th>
                 <th>Image</th>
                 <th>Title</th>
                 <th>Category</th>
@@ -83,9 +94,11 @@ const BlogsItem = () => {
                   <td className='table_title'>{blog.title}</td>
                   <td className='table_category'>{blog.category}</td>
                   <td className='table_content'>{truncateContent(blog.content, 50)}</td>
-                  <td style={{textAlign:'center'}}>
-                    <Link to="/editblogs" ><button className='edit_btn'>Edit</button></Link>
-                    <button className='delete_btn'>Delete</button>
+                  <td style={{textAlign:'center', width: '150px'}}>
+                    <Link to={`/editblogs/${blog._id}`}>
+                      <button className='edit_btn'>Edit</button>
+                    </Link>
+                    <button className='delete_btn' onClick={() => handleDelete(blog._id)}>Delete</button>
                   </td>
                 </tr>
               ))}
