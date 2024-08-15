@@ -140,8 +140,8 @@ const AddPropertyItem = () => {
             <h4>Images</h4>
             <div className='details_grid'>
               <div>
-                <label htmlFor="image">Select Image</label><br />
-                <input type="file" name='image'  required /><br />
+                <label htmlFor="images">Select Image</label><br />
+                <input type="file" name='images'  required /><br />
               </div>
               <div>
 
