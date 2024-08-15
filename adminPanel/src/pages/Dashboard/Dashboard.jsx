@@ -1,9 +1,12 @@
 import React from 'react'
 import './Dashboard.css'
+import DashboardItem from '../../component/DashboardItem/DashboardItem'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div style={{padding:'20px'}}>
+      <DashboardItem/>
+    </div>
   )
 }
 

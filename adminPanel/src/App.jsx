@@ -14,8 +14,10 @@ import AddExperts from './pages/AddExperts/AddExperts'
 import EditExperts from './pages/EditExperts/EditExperts'
 import Property from './pages/Property/Property'
 import AddProperty from './pages/AddProperty/AddProperty'
-import EditPropertyItem from './component/EditPropertyItem/EditPropertyItem'
+import EditProperty from './pages/EditProperty/EditProperty'
 import BlogEdit from './pages/BlogEdit/BlogEdit'
+import Inquery from './pages/Inquery/Inquery'
+import Contact from './pages/Contact/Contact'
 
 const App = () => {
   const location = useLocation();
@@ -39,7 +41,9 @@ const App = () => {
           <Route path='/editExpert/:id' element={<EditExperts/>}/>
           <Route path='/property' element={<Property/>}/>
           <Route path='/addProperty' element={<AddProperty/>}/>
-          <Route path='/editProperty' element={<EditPropertyItem/>}/>
+          <Route path='/editProperty' element={<EditProperty/>}/>
+          <Route path='/inquery' element={<Inquery/>}/>
+          <Route path='/contact' element={<Contact/>}/>         
 
         </Routes>
       </div> 
