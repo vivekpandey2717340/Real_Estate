@@ -70,6 +70,7 @@ const BlogsItem = () => {
                 <th>Title</th>
                 <th>Category</th>
                 <th>Content</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -82,6 +83,10 @@ const BlogsItem = () => {
                   <td className='table_title'>{blog.title}</td>
                   <td className='table_category'>{blog.category}</td>
                   <td className='table_content'>{truncateContent(blog.content, 50)}</td>
+                  <td style={{textAlign:'center'}}>
+                    <Link to="/editblogs" ><button className='edit_btn'>Edit</button></Link>
+                    <button className='delete_btn'>Delete</button>
+                  </td>
                 </tr>
               ))}
             </tbody>

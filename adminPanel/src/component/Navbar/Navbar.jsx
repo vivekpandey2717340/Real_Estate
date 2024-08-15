@@ -16,6 +16,9 @@ const Navbar = () => {
       setMenu('blogs');
     }else if (path.startsWith('/addblogs')) {
       setMenu('blogs');
+    
+    }else if (path.startsWith('/editblogs')) {
+      setMenu('blogs');
     }
     else if (path.startsWith('/userList')) {
       setMenu('userList');
