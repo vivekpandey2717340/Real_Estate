@@ -34,7 +34,7 @@ const App = () => {
           <Route path='/userList' element={<UserList/>}/>  
           <Route path='/expertList' element={<Experts/>}/>
           <Route path='/addExpert' element={<AddExperts/>}/>
-          <Route path='/editExpert' element={<EditExperts/>}/>
+          <Route path='/editExpert/:id' element={<EditExperts/>}/>
           <Route path='/property' element={<Property/>}/>
           <Route path='/addProperty' element={<AddProperty/>}/>
           <Route path='/editProperty' element={<EditPropertyItem/>}/>

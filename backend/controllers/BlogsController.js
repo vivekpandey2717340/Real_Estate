@@ -55,6 +55,49 @@ const listBlogs = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to fetch Blogs." });
     }
 };
+const deleteBlogs = async (req, res) => {
+    const blogsId = req.params.id;
+
+    try {
+        // Find the blog by ID
+        const blog = await Blogs.findById(blogsId);
+        if (!blog) {
+            return res.status(404).json({ success: false, message: "Blog not found." });
+        }
+
+        // If the blog has an associated image, delete the image from the file system
+        if (blog.image) {
+            const imagePath = path.join('uploads', blog.image);
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Failed to delete image:", err);
+                }
+            });
+        }
+
+        // Remove the blog entry from the database
+        await Blogs.findByIdAndDelete(blogsId);
+
+        // Respond with success message
+        res.json({ success: true, message: "Blog deleted successfully." });
+    } catch (error) {
+        console.error("Error deleting blog:", error);
+        res.status(500).json({ success: false, message: "Failed to delete blog." });
+    }
+};
+// Get a single blog by ID
+const getBlogsById = async (req, res) => {
+    const blogsId = req.params.id;
+
+    try {
+        const blog = await Blogs.findById(blogsId);
+        if (!blog) return res.status(404).json({ success: false, message: "Blog not found." });
+        res.json({ success: true, blog });
+    } catch (error) {
+        console.error("Error fetching blog:", error);
+        res.status(500).json({ success: false, message: "Failed to fetch blog." });
+    }
+};
 
 
-export { addBlogs, updateBlogs, listBlogs };
+export { addBlogs, updateBlogs, listBlogs, deleteBlogs, getBlogsById };
