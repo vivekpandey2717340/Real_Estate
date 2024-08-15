@@ -16,6 +16,8 @@ import Property from './pages/Property/Property'
 import AddProperty from './pages/AddProperty/AddProperty'
 import EditProperty from './pages/EditProperty/EditProperty'
 import BlogEdit from './pages/BlogEdit/BlogEdit'
+import Inquery from './pages/Inquery/Inquery'
+import Contact from './pages/Contact/Contact'
 
 const App = () => {
   const location = useLocation();
@@ -40,6 +42,8 @@ const App = () => {
           <Route path='/property' element={<Property/>}/>
           <Route path='/addProperty' element={<AddProperty/>}/>
           <Route path='/editProperty' element={<EditProperty/>}/>
+          <Route path='/inquery' element={<Inquery/>}/>
+          <Route path='/contact' element={<Contact/>}/>         
 
         </Routes>
       </div> 
