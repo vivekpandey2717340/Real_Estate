@@ -15,6 +15,7 @@ import EditExperts from './pages/EditExperts/EditExperts'
 import Property from './pages/Property/Property'
 import AddProperty from './pages/AddProperty/AddProperty'
 import EditPropertyItem from './component/EditPropertyItem/EditPropertyItem'
+import BlogEdit from './pages/BlogEdit/BlogEdit'
 
 const App = () => {
   const location = useLocation();
@@ -29,7 +30,8 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/banner' element={<Banner/>}/>
           <Route path='/blogs' element={<Blogs/>}/>             
-          <Route path='/addblogs' element={<BlogAdd/>}/>             
+          <Route path='/addblogs' element={<BlogAdd/>}/> 
+          <Route path='/editblogs' element={<BlogEdit/>}/> 
           <Route path='/userList' element={<UserList/>}/>             
           <Route path='/userList' element={<UserList/>}/>  
           <Route path='/expertList' element={<Experts/>}/>

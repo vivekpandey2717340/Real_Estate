@@ -92,7 +92,7 @@ const PropertyItem = () => {
                     <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
                         <div className='catergory_box'>
                             <select name="category" id="category"  value={propertyCategory} onChange={handleCategoryChange}>
-                                <option value="">Select Category</option>
+                                
                                 <option value="Hot Selling">Hot Selling</option>
                                 <option value="Featured">Featured</option>
                                 <option value="New Properties">New Properties</option>
@@ -103,7 +103,7 @@ const PropertyItem = () => {
                         </div>
                         <div className='status_box'>
                             <select name="status" id="status" value={propertyStatus} onChange={handleStatusChange}>
-                                <option value="">Select Status</option>
+                                
                                 <option value="Sold">Sold</option>
                                 <option value="Avialable">Avialable</option>
                                 <option value="All">All</option>
@@ -111,7 +111,7 @@ const PropertyItem = () => {
                         </div>
                         <div className='sellingType_box'>
                             <select name="sellingType_box" id="sellingType_box" value={sellingType} onChange={handleSellingType}>
-                                <option value="">Selling Tyoe</option>
+                                
                                 <option value="Rent">Rent</option>
                                 <option value="Sale">Sale</option>
                                 <option value="All">All</option>
