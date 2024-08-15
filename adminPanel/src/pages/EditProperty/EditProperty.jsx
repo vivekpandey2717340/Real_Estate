@@ -3,7 +3,7 @@ import EditPropertyItem from '../../component/EditPropertyItem/EditPropertyItem'
 
 const EditProperty = () => {
   return (
-    <div>
+    <div style={{padding:'20px'}}>
         <EditPropertyItem/>
     </div>
   )

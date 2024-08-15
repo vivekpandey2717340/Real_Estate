@@ -14,7 +14,7 @@ import AddExperts from './pages/AddExperts/AddExperts'
 import EditExperts from './pages/EditExperts/EditExperts'
 import Property from './pages/Property/Property'
 import AddProperty from './pages/AddProperty/AddProperty'
-import EditPropertyItem from './component/EditPropertyItem/EditPropertyItem'
+import EditProperty from './pages/EditProperty/EditProperty'
 import BlogEdit from './pages/BlogEdit/BlogEdit'
 
 const App = () => {
@@ -39,7 +39,7 @@ const App = () => {
           <Route path='/editExpert' element={<EditExperts/>}/>
           <Route path='/property' element={<Property/>}/>
           <Route path='/addProperty' element={<AddProperty/>}/>
-          <Route path='/editProperty' element={<EditPropertyItem/>}/>
+          <Route path='/editProperty' element={<EditProperty/>}/>
 
         </Routes>
       </div> 
