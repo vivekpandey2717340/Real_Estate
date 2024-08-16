@@ -3,6 +3,7 @@
     height: 100vh;
     border-right: 1px solid var(--gray);
     padding: 10px;
+    /* margin-left: -100%; */
 }
 .navbar .logo {
     width: 80px;
@@ -43,4 +44,7 @@
 }
 .liActive{
     background: var(--gray);
+}
+@media (max-width: 800px){
+    
 }

@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom'
 
 
 const PropertyItem = () => {
-    const Property=[
+    const [properties, setProperties] = useState([
        { id:"1",
         title:"House 1",
         price:"2300",
         address:"Lokanthali",
         image:"../src/assets/images/logo.png",
         category:"Hot Selling",
-        status:"Avialable",
+        status:"Available",
         sellingType:'Rent',
         },
-       { id:"1",
+       { id:"2",
         title:"House 1",
         price:"2300",
         address:"Lokanthali",
@@ -23,25 +23,25 @@ const PropertyItem = () => {
         status:"Sold",
         sellingType:'Rent',
         },
-       { id:"1",
+       { id:"3",
         title:"House 1",
         price:"2300",
         address:"Lokanthali",
         image:"../src/assets/images/logo.png",
         category:"New Properties",
-        status:"Avialable",
+        status:"Available",
         sellingType:'Sale',
         },
-       { id:"1",
+       { id:"4",
         title:"House 1",
         price:"2300",
         address:"Lokanthali",
         image:"../src/assets/images/logo.png",
         category:"Premium Properties",
-        status:"Avialable",
+        status:"Available",
         sellingType:'Sale',
         },
-    ];
+    ]);
     
     // State for category and status
     const [propertyCategory, setPropertyCategory] = useState('All');
@@ -63,7 +63,7 @@ const PropertyItem = () => {
     };
 
     // Filter properties based on category and status
-    const filteredProperties = Property.filter((property) => {
+    const filteredProperties = properties.filter((property) => {
         const categoryMatch = propertyCategory === 'All' || property.category === propertyCategory;
         const statusMatch = propertyStatus === 'All' || property.status === propertyStatus;
         const setSellingTypeMatch = sellingType === 'All' || property.sellingType === sellingType;
@@ -74,6 +74,20 @@ const PropertyItem = () => {
         setPropertyStatus('All');
         setSellingType('All');
     };
+    const changeToSold = (propertyId) => {
+        setProperties((prevProperties) =>
+          prevProperties.map((property) =>
+            property.id === propertyId ? { ...property, status: "Sold" } : property
+          )
+        );
+      };
+    const changeToAvailable = (propertyId) => {
+        setProperties((prevProperties) =>
+          prevProperties.map((property) =>
+            property.id === propertyId ? { ...property, status: "Available" } : property
+          )
+        );
+      };
   return (
     <div>
         <div className='blogs_list'>
@@ -151,7 +165,10 @@ const PropertyItem = () => {
                         <td style={{textAlign:'center',width:'150px'}}>
                             <Link to="/editProperty" ><button className='edit_btn'>Edit</button></Link>
                             <button className='delete_btn'>Delete</button>
-                            <button className='sold_btn'>Sold</button>
+                            {Propertys.status === "Available" ? (
+                                <button className='sold_btn' onClick={() => changeToSold(Propertys.id)}>Mark as Sold</button>
+                            ) : <button className='sold_btn' onClick={() => changeToAvailable(Propertys.id)} style={{background:'green'}}> Sold</button>}
+                            
                         </td>
                         </tr>
                     ))}

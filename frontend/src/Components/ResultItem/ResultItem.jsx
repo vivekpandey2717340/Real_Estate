@@ -2,7 +2,7 @@ import React,{useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext';
 
-const ResultItem = ({id,title,price,address,content,area,images,sellingType,Parking,roadAccess}) => {
+const ResultItem = ({id,title,price,address,content,area,images,sellingType,Parking,roadAccess,status}) => {
     // State to track if the item is in the wishlist or to compare
   
   const { addToCompareList, compareList } = useContext(StoreContext);
@@ -24,7 +24,7 @@ const ResultItem = ({id,title,price,address,content,area,images,sellingType,Park
 
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, title, price, address, content, area, images, saleImage,roadAccess };
+    const property = { id, title, price, address, content, area, images, saleImage,roadAccess, status };
     addToWishlist(property);
   };
     return (
@@ -39,9 +39,13 @@ const ResultItem = ({id,title,price,address,content,area,images,sellingType,Park
                         <div className="image" style={{borderRadius:'0'}}>
                             <img src={images} alt=""style={{boxShadow:'none',borderRadius:'0'}}/>
                             <div className="sale_img">
-                            {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
-                            {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />} 
+                                {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
+                                {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />} 
                             </div>
+                            <div className="status">
+                                {status === "Available" && <span style={{background:''}}>Available</span>}
+                                {status === "Sold" && <span>Sold</span>}           
+                            </div> 
                             <div className="price">
                                 <div className="price_grid"style={{float:'right'}}>
                                     <h4 id="price">Rs.{price}/-</h4>
