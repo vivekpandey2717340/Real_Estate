@@ -10,6 +10,9 @@
     background: var(--w);
     transition: 0.5s;
 }
+.menuLeft{
+    left: -100% !important;
+}
 .moobile_navActive{
     left: 0;
 }

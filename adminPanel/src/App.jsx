@@ -42,7 +42,7 @@ const App = () => {
               {location.pathname !== '/' && <Navbar />}
               <div className='body_box'>
                 <TopNav isMenuActive={isMenuActive} toggleMenu={toggleMenu}/>
-                <MobileNavItem isMenuActive={isMenuActive}/>
+                <MobileNavItem isMenuActive={isMenuActive} toggleMenu={toggleMenu}/>
                 <Routes>
                   <Route path='/dashboard' element={<Dashboard />} />
                   <Route path='/banner' element={<Banner />} />

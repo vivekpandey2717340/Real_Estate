@@ -6,6 +6,7 @@ import './MobileNavItem.css'
 const MobileNavItem = ({ isMenuActive, toggleMenu }) => {
     const [menu, setMenu] = useState("Home");
     const location = useLocation();
+    // const [menuLeft, setMenuLeft]= useState(false)
     
     useEffect(() => {
       const path = location.pathname;
@@ -52,8 +53,9 @@ const MobileNavItem = ({ isMenuActive, toggleMenu }) => {
         setMenu('dashboard');
       }
     }, [location.pathname]);
+    
     return (  
-      <div className={`moobile_nav ${isMenuActive ? 'moobile_navActive' : ''}`} >
+      <div className={`moobile_nav ${isMenuActive ? 'moobile_navActive' : ''} `} >
           <div className='logo'>
             <img src="../src/assets/images/logo.png" alt="" />
             <div className={`hamburg_menu ${isMenuActive ? 'menuActive' : ''}`} onClick={toggleMenu}>
