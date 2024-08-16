@@ -2,7 +2,7 @@ import Blogs from "../models/BlogsModel.js";
 import fs from 'fs';
 import path from 'path';
 
-// Create a new Blogs
+
 const addBlogs = async (req, res) => {
     const { title,content,category } = req.body;
     const image = req.file ? req.file.filename : null;
@@ -17,7 +17,7 @@ const addBlogs = async (req, res) => {
     }
 };
 
-// Update an existing Blogs
+
 const updateBlogs = async (req, res) => {
     const blogsId = req.params.id;
     const { title, content,category } = req.body;
@@ -45,7 +45,7 @@ const updateBlogs = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to update Blogs." });
     }
 };
-// List all properties
+
 const listBlogs = async (req, res) => {
     try {
         const blogs = await Blogs.find();
@@ -59,13 +59,12 @@ const deleteBlogs = async (req, res) => {
     const blogsId = req.params.id;
 
     try {
-        // Find the blog by ID
+       
         const blog = await Blogs.findById(blogsId);
         if (!blog) {
             return res.status(404).json({ success: false, message: "Blog not found." });
         }
 
-        // If the blog has an associated image, delete the image from the file system
         if (blog.image) {
             const imagePath = path.join('uploads', blog.image);
             fs.unlink(imagePath, (err) => {
@@ -75,17 +74,15 @@ const deleteBlogs = async (req, res) => {
             });
         }
 
-        // Remove the blog entry from the database
         await Blogs.findByIdAndDelete(blogsId);
 
-        // Respond with success message
         res.json({ success: true, message: "Blog deleted successfully." });
     } catch (error) {
         console.error("Error deleting blog:", error);
         res.status(500).json({ success: false, message: "Failed to delete blog." });
     }
 };
-// Get a single blog by ID
+
 const getBlogsById = async (req, res) => {
     const blogsId = req.params.id;
 

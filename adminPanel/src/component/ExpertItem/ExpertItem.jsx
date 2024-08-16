@@ -8,7 +8,7 @@ const ExpertItem = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Fetch the experts from the backend
+   
     const fetchExperts = async () => {
       try {
         const response = await axios.get('http://localhost:4000/api/ourexpertise/all');
@@ -22,6 +22,7 @@ const ExpertItem = () => {
   }, []);
 
   const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this Expert?")) {
     try {
       await axios.delete(`http://localhost:4000/api/ourexpertise/${id}`);
       setExperts(experts.filter((expert) => expert._id !== id));
@@ -29,9 +30,10 @@ const ExpertItem = () => {
       console.error('Error deleting expert:', error);
       setError('Failed to delete expert.');
     }
+  }
   };
 
-  // Function to truncate content to 50 words
+ 
   const truncateContent = (content, wordLimit) => {
     const words = content.split(' ');
     if (words.length > wordLimit) {
