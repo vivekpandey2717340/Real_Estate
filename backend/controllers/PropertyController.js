@@ -1,6 +1,6 @@
 import PropertyModel from "../models/PropertyModel.js";
 import fs from 'fs';
-
+import path from 'path';
 // Add Property
 const addProperty = async (req, res) => {
     const {
@@ -125,34 +125,57 @@ const listProperty = async (req, res) => {
 
 
 // Remove property
-const removeProperty = async (req, res) => {
+const deleteProperty = async (req, res) => {
+    const propertyId = req.params.id;
+
     try {
-        const property = await PropertyModel.findById(req.body.id);
+        const property = await PropertyModel.findById(propertyId);
+        if (!property) {
+            return res.status(404).json({ success: false, message: "Property not found." });
+        }
 
-        // Remove images from filesystem
-        const deleteFiles = async (files) => {
-            for (const file of files) {
-                if (file) {
-                    await fs.promises.unlink(`uploads/${file}`, (err) => {
-                        if (err) console.error(`Failed to delete file: ${file}`, err);
+        // Fields that may contain single or multiple file paths
+        const imageFields = [
+            'images',
+            'image2',
+            'image3',
+            'image4',
+            'floorPlanImage',
+            'groundFloorPlanImage',
+            'video',
+            'droneShootVideo'
+        ];
+
+        imageFields.forEach(field => {
+            const filePaths = property[field];
+            
+            if (filePaths) {
+                // Ensure filePaths is an array
+                const paths = Array.isArray(filePaths) ? filePaths : [filePaths];
+                
+                paths.forEach(filePath => {
+                    // Construct the absolute path to the file
+                    const fullPath = path.join(process.cwd(), 'uploads', path.basename(filePath));
+                    
+                    fs.unlink(fullPath, (err) => {
+                        if (err) {
+                            console.error(`Failed to delete file at ${fullPath}:`, err);
+                        }
                     });
-                }
+                });
             }
-        };
+        });
 
-        // Delete property images and related files
-        await deleteFiles(property.images);
-        await deleteFiles([property.video, property.droneShootVideo, property.floorPlanImage, property.groundFloorPlanImage]);
+        await PropertyModel.findByIdAndDelete(propertyId);
 
-        // Remove property from database
-        await PropertyModel.findByIdAndDelete(req.body.id);
-        
-        res.json({ success: true, message: "Property removed successfully." });
+        res.json({ success: true, message: "Property deleted successfully." });
     } catch (error) {
-        console.error("Error removing property:", error);
-        res.status(500).json({ success: false, message: "Failed to remove property." });
+        console.error("Error deleting property:", error);
+        res.status(500).json({ success: false, message: "Failed to delete property." });
     }
-}
+};
+
+
 // count users
 const countProperty = async (req, res) => {
     try {
@@ -162,5 +185,32 @@ const countProperty = async (req, res) => {
       console.log(error);
       res.json({ success: false, message: "Error" });
     }
-}
-export { addProperty, listProperty, removeProperty,countProperty  };
+};
+const markPropertyAsSold = async (req, res) => {
+    try {
+        const updatedProperty = await Property.findByIdAndUpdate(
+            req.params.id,
+            { status: 'Sold' },
+            { new: true }
+        );
+        if (!updatedProperty) return res.status(404).json({ message: 'Property not found' });
+        res.json(updatedProperty);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+const updateProperty = async (req, res) => {
+    try {
+        const updatedProperty = await Property.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true } // To return the updated document
+        );
+        if (!updatedProperty) return res.status(404).json({ message: 'Property not found' });
+        res.json(updatedProperty);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+export { addProperty, listProperty, deleteProperty,countProperty,markPropertyAsSold, updateProperty };
