@@ -19,19 +19,19 @@ const PropertySchema = new mongoose.Schema({
     },
     bathroom: {
         type: Number,
-        required: true
+        required: false
     },
     kitchen: {
         type: Number,
-        required: true
+        required: false
     },
     hall: {
         type: Number,
-        required: true
+        required: false
     },
     bhk: {
         type: String,
-        required: true
+        required: false
     },
     propertyStatus: {
         type: String,
@@ -39,19 +39,19 @@ const PropertySchema = new mongoose.Schema({
     },
     bedroom: {
         type: Number,
-        required: true
+        required: false
     },
     balcony: {
         type: Number,
-        required: true
+        required: false
     },
     area: {
         type: Number,
-        required: true
+        required: false
     },
     floor: {
         type: String,
-        required: true
+        required: false
     },
     price: {
         type: Number,
@@ -67,11 +67,11 @@ const PropertySchema = new mongoose.Schema({
     },
     totalFloor: {
         type: String,
-        required: true
+        required: false
     },
     areaSize: {
         type: Number,
-        required: true
+        required: false
     },
     address: {
         type: String,
@@ -79,23 +79,23 @@ const PropertySchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        required: false
     },
     roadAccess: {
         type: String,
-        required: true
+        required: false
     },
     direction: {
         type: String,
-        required: true
+        required: false
     },
     Parking: {
         type: String,
-        required: true
+        required: false
     },
     builtYear: {
         type: Number,
-        required: true
+        required: false
     },
     
     category: {
@@ -107,13 +107,13 @@ const PropertySchema = new mongoose.Schema({
         required: true
     },image2: {
         type: [String],
-        required: true
+        required: false
     },image3: {
         type: [String],
-        required: true
+        required: false
     },image4: {
         type: [String],
-        required: true
+        required: false
     },
     video: {
         type: String,
