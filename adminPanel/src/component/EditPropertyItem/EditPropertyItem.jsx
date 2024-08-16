@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const EditPropertyItem = () => {
+  const navigate = useNavigate();
   const [listItems, setListItems] = useState('');
   const [listArray, setListArray] = useState([]);
 
@@ -17,6 +18,7 @@ const EditPropertyItem = () => {
 
   const displalyPropertyEditMessage = (e) => {
     e.preventDefault();
+    navigate('/property')
   }
   return (
     <div className='banner_box'>
@@ -37,16 +39,16 @@ const EditPropertyItem = () => {
             <h4>Details</h4>
             <div className='details_grid'>
               <div>
-                <label htmlFor="title">Title</label><span>*</span><br />
-                <input type="text" name='title' placeholder='Enter Title' required/><br />              
-                <label htmlFor="sellingType">Selling Type</label><span>*</span><br />
-                <select name="sellingType" id="sellingType" required>
+                <label htmlFor="title">Title</label><br />
+                <input type="text" name='title' placeholder='Enter Title' /><br />              
+                <label htmlFor="sellingType">Selling Type</label><br />
+                <select name="sellingType" id="sellingType">
                   <option value="">Select Selling Type</option>
                   <option value="Sale">Sale</option>
                   <option value="Rent">Rent</option>
                 </select>  <br /> 
-                <label htmlFor="propertyStatus">Property Status</label><span>*</span><br />
-                <select name="propertyStatus" id="propertyStatus"  required>
+                <label htmlFor="propertyStatus">Property Status</label><br />
+                <select name="propertyStatus" id="propertyStatus" >
                   <option value="">Select Property Status</option>
                   <option value="UnFurnnished">UnFurnnished</option>
                   <option value="Semi-Furnished">Semi-Furnished</option>
@@ -69,25 +71,25 @@ const EditPropertyItem = () => {
                 
               </div>
               <div>
-                <label htmlFor="content">Content</label><span>*</span><br />
-                <input type="text" name='content' placeholder='Enter Content' required/><br />
-                <label htmlFor="propertyType">Property Type</label><span>*</span><br />
-                <select name="propertyType" id="propertyType" required>
+                <label htmlFor="content">Content</label><br />
+                <input type="text" name='content' placeholder='Enter Content'/><br />
+                <label htmlFor="propertyType">Property Type</label><br />
+                <select name="propertyType" id="propertyType">
                   <option value="">Select Property Type</option>
                   <option value="Home">Home</option>
                   <option value="Flat">Flat</option>
                   <option value="Apartment">Apartment</option>
                 </select><br />
-                <label htmlFor="category">Category</label><span>*</span><br />
-                <select name="category" id="category" required>
+                <label htmlFor="category">Category</label><br />
+                <select name="category" id="category">
                   <option value="">Select category</option>
                   <option value="Hot Selling">Hot Selling</option>
                   <option value="New Properties">New Properties</option>
                   <option value="Featured">Featured</option>
                   <option value="Premium Properties">Premium Properties</option>
                 </select><br />
-                <label htmlFor="price">Price</label><span>*</span><br />
-                <input type="number" name='price' placeholder='Enter price' required/><br />
+                <label htmlFor="price">Price</label><br />
+                <input type="number" name='price' placeholder='Enter price'/><br />
                 <label htmlFor="bathroom">Bathroom</label><br />
                 <input type="number" name='bathroom' placeholder='Enter no. of bathroom' min="0" max="10"/><br />
                 <label htmlFor="kitchen">Kitchen</label><br />
@@ -105,14 +107,14 @@ const EditPropertyItem = () => {
             <h4>Location</h4>
             <div className='details_grid'>
               <div>
-                <label htmlFor="state">State</label><span>*</span><br />
-                <input type="text" name='state' placeholder='Enter State' required/><br />
-                <label htmlFor="address">Address</label><span>*</span><br />
-                <input type="text" name='address' placeholder='Enter full address' required/><br />
+                <label htmlFor="state">State</label><br />
+                <input type="text" name='state' placeholder='Enter State'/><br />
+                <label htmlFor="address">Address</label><br />
+                <input type="text" name='address' placeholder='Enter full address'/><br />
               </div>
               <div>
-                <label htmlFor="city">City</label><span>*</span><br />
-                <input type="text" name='city' placeholder='Enter City ' required/><br />
+                <label htmlFor="city">City</label><br />
+                <input type="text" name='city' placeholder='Enter City '/><br />
               </div> 
             </div>
             <h4>Description</h4>
@@ -135,8 +137,8 @@ const EditPropertyItem = () => {
             <h4>Images</h4>
             <div className='details_grid'>
               <div>
-                <label htmlFor="images">Select Main Image</label><span>*</span><br />
-                <input type="file" name='images'  required /><br />
+                <label htmlFor="images">Select Main Image</label><br />
+                <input type="file" name='images'  /><br />
                 <label htmlFor="image3">Image 3</label><br />
                 <input type="file" name='image3'   /><br />
                 <label htmlFor="floorPlanImage">Floor Plan Image</label><br />
