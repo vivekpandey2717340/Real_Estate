@@ -23,3 +23,9 @@
     
    
 }
+
+@media (max-width:800px){
+    .whatsapp_btn .whatsapp_img {
+        width: 50px;
+    }
+}
