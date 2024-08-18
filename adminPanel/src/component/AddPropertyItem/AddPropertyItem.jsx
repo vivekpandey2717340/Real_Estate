@@ -88,14 +88,14 @@ const AddPropertyItem = () => {
     files.images.forEach((image, index) => {
       formDataToSend.append('images', image);
     });
- if (files.image2) {
-  formDataToSend.append('image2', files.image2);
-}
-if (files.image3) {
-  formDataToSend.append('image3', files.image3);
-}
-if (files.image4) {
-  formDataToSend.append('image4', files.image4);
+    if (files.image2) {
+    formDataToSend.append('image2',image2);
+    }
+    if (files.image3) {
+    formDataToSend.append('image3',image3);
+    }
+    if (files.image4) {
+    formDataToSend.append('image4',image4);
 }
     if (files.video) formDataToSend.append('video', files.video);
     if (files.droneShootVideo) formDataToSend.append('droneShootVideo', files.droneShootVideo);
