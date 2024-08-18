@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import './TopNav.css'
 
-const TopNav = () => {
+
+const TopNav = ({ isMenuActive, toggleMenu }) => {
+    
+
   return (
     <div className='top_nav'>
         {/* <div className='search_btn'>
@@ -14,8 +17,14 @@ const TopNav = () => {
             </span>
         </div> */}
         <div className='welcome_message'>
+            <div className={`hamburg_menu ${isMenuActive ? 'menuActive' : ''}`} onClick={toggleMenu}>
+                <div className='menu_1'></div>
+                <div className='menu_2'></div>
+                <div className='menu_3'></div>
+            </div>
             <p>Hi, Welcome Back</p>
         </div>
+          
         <div className="top_nav_end">
             <ul>
                 <Link to="">

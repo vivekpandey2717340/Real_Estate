@@ -119,7 +119,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
             <div className="new_properties_grid" style={{ paddingBottom: '50px' }}>
                 <div id="specific_hot-section-container">
                     {limitedFeaturedProperties.map((item, index) => (
-                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} status={item.status}/>
                     ))}
                 </div>
             </div>

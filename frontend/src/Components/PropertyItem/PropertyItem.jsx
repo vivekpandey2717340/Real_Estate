@@ -4,7 +4,7 @@ import './PropertyItem.css';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 
-const PropertyItem = ({ id, title, price, address, content, area,sellingType, images, roadAccess }) => {
+const PropertyItem = ({ id, title, price, address, content, area,sellingType, images, roadAccess,status }) => {
   const { addToCompareList, compareList, addToWishlist, wishlist, setIsCompareClicked } = useContext(StoreContext);
   console.log(images);
   const isComparelist = compareList.some(item => item.id === id);
@@ -19,7 +19,7 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
   const isWishlistItem = wishlist.some(item => item.id === id);
   const toggleWishlist = (e) => {
     e.preventDefault();
-    const property = { id, title, price, address, content, area, images, sellingType,roadAccess };
+    const property = { id, title, price, address, content, area, images, sellingType,roadAccess,status };
     addToWishlist(property);
   };
   
@@ -35,6 +35,10 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
               <div className="sale_img">
                 {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
                 {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           
+              </div>  
+              <div className="status">
+                {status === "Available" && <span style={{background:''}}>Available</span>}
+                {status === "Sold" && <span>Sold</span>}           
               </div>  
               <div className="price">
                 <div className="price_grid" style={{ float: 'left' }}>
