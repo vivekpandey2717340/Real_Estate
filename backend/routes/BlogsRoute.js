@@ -21,4 +21,5 @@ BlogsRouter.put("/update/:id", upload.single('image'), updateBlogs);
 BlogsRouter.get("/list",listBlogs)
 BlogsRouter.get("/:id", getBlogsById);
 BlogsRouter.delete("/:id", deleteBlogs);
+
 export default BlogsRouter;
