@@ -177,15 +177,7 @@ const deleteProperty = async (req, res) => {
 
 
 // count users
-const countProperty = async (req, res) => {
-    try {
-      const propertyCount = await PropertyModel.countDocuments({});
-      res.json({ success: true, propertyCount });
-    } catch (error) {
-      console.log(error);
-      res.json({ success: false, message: "Error" });
-    }
-};
+
 const markPropertyAsSold = async (req, res) => {
     try {
         const updatedProperty = await Property.findByIdAndUpdate(
@@ -213,4 +205,4 @@ const updateProperty = async (req, res) => {
     }
 };
 
-export { addProperty, listProperty, deleteProperty,countProperty,markPropertyAsSold, updateProperty };
+export { addProperty, listProperty, deleteProperty,markPropertyAsSold, updateProperty };

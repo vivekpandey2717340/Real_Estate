@@ -1,8 +1,26 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react';
 import './DashboardItem.css'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios';
 const DashboardItem = () => {
+    const [counts, setCounts] = useState({
+        users: 0,
+        properties: 0,
+        ourexpertise: 0,
+        blogs: 0,
+      });
+      useEffect(() => {
+        const fetchCounts = async () => {
+          try {
+            const response = await axios.get('http://localhost:4000/api/count/all-counts');
+            setCounts(response.data.data);
+          } catch (error) {
+            console.error('Error fetching counts:', error);
+          }
+        };
+    
+        fetchCounts();
+      }, []);
   return (
     <div className='banner_box'>
         <div className='back_link'>
@@ -48,7 +66,7 @@ const DashboardItem = () => {
                         Total Users
                     </h4>
                     <h1>
-                        56274
+                    {counts.users}
                     </h1>
                 </div>
                 <div className="dashboard_box"style={{background:'#F1BEA0'}}>
@@ -58,7 +76,7 @@ const DashboardItem = () => {
                         All Properties
                     </h4>
                     <h1>
-                        56274
+                    {counts.property}
                     </h1>
                 </div>
                 <div className="dashboard_box" style={{background:'#93C8E6'}}>
@@ -70,7 +88,7 @@ const DashboardItem = () => {
                         Available Properties
                     </h4>
                     <h1>
-                        56274
+                    {counts.property}
                     </h1>
                 </div>
             <div className="dashboard_box" style={{background:'#93C8E6'}}>
@@ -91,7 +109,7 @@ const DashboardItem = () => {
                    Blogs
                 </h4>
                 <h1>
-                    56274
+                {counts.blogs}
                 </h1>
             </div>
             <div className="dashboard_box"style={{background:'#F1BEA0'}}>
