@@ -19,4 +19,7 @@
     .all_tools_category:not(:first-child):not(:last-child),.all_tools_category:last-child{
         border: 2px solid var(--g);
     }
+    .all_category{
+        display: none;
+    }
 }

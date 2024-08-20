@@ -77,8 +77,10 @@
 }
 
 @media (max-width:800px){
-    .emi_grid{
+    .emi_grid,.unit_grid,.currency_converter_grid{
         grid-template-columns: 100%;
+        margin-top: 70px;
+        justify-content: center;
     }
     .doughnut{
         margin-top: 20px;
@@ -89,5 +91,10 @@
     .emi_result p{
         font-size: 13px;
         padding: 10px ;
+    }
+    .doughnut{
+        width: 100%;
+        height: 300px;
+        
     }
 }

@@ -79,3 +79,15 @@
     text-align: end;
     padding: 10px;
 }
+@media(max-width:600px)
+{
+    .excahnge_info{
+        margin:20px auto;
+    }
+    .excahnge_info h2,.currency_converter_grid_box h2{
+        font-size: 20px;
+    }
+    .currency_converter_grid_box span, .excahnge_info_box table td{
+        font-size: 13px;
+    }
+}
