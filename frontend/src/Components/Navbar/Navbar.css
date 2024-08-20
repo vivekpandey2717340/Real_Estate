@@ -126,13 +126,25 @@
     font-weight: 500;
     transition: color 0.3s ease;
   }
+  .menu_overlay span{
+    display: none;
+
+  }
+  .menu_overlay:hover .menu_overlay span{
+    display: block;
+  }
   .nav_btn{
     margin-top: 15px;
     text-align: end;
   }
+  .nav_btn ul{
+    display: flex;
+    justify-content: end;
+
+  }
   .nav_btn ul li {
     list-style: none;
-    display: inline;
+    /* display: inline; */
     transition: 0.2s;
     padding: 0px 2px;
     
@@ -247,8 +259,18 @@
     .mobile_nav{
       display: block;
     }
+    .nav_color img {
+      width: 25px;
+      margin-left:5px;
+    }
+    .nav_content{
+      grid-template-columns: 25% 50% 25%;
+    }
     .nav_mobile{
       display: block;
+    }
+    .nav_btn{
+      margin-top: 5px;
     }
     .dropdown .dropdown_menu {
       left: 80px;      

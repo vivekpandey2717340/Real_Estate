@@ -30,8 +30,7 @@ const PropertyItem = ({ id, title, price, address, content, area,sellingType, im
       <Link to={`/propertyDetails/${id}`} style={{ textDecoration: 'none', color: 'var(--b)' }}>
         <div className="new_properties_box">
             <div className="image">
-              <img src={imageUrl} alt="" />
-              {console.log("imageUrl")}
+              <img src={imageUrl} alt="" />              
               <div className="sale_img">
                 {sellingType === "sale" && <img src="../src/assets/image/sale.jpg" alt="" />}
                 {sellingType === "rent" && <img src="../src/assets/image/rent.jpg" alt="" />}           

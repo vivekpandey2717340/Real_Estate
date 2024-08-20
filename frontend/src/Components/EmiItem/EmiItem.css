@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
-
+    margin-left: 5%;
 }
 .emi_calculator{
     display: flex;
@@ -19,6 +19,7 @@
     border-radius: 20px;
     border: 2px solid var(--p);
     padding: 20px 0;
+    margin: auto;
 
 }
 .emi_calculator button{
@@ -44,6 +45,7 @@
 .doughnut{
     width: 100%;
     height: 400px;
+    
 }
 .input_emi input {
     width: 90%;
@@ -72,4 +74,20 @@
     padding: 10px 0 5px 0;
     color: var(--g);
     font-weight: 600;
+}
+
+@media (max-width:800px){
+    .emi_grid{
+        grid-template-columns: 100%;
+    }
+    .doughnut{
+        margin-top: 20px;
+    }
+    .emi_calculator h2{
+        font-size: 20px;
+    }
+    .emi_result p{
+        font-size: 13px;
+        padding: 10px ;
+    }
 }

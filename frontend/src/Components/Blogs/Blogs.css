@@ -24,3 +24,9 @@
   .blogs_grid .blogs_box .blogs_content h4 {
     margin-top: 15px;
   }
+  @media (max-width:800px){
+    .blogs_grid{
+      grid-template-columns: 50% 50%;
+    }
+   
+  }

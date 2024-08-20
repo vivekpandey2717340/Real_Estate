@@ -44,3 +44,22 @@
   .all_category .active a {
     color: var(--w);
   }
+  @media (max-width:800px){
+    .all_category {
+      margin-top: 70px;}
+  }
+  @media (max-width:600px){
+    .all_category{
+      flex-direction: column;
+      gap: 10px;
+    }
+    .all_category_box{
+      border-radius: 40px;
+    }
+    .all_category .left, .all_category .right,.all_category .center_box{
+      border-left: 2px solid var(--p);
+    }
+    .all_category .all_category_box{
+      padding: 15px;
+    }
+  }

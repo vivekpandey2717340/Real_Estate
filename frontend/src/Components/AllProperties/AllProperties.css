@@ -5,3 +5,10 @@
     justify-content: space-between;
     gap: 25px;
   }
+  @media(max-width:800px){
+    .all_properties{
+      grid-template-columns: 48% 48%; 
+      gap: 0;    
+    }
+   
+  }

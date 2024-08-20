@@ -76,3 +76,33 @@
   .tools_box:hover .tools_box i{
     color: aqua;
   }
+  @media (max-width:1000px){
+    .contact{
+     width: 95%;
+
+    }
+  }
+  @media (max-width:800px){
+    .contact{
+      display: none;
+
+    }
+    .tools .title{
+      font-size: 20px;
+    }
+    .tools .tools_grid{
+      grid-template-columns: 33% 33% 33%;
+      grid-gap: 20px;
+    }
+    .tools .tools_grid .tools_box{
+      width: 100%;
+    }
+  }
+
+  @media (max-width:600px){
+    .tools .tools_grid{
+      grid-template-columns: 48% 48%;
+      grid-gap: 20px;      
+    }
+    
+  }
