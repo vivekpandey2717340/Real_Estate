@@ -146,7 +146,7 @@ const SearchBox = () => {
                         </button>
                         <button
                             type="button"
-                            className={`filter-option ${selectedOptions['Mansion'] ? 'selected' : ''}`}
+                            className={`filter-option ${selectedOptions['Mansion'] ? 'selected' : ''} mansion`}
                             onClick={() => toggleSelected('Mansion')}
                         >
                             Mansion
