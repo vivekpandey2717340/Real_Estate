@@ -98,5 +98,14 @@ const getOurexpertiseById = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to fetch expertise." });
     }
 };
+const countOurexpertise = async (req, res) => {
+    try {
+        const count = await Ourexpertise.countDocuments();
+        res.json({ success: true, count });
+    } catch (error) {
+        console.error("Error counting Ourexpertise:", error);
+        res.status(500).json({ success: false, message: "Failed to count Ourexpertise." });
+    }
+};
 
-export { addOurexpertise, updateOurexpertise, getOurexpertise, getOurexpertiseById, deleteOurexpertise };
+export { addOurexpertise, updateOurexpertise, getOurexpertise, getOurexpertiseById, deleteOurexpertise, countOurexpertise };

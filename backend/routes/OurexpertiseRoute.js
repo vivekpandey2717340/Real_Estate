@@ -1,6 +1,6 @@
 import express from "express";
 import multer from 'multer';
-import { addOurexpertise, updateOurexpertise,getOurexpertise, deleteOurexpertise, getOurexpertiseById} from "../controllers/OurexpertiseController.js";
+import { addOurexpertise, updateOurexpertise,getOurexpertise, deleteOurexpertise, getOurexpertiseById, countOurexpertise} from "../controllers/OurexpertiseController.js";
 
 const OurexpertiseRouter = express.Router();
 
@@ -21,5 +21,6 @@ OurexpertiseRouter.put("/update/:id", upload.single('image'), updateOurexpertise
 OurexpertiseRouter.get("/all", getOurexpertise);
 OurexpertiseRouter.delete("/:id",deleteOurexpertise );
 OurexpertiseRouter.get("/:id", getOurexpertiseById);
+OurexpertiseRouter.get("/ourexpertise/count",countOurexpertise)
 
 export default OurexpertiseRouter;

@@ -95,6 +95,15 @@ const getBlogsById = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to fetch blog." });
     }
 };
+const countBlogs = async (req, res) => {
+    try {
+        const count = await Blogs.countDocuments();
+        res.json({ success: true, count });
+    } catch (error) {
+        console.error("Error counting Blogs:", error);
+        res.status(500).json({ success: false, message: "Failed to count Blogs." });
+    }
+};
 
 
-export { addBlogs, updateBlogs, listBlogs, deleteBlogs, getBlogsById };
+export { addBlogs, updateBlogs, listBlogs, deleteBlogs, getBlogsById, countBlogs };
