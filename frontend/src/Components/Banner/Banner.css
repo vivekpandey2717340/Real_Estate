@@ -23,6 +23,7 @@
   .banner_dynamic_img img{
     width: 100%;
     height: 100vh;
+    object-fit: cover;
   }
   .banner_dynamic_img .banner_overlay {
     position: absolute;

@@ -29,7 +29,13 @@
 }
 @media(max-width:600px){
     .aboutStandGrid{
-        grid-template-columns: 45%45%;
-        gap: 25px;
+        grid-template-columns: 48% 48%;
+        gap: 15px;
+    }
+    .aboutStandTitle h1, .aboutStandGrid .projects h1{
+        font-size: 30px;
+    }
+    .aboutStandGrid .projects p{
+        font-size: 15px;
     }
 }

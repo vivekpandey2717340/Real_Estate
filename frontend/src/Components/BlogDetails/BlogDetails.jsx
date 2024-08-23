@@ -1,5 +1,5 @@
 // BlogDetails.jsx
-import React, { useEffect,useState } from 'react';
+import React, { useEffect,useState,setLoading } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './BlogDetails.css';
@@ -26,6 +26,8 @@ const BlogDetails = () => {
   }, []);// Access blog list from context
 
   const blog = blogList.find(blog => blog._id === id);
+  const blogtime = blogList.filter(blogtime => blogtime.createdAt);
+  console.log("blog time"+blogtime)
 
   if (!blog) return <div></div>;
 
@@ -35,12 +37,12 @@ const BlogDetails = () => {
             <h4>{blog.title}</h4>
             <div className='blog_details_grid'>
                 <div className="blog_details_img">
-                    <img src={`http://localhost:4000/images/${blog.image}`} alt={blog.name} />
+                    <img src={`http://localhost:4000/images/${blog.image}`} alt={blog.title} />
                 </div>
                 <div className="blog_details_content">
                     <p>{blog.content}</p>
                     <div className="blog_details_time">
-                        <p>{blog.time}</p>
+                        <p>{blog.blogtime}</p>
                     </div>
                 </div>
             </div>

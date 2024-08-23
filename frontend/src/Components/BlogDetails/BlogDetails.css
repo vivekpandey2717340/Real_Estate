@@ -48,3 +48,8 @@
     font-weight: 600;
 
 }
+@media(max-width:800px){
+    .blog_details_grid{
+        grid-template-columns: 100%;
+    }
+}
