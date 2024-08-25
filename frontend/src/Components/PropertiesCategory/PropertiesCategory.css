@@ -52,6 +52,7 @@
     .all_category{
       flex-direction: column;
       gap: 10px;
+      display: none;
     }
     .all_category_box{
       border-radius: 40px;

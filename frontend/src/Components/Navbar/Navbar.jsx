@@ -13,6 +13,11 @@ const Navbar = ({ isLoggedIn }) => {
     setMenu('tools');
   };
 
+  const handleProperty = (proCategory)=>{
+    navigate('/properties', {state:{proCategory}})
+    setMenu('properties')
+  }
+
   const handleScroll = () => {
     if (window.scrollY > 10) {
       document.querySelector('.navbar').style.background = '#fff';
@@ -105,31 +110,32 @@ const Navbar = ({ isLoggedIn }) => {
                       <li className="sub-dropdown">
                         <a href="#" className="dropdown_menu_p">All Properties<i className="fa-solid fa-caret-right" style={{ marginLeft: '30px' }}></i></a>
                         <ul className="sub-dropdown-menu">
-                          <Link to="/properties">
-                            <li>
-                              <a>Hot Selling</a>
+                            <li onClick={()=> handleProperty('All')}>
+                            <Link to="/properties" state={{ proCategory: 'All' }}>All</Link>
                             </li>
-                          </Link>
-                          <Link to="/properties">
-                            <li>
-                              <a>Featured</a>
+                          
+                            <li onClick={()=> handleProperty('Hot Selling')}>
+                            <Link to="/properties" state={{ proCategory: 'Hot Selling' }}>Hot Selling</Link>
                             </li>
-                          </Link>
-                          <Link to="/properties">
-                            <li>
-                              <a>Premium</a>
+                          
+                          
+                            <li onClick={()=> handleProperty('Featured')}>
+                            <Link to="/properties" state={{ proCategory: 'Featured' }}>Featured</Link>
                             </li>
-                          </Link>
-                          <Link to="/properties">
-                            <li>
-                              <a>New properties</a>
+                          
+                          
+                            <li onClick={()=> handleProperty('Premium Properties')}>
+                            <Link to="/properties" state={{ proCategory: 'Premium Properties' }}>Premium</Link>
                             </li>
-                          </Link>
-                          <Link to="/properties">
-                            <li>
-                              <a>All</a>
+                          
+                          
+                            <li onClick={()=> handleProperty('New Properties')}>
+                            <Link to="/properties" state={{ proCategory: 'New Properties' }}>New Properties</Link>
                             </li>
-                          </Link>
+                          
+                          
+                            
+                          
                         </ul>
                       </li>
                     </ul>
@@ -248,103 +254,102 @@ const Navbar = ({ isLoggedIn }) => {
             
           </div>
           <div style={{ width: '100%' }}>
-                <nav  className={`nav_mobile ${isMenuActive ? 'leftMobile' : ''}`}>
-                  <ul className='container'>
-                    <li onClick={() => {toggleMenu(); setMenu("Home")}} className={menu === "Home" ? "active" : ""}>
-                      <Link to="/" >
-                        <a className="nav_color" >Home</a>
-                      </Link>
-                    </li>
-                    <li onClick={() => setMenu("properties")} className={`${menu === "properties" ? "active" : ""} dropdown`}>
-                      <a className="nav_color">Properties <i className="fa-solid fa-caret-down"></i></a>
-                      <ul className="dropdown_menu" style={{zIndex:'9999999'}}>
-                        <Link to="/searchResult">
-                          <li onClick={toggleMenu}>                          
-                              <a className="dropdown_menu_p">Home</a>                          
-                          </li>
-                        </Link>
-                        <Link to="/searchResult">
-                          <li onClick={toggleMenu}>                          
-                              <a className="dropdown_menu_p">Flat</a>                          
-                          </li>
-                        </Link>
-                        <Link to="/searchResult">
-                          <li onClick={toggleMenu}>
-                              <a className="dropdown_menu_p">Appartment</a>
-                          </li>
-                        </Link>
-                        <li className="sub-dropdown">
-                          <a href="#" className="dropdown_menu_p">All Properties<i className="fa-solid fa-caret-right" style={{ marginLeft: '30px'}}></i></a>
-                          <ul className="sub-dropdown-menu">
-                            <Link to="/properties">
-                              <li onClick={toggleMenu}>
-                                <a>Hot Selling</a>
-                              </li>
-                            </Link>
-                            <Link to="/properties">
-                              <li onClick={toggleMenu}>
-                                <a>Featured</a>
-                              </li>
-                            </Link>
-                            <Link to="/properties">
-                              <li onClick={toggleMenu}>
-                                <a>Premium</a>
-                              </li>
-                            </Link>
-                            <Link to="/properties">
-                              <li>
-                                <a onClick={toggleMenu}>New properties</a>
-                              </li>
-                            </Link>
-                            <Link to="/properties">
-                              <li>
-                                <a onClick={toggleMenu}>All</a>
-                              </li>
-                            </Link>
-                          </ul>
+            <nav  className={`nav_mobile ${isMenuActive ? 'leftMobile' : ''}`}>
+              <ul className='container'>
+                <li onClick={() => {toggleMenu(); setMenu("Home")}} className={menu === "Home" ? "active" : ""}>
+                  <Link to="/" >
+                    <a className="nav_color" >Home</a>
+                  </Link>
+                </li>
+                <li onClick={() => setMenu("properties")} className={`${menu === "properties" ? "active" : ""} dropdown`}>
+                  <a className="nav_color">Properties <i className="fa-solid fa-caret-down"></i></a>
+                  <ul className="dropdown_menu" style={{zIndex:'9999999'}}>
+                    <Link to="/searchResult">
+                      <li onClick={toggleMenu}>                          
+                          <a className="dropdown_menu_p">Home</a>                          
+                      </li>
+                    </Link>
+                    <Link to="/searchResult">
+                      <li onClick={toggleMenu}>                          
+                          <a className="dropdown_menu_p">Flat</a>                          
+                      </li>
+                    </Link>
+                    <Link to="/searchResult">
+                      <li onClick={toggleMenu}>
+                          <a className="dropdown_menu_p">Appartment</a>
+                      </li>
+                    </Link>
+                    <li className="sub-dropdown">
+                      <a href="#" className="dropdown_menu_p">All Properties<i className="fa-solid fa-caret-right" style={{ marginLeft: '30px'}}></i></a>
+                      <ul className="sub-dropdown-menu">
+                      <li onClick={()=> {toggleMenu(); handleProperty('All')}}>
+                        <Link to="/properties" state={{ proCategory: 'All' }}>All</Link>
                         </li>
+                        <li onClick={()=> {toggleMenu(); handleProperty('Hot Selling')}}>
+                        <Link to="/properties" state={{ proCategory: 'Hot Selling' }}>Hot Selling</Link>
+                        </li>
+                      
+                      
+                        <li onClick={()=> {toggleMenu(); handleProperty('Featured')}}>
+                        <Link to="/properties" state={{ proCategory: 'Featured' }}>Featured</Link>
+                        </li>
+                      
+                      
+                        <li onClick={()=> {toggleMenu(); handleProperty('Premium Properties')}}>
+                        <Link to="/properties" state={{ proCategory: 'Premium Properties' }}>Premium</Link>
+                        </li>
+                      
+                      
+                        <li onClick={()=> {toggleMenu(); handleProperty('New Properties')}}>
+                        <Link to="/properties" state={{ proCategory: 'New Properties' }}>New Properties</Link>
+                        </li>
+                      
+                      
+                        
                       </ul>
-                    </li>
-                    <li onClick={() => {toggleMenu(); setMenu("about-us")}} className={menu === "about-us" ? "active" : ""}>
-                      <Link to="/aboutUs" >
-                        <a className="nav_color" >About Us</a>
-                      </Link>  
-                    </li>
-                    <li onClick={() => {toggleMenu(); setMenu("blog")}} className={menu === "blog" ? "active" : ""}>
-                      <Link to="/blogs" >
-                        <a className="nav_color" >Blogs</a>
-                      </Link>
-                    </li>
-                    <li onClick={() => setMenu("tools")} className={`${menu === "tools" ? "active" : ""} dropdown`} style={{zIndex:'999'}}>
-                      <a className="nav_color">Tools <i className="fa-solid fa-caret-down"></i></a>
-                      <ul className="dropdown_menu">
-                        <li onClick={() => {toggleMenu(); handleNavigation('EMI')}}>
-                          <a className="dropdown_menu_p">EMI</a>
-                        </li>
-                        <li onClick={() => { toggleMenu(); handleNavigation('Currency Converter')}}>
-                          <a className="dropdown_menu_p">Currency Converter</a>
-                        </li>
-                        <li onClick={() => {toggleMenu();handleNavigation('Unit Converter')}}>
-                          <a className="dropdown_menu_p">Unit Converter</a>
-                        </li>
-                        <li onClick={() =>{toggleMenu(); handleNavigation('Home Loan')}}>
-                          <a className="dropdown_menu_p">Home Loan</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li onClick={() => { toggleMenu();setMenu("contact-us")}} className={`${menu === "contact-us" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""}`}>
-                      <Link to="/contactUs">
-                          <a  className="nav_color">Contact Us</a>
-                      </Link>
-                    </li>
-                    
-                    <li className={`login_btn ${isLoggedIn ? "menu_hidden" : ""}`}>  
-                      <Link to="/loginPage">
-                        <a className="nav_color">Login</a>                      
-                      </Link>
                     </li>
                   </ul>
-                </nav>
+                </li>
+                <li onClick={() => {toggleMenu(); setMenu("about-us")}} className={menu === "about-us" ? "active" : ""}>
+                  <Link to="/aboutUs" >
+                    <a className="nav_color" >About Us</a>
+                  </Link>  
+                </li>
+                <li onClick={() => {toggleMenu(); setMenu("blog")}} className={menu === "blog" ? "active" : ""}>
+                  <Link to="/blogs" >
+                    <a className="nav_color" >Blogs</a>
+                  </Link>
+                </li>
+                <li onClick={() => setMenu("tools")} className={`${menu === "tools" ? "active" : ""} dropdown`} style={{zIndex:'999'}}>
+                  <a className="nav_color">Tools <i className="fa-solid fa-caret-down"></i></a>
+                  <ul className="dropdown_menu">
+                    <li onClick={() => {toggleMenu(); handleNavigation('EMI')}}>
+                      <a className="dropdown_menu_p">EMI</a>
+                    </li>
+                    <li onClick={() => { toggleMenu(); handleNavigation('Currency Converter')}}>
+                      <a className="dropdown_menu_p">Currency Converter</a>
+                    </li>
+                    <li onClick={() => {toggleMenu();handleNavigation('Unit Converter')}}>
+                      <a className="dropdown_menu_p">Unit Converter</a>
+                    </li>
+                    <li onClick={() =>{toggleMenu(); handleNavigation('Home Loan')}}>
+                      <a className="dropdown_menu_p">Home Loan</a>
+                    </li>
+                  </ul>
+                </li>
+                <li onClick={() => { toggleMenu();setMenu("contact-us")}} className={`${menu === "contact-us" ? "active" : ""} ${!isLoggedIn ? "menu_hidden" : ""}`}>
+                  <Link to="/contactUs">
+                      <a  className="nav_color">Contact Us</a>
+                  </Link>
+                </li>
+                
+                <li className={`login_btn ${isLoggedIn ? "menu_hidden" : ""}`}>  
+                  <Link to="/loginPage">
+                    <a className="nav_color">Login</a>                      
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </header>

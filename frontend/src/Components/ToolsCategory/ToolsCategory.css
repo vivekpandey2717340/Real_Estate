@@ -15,6 +15,11 @@
 .all_tools_category:not(:first-child):not(:last-child){
     border-left: 0px;
 }
+@media(max-width:1000px){
+    .all_category .all_category_box{
+        padding: 20px 0;
+    }
+}
 @media(max-width:600px){
     .all_tools_category:not(:first-child):not(:last-child),.all_tools_category:last-child{
         border: 2px solid var(--g);
