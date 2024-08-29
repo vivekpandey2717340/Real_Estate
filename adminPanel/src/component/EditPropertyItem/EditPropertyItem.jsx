@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const EditPropertyItem = () => {
   const navigate = useNavigate();
@@ -16,10 +17,35 @@ const EditPropertyItem = () => {
     setListArray(itemsArray);
   };
 
-  const displalyPropertyEditMessage = (e) => {
-    e.preventDefault();
-    navigate('/property')
+ 
+
+const displalyPropertyEditMessage = async (e) => {
+  e.preventDefault();
+
+  try {
+    
+    const formData = new FormData(e.target);
+
+    
+    const propertyId = 'your-property-id';
+
+    
+    const response = await axios.patch(`http://localhost:4000/api/property/${propertyId}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    if (response.status === 200) {
+      alert('Property updated successfully!');
+      navigate('/property');
+    }
+  } catch (error) {
+    console.error('Error updating property:', error);
+    alert('Failed to update property');
   }
+};
+
   return (
     <div className='banner_box'>
         <div className='back_link'>

@@ -79,7 +79,7 @@ const PropertySchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: false
+        required: true
     },
     roadAccess: {
         type: String,
@@ -107,13 +107,13 @@ const PropertySchema = new mongoose.Schema({
         required: true
     },image2: {
         type: [String],
-        required: false
+        required: true
     },image3: {
         type: [String],
-        required: false
+        required: true
     },image4: {
         type: [String],
-        required: false
+        required: true
     },
     video: {
         type: String,

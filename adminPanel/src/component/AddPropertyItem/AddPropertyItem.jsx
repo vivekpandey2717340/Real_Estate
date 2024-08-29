@@ -33,17 +33,17 @@ const AddPropertyItem = () => {
   });
   const [files, setFiles] = useState({
     images: [],
-    image2:[],
-    image3:[],
-    image4:[],
+    image2: [],
+    image3: [],
+    image4: [],
     video: null,
     droneShootVideo: null,
     floorPlanImage: null,
     groundFloorPlanImage: null
   });
 
-  const [listItems, setListItems] = useState('');
-  const [listArray, setListArray] = useState([]);
+  const [listItems, setListItems] = useState(''); // Stores the textarea content
+  const [listArray, setListArray] = useState([]); // Stores the split list items
 
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
@@ -74,6 +74,7 @@ const AddPropertyItem = () => {
   const handleAddItems = () => {
     const itemsArray = listItems.split('\n').filter(item => item.trim() !== '');
     setListArray(itemsArray);
+    setFormData({ ...formData, description: itemsArray.join(', ') }); // Update description in formData
   };
 
   const handleSubmit = async (e) => {
@@ -88,15 +89,25 @@ const AddPropertyItem = () => {
     files.images.forEach((image, index) => {
       formDataToSend.append('images', image);
     });
-    if (files.image2) {
-    formDataToSend.append('image2',image2);
+
+    if (files.image2.length > 0) {
+      files.image2.forEach((image, index) => {
+        formDataToSend.append('image2', image);
+      });
     }
-    if (files.image3) {
-    formDataToSend.append('image3',image3);
+
+    if (files.image3.length > 0) {
+      files.image3.forEach((image, index) => {
+        formDataToSend.append('image3', image);
+      });
     }
-    if (files.image4) {
-    formDataToSend.append('image4',image4);
-}
+
+    if (files.image4.length > 0) {
+      files.image4.forEach((image, index) => {
+        formDataToSend.append('image4', image);
+      });
+    }
+
     if (files.video) formDataToSend.append('video', files.video);
     if (files.droneShootVideo) formDataToSend.append('droneShootVideo', files.droneShootVideo);
     if (files.floorPlanImage) formDataToSend.append('floorPlanImage', files.floorPlanImage);
@@ -108,9 +119,11 @@ const AddPropertyItem = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
+
       if (response.data.success) {
         alert('Property added successfully!');
-        // Clear the form or redirect as needed
+        window.location.reload(); 
+
       } else {
         alert('Failed to add property.');
       }
@@ -217,23 +230,21 @@ const AddPropertyItem = () => {
                 <input type="text" name='city' placeholder='Enter City 'value={formData.city} onChange={handleChange} required/><br />
               </div> 
             </div>
-            <h4>Description</h4>
-            <div className='description'>
-              <p>Please enter the each data into a new line and complete one data in one line</p>
-              {/* Text area for user to enter the list items */}
-              <textarea
-                placeholder="Enter items, each on a new line"
-                value={listItems}
-                name='description'
-                onChange={handleListChange}
-              ></textarea><br />
-             
-              <ul>
-                {listArray.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
+             <h4>Description</h4>
+          <div className='description'>
+            <p>Please enter each item into a new line. Complete one item per line.</p>
+            <textarea
+              placeholder="Enter items, each on a new line"
+              value={listItems}
+              onChange={handleListChange}
+            ></textarea><br />
+            
+            <ul>
+              {listArray.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
             <h4>Images</h4>
             <div className='details_grid'>
               <div>
