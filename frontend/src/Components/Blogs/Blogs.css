@@ -1,7 +1,7 @@
 
 .blogs_grid {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 32% 32% 32%;
     justify-content: center;
     width: 100%;
   }
@@ -23,4 +23,10 @@
   }
   .blogs_grid .blogs_box .blogs_content h4 {
     margin-top: 15px;
+  }
+  @media (max-width:800px){
+    .blogs_grid{
+      grid-template-columns: 49% 49%;
+    }
+   
   }

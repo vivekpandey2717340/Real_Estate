@@ -24,3 +24,8 @@
     color: var(--w);
     margin-top: 10px;
 }
+@media (max-width:800px){
+    .about_banner{
+        margin-top: 65px;
+    }
+}

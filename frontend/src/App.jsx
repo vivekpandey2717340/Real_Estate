@@ -37,7 +37,27 @@ const App = () => {
     setIsLoggedIn(false);
     navigate('/loginPage');
   };
+  
+  const adjustContainerWidth = () => {
+    document.querySelectorAll('.container').forEach(element => {
+      if (window.innerWidth > 1300) {
+        element.style.maxWidth = '1200px';
+      } else if (window.innerWidth > 1000) {
+        element.style.maxWidth = '90%';
+      } else if (window.innerWidth > 600) {
+        element.style.maxWidth = '95%';
+      }
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', adjustContainerWidth);
 
+    adjustContainerWidth();
+
+    return () => {
+      window.removeEventListener('resize', adjustContainerWidth);
+    };
+  }, []);
   return (
     <StoreContextProvider>
       <div>

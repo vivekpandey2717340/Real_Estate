@@ -64,3 +64,25 @@
 .indicator_inactive{
     background-color: var(--p);
 }
+
+@media (max-width:600px){
+    .expertiesContent img{
+        width: 200px;
+    }
+    .experties{
+        height:180px ;
+    }
+    .expertiesContent{
+        margin-top: -100px;
+    }
+    .experties h1{
+        font-size: 20px;
+    }
+    .expertiesContent h2{
+        font-size: 19px;
+        margin: 10px 0;
+    }
+    .expertiesContent p{
+        font-size: 15px;
+    }
+}

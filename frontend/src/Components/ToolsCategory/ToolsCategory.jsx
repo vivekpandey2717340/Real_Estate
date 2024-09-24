@@ -13,7 +13,7 @@ const ToolsCategory = ({ toolsCategory, setToolsCategory }) => {
     return (
         <div>
             <section className="container">
-                <div className="all_category ">
+                <div className="all_category tools_category">
                     {Object.keys(categories).map((key) => (
                         <div
                             key={key}

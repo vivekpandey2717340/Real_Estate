@@ -23,6 +23,16 @@
     top: 10px;
     right: 10px;
   }
+  .image .status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .image .status span{
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+  }
   .image .sale_img img {
     width:55px;
     box-shadow: none;
@@ -38,7 +48,7 @@
   .image .price .price_grid h4 {
     color: var(--w);
     background-color: var(--p);
-    padding: 5px 10px;
+    padding: 5px 5px;
     border-radius: 20px;
   }
   .image .price ul li {
@@ -64,7 +74,7 @@
   }
   
   .content{
-    padding: 30px 20px 20px 20px ;
+    padding: 20px ;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }
@@ -76,4 +86,57 @@
   }
   .new_properties_box:hover .image .sale_img img{
     transform: scale(1);
+  }
+  @media (max-width:1000px){
+    .content .content_cont h5, .content .content_cont h4, .content .content_cont p{
+      padding-top: 5px !important;
+      font-size: 15px !important;
+
+    }
+    .new_properties_box .content .details a, .image .price .price_grid h4{
+      font-size: 15px;
+
+    }
+    .image .price ul li a i {
+      font-size: 13px;
+    }
+
+    .image .price ul li a{
+
+      padding: 3px 5px;
+    }
+    .image .sale_img img{
+      width: 45px;
+    }
+  }
+  @media (max-width:800px){
+    .content .content_cont h5, .content .content_cont h4, .content .content_cont p{
+      padding-top: 5px !important;
+      font-size: 13px !important;
+
+    }
+    .image .price .price_grid h4{
+      padding: 5px;
+    }
+    .content{
+      padding: 15px ;
+    }
+    .image .sale_img img{
+      width: 45px;
+    }
+    .new_properties_box .content .details a, .image .price .price_grid h4{
+      font-size: 13px;
+    }
+    .image .price{
+      bottom: 20px;
+      left: 10px;
+      right: 10px;
+    }
+    .image .price ul li a i {
+      font-size: 13px;
+    }
+    .image .price ul li a{
+
+      padding: 3px 5px;
+    }
   }

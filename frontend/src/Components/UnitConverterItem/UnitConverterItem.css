@@ -80,3 +80,26 @@ margin-top: 15px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+@media (max-width:800px){
+    .unit_info{
+        width: 100%;
+        margin: 20px 0;
+        
+    }
+}
+@media (max-width:600px){
+    .unit_info{
+        flex-direction: column;
+
+    }
+    .unit_info_box:nth-child(1),.unit_info_box:nth-child(2){
+        border: 2px solid var(--p);
+        
+    }
+    .unit_info_box{
+        border-radius: 20px;
+        width: 90%;
+        margin-top: 10px;
+    }
+
+}

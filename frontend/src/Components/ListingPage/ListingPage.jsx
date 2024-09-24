@@ -1,12 +1,20 @@
 // ListingPage.jsx
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import './ListingPage.css';
 import { StoreContext } from '../../context/StoreContext';
 import PropertyItem from '../PropertyItem/PropertyItem';
-import { Link } from 'react-router-dom'; 
+import { Link,useNavigate,useLocation } from 'react-router-dom'; 
+
 
 const ListingPage = ({ propertiesCategory }) => {
   const { propertyList } = useContext(StoreContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleProperty = (proCategory)=>{
+    navigate('/properties', {state:{proCategory}})
+    setMenu('properties')
+  }
 
   
     // Filter the properties based on the selected category
@@ -59,9 +67,9 @@ const ListingPage = ({ propertiesCategory }) => {
             <div className="properties_title" style={{ margin: '50px 0', paddingTop: '50px' }}>
                 <div><h1 style={{color:'var(--w)'}}>Hot Selling</h1></div>
                 <Link to="/properties">
-                    <div className="button">
-                        <a  style={{color:'var(--w)'}}>
-                            View All
+                    <div className="button" onClick={()=> handleProperty('Hot Selling')}>
+                        <a  >
+                        <Link to="/properties" state={{ proCategory: 'Hot Selling' }} style={{color:'var(--w)'}}>View All</Link>
                         </a>
                     </div>
                 </Link>
@@ -69,7 +77,7 @@ const ListingPage = ({ propertiesCategory }) => {
           <div className="new_properties_grid" style={{ paddingBottom: '50px' }}>
             <div id="specific_hot-section-container">
                 {limitedHotProperties.map((item, index) => (
-                    <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                    <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} status={item.status}/>
                 ))}
             </div>
           </div>
@@ -84,9 +92,9 @@ const ListingPage = ({ propertiesCategory }) => {
                 <div className="properties_title">
                     <div><h1>New Properties</h1></div>
                     <Link to="/properties" style={{textDecoration:'none'}}>
-                        <div className="button">
+                        <div className="button" onClick={()=> handleProperty('New Properties')}>
                             <a style={{textDecoration:'none'}}>
-                                View All
+                                <Link to="/properties" state={{ proCategory: 'New Properties' }}>View All</Link>
                             </a>
                         </div>
                     </Link>
@@ -94,7 +102,7 @@ const ListingPage = ({ propertiesCategory }) => {
                 <div className="new_properties_grid">
                 <div id="specific_hot-section-container">
                     {limitedNewProperties.map((item, index) => (
-                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} status={item.status}/>
                     ))}
                 </div> 
                 </div>
@@ -107,9 +115,9 @@ const ListingPage = ({ propertiesCategory }) => {
             <div className="properties_title" style={{ margin: '50px 0', paddingTop: '50px' }}>
                 <div><h1>Premium Properties</h1></div>
                 <Link to="/properties" style={{textDecoration:'none'}}>
-                        <div className="button">
+                        <div className="button" onClick={()=> handleProperty('Premium Properties')}>
                             <a style={{textDecoration:'none'}}>
-                                View All
+                            <Link to="/properties" state={{ proCategory: 'Premium Properties' }}>View All</Link>
                             </a>
                         </div>
                     </Link>           
@@ -117,7 +125,7 @@ const ListingPage = ({ propertiesCategory }) => {
             <div className="new_properties_grid" style={{ paddingBottom: '70px' }}>
                 <div id="specific_hot-section-container">
                     {limitedPremiumProperties.map((item, index) => (
-                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} status={item.status}/>
                     ))}
                 </div>
             </div>
@@ -131,18 +139,18 @@ const ListingPage = ({ propertiesCategory }) => {
                 <div style={{marginTop:'-500px'}}>
                     <div className="properties_title" style={{ margin: '50px 0', paddingTop: '50px' }}>
                         <div><h1 style={{color:'var(--w)'}}>Featured Properties</h1></div>
-                        <Link to="/properties">
-                            <div className="button">
-                                <a  style={{color:'var(--w)'}}>
-                                    View All
+                        
+                            <div className="button" onClick={()=> handleProperty('Featured')}>
+                                <a  >
+                                <Link to="/properties" state={{ proCategory: 'Featured' }} style={{color:'var(--w)'}}>View All</Link>
                                 </a>
                             </div>
-                        </Link>
+                        
                     </div>
                     <div className="new_properties_grid" style={{ paddingBottom: '70px' }}>
                     <div id="specific_hot-section-container">
                         {limitedFeaturedProperties.map((item, index) => (
-                            <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                            <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} status={item.status}/>
                         ))}
                     </div>
                     </div>

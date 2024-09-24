@@ -1,5 +1,5 @@
 import express from "express";
-import { addProperty, countProperty, listProperty, removeProperty  } from "../controllers/PropertyController.js";
+import { addProperty, deleteProperty, listProperty, markPropertyAsSold, updateProperty  } from "../controllers/PropertyController.js";
 import multer from "multer";
 
 const PropertyRouter = express.Router();
@@ -27,8 +27,10 @@ const multipleUpload = upload.fields([
 
 PropertyRouter.post("/add", multipleUpload, addProperty);
 PropertyRouter.get("/list", listProperty);
-PropertyRouter.post("/remove", removeProperty);
-PropertyRouter.get("/count", countProperty);
+PropertyRouter.delete("/delete/:id", deleteProperty);
+
+PropertyRouter.patch('/:id',updateProperty);
+PropertyRouter.patch('/:id/sold', markPropertyAsSold);
 
 export default PropertyRouter;
 

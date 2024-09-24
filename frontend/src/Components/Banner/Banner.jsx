@@ -84,7 +84,7 @@ const Banner = () => {
             </select>
             <input
               type="text"
-              className="search_box"
+              className="search_box budget_input"
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
               placeholder="Budget"

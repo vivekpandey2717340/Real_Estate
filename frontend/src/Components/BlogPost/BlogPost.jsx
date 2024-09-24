@@ -27,6 +27,26 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
 
     fetchBlogs();
   }, []);
+  // const adjustContainerWidth = () => {
+  //   document.querySelectorAll('.container').forEach(element => {
+  //     if (window.innerWidth < 1300) {
+  //       element.style.maxWidth = '1200px';
+  //     } else if (window.innerWidth < 1000) {
+  //       element.style.maxWidth = '90%';
+  //     } else if (window.innerWidth < 600) {
+  //       element.style.maxWidth = '95%';
+  //     }
+  //   });
+  // };
+  // useEffect(() => {
+  //   window.addEventListener('resize', adjustContainerWidth);
+
+  //   adjustContainerWidth();
+
+  //   return () => {
+  //     window.removeEventListener('resize', adjustContainerWidth);
+  //   };
+  // }, []);
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -77,7 +97,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
                 id={item._id}
                 image={`http://localhost:4000/images/${item.image}`}
                 title={item.title}
-                time={item.time}
+                createdAt={item.createdAt}
               />
             ))}
           </div>
@@ -119,7 +139,7 @@ const BlogPost = ({ setCategory, propertiesCategory }) => {
             <div className="new_properties_grid" style={{ paddingBottom: '50px' }}>
                 <div id="specific_hot-section-container">
                     {limitedFeaturedProperties.map((item, index) => (
-                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess}/>
+                        <PropertyItem key={index} id={item._id} title={item.title} price={item.price} address={item.address} content={item.content} area={item.area} images={item.images} sellingType={item.sellingType} roadAccess={item.roadAccess} status={item.status}/>
                     ))}
                 </div>
             </div>

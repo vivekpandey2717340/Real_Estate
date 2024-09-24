@@ -93,16 +93,8 @@ const deleteUser = async (req, res) => {
     res.json({ success: false, message: "Error" });
   }
 };
-// count users
-const countUser = async (req, res) => {
-  try {
-    const userCount = await UserModel.countDocuments({});
-    res.json({ success: true, userCount });
-  } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: "Error" });
-  }
-};
+
+
 /////get user id
 const getUser = async (req, res) => {
   try {
@@ -139,4 +131,4 @@ const updateUser = async (req, res) => {
   }
 };
 
-export {loginUser,registerUser,listUser,deleteUser, countUser, getUser,updateUser};
+export {loginUser,registerUser,listUser,deleteUser, getUser,updateUser};

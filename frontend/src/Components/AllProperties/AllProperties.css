@@ -5,3 +5,27 @@
     justify-content: space-between;
     gap: 25px;
   }
+  .category_content
+  {
+    display: none;
+    text-align: center;
+  }
+  @media(max-width:1000px){
+    .all_properties{
+      gap: 10px;
+    }
+  }
+  @media(max-width:800px){
+    .all_properties{
+      grid-template-columns: 48% 48%; 
+      gap: 0;    
+    }
+   
+  }
+  @media(max-width:600px){
+    .category_content
+  {
+    display: block;
+    margin-top: 70px;
+  }
+  }

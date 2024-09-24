@@ -16,12 +16,19 @@ import CompareRouter from './routes/CompareRoute.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import CountRouter from './routes/CountRoute.js';
+import ContactRouter from './routes/ContactRoute.js';
+import InquiryRouter from './routes/InquiryRoute.js';
 
 dotenv.config();
 
 // Get __dirname in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+
+//Count 
+
 
 // App config
 const app = express();
@@ -66,7 +73,9 @@ app.use('/api/ourexpertise', OurexpertiseRouter);
 app.use('/api/review', ReviewRouter);
 app.use('/api/wishlist', WishlistRouter);
 app.use('/api/compare', CompareRouter);
-
+app.use('/api/count',CountRouter);
+app.use('/api/contact',ContactRouter);
+app.use('/api/inquiry', InquiryRouter);
 app.get('/', (req, res) => {
     res.send('Hi VIVEK API Is Working');
 });

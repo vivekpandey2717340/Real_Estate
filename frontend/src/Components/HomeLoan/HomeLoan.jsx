@@ -18,18 +18,18 @@ const HomeLoan = () => {
       </div>
       
       <div className='faq_width'>
-      <div>
-        <h2>FAQ's For Applying Home Loan</h2>
-      </div>
-        {FAQList.map((item, index) => (
-          <FaqItem
-            key={index}
-            question={item.question}
-            answer={item.answer}
-            isActive={activeIndex === index}
-            onToggle={() => toggleFAQ(index)}
-          />
-        ))}
+        <div>
+          <h2>FAQ's For Applying Home Loan</h2>
+        </div>
+          {FAQList.map((item, index) => (
+            <FaqItem
+              key={index}
+              question={item.question}
+              answer={item.answer}
+              isActive={activeIndex === index}
+              onToggle={() => toggleFAQ(index)}
+            />
+          ))}
       </div>
     </div>
   );

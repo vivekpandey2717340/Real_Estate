@@ -35,7 +35,7 @@ const AboutDescription = () => {
                         </p>
                     </div>
                 </div>
-                <div className='inqueryForm'>
+                <div className='inqueryForm aboutInqueryForm'>
                     <div className='form'>
                         <InqueryForm/>
                     </div>

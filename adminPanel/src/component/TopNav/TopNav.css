@@ -5,6 +5,7 @@
     padding: 20px;
     border-bottom: 1px solid var(--gray);
 }
+
 /* .top_nav .search_btn input{
     width: 200px;
     height: 30px;
@@ -52,7 +53,41 @@
     color: var(--w);
     font-size: 10px;
 }
+.welcome_message{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 .welcome_message p{
     font-weight: 600;
     font-size: 18px;
+
+}
+.welcome_message .hamburg_menu{
+   cursor: pointer;
+   display: none;
+}
+.menu_1 , .menu_2, .menu_3{
+    width: 18px;
+    height: 2px;
+    background: var(--b);
+    margin: 5px;
+    transition: 0.2s ease;
+}
+
+.menuActive .menu_1{
+    transform: rotate(-45deg) translate(-0.3rem, 0.4rem);
+
+}
+.menuActive .menu_2{
+    opacity: 0;
+}
+.menuActive .menu_3{
+    transform: rotate(45deg) translate(-0.2rem, -0.3rem);
+}
+
+@media (max-width:1100px){
+    .welcome_message .hamburg_menu{
+        display: block;
+    }
 }

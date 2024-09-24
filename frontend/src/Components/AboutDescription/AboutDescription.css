@@ -81,3 +81,45 @@
     margin-bottom: 20px;
     border: none;
 }
+
+
+@media(max-width:1000px){
+    .aboutInqueryForm{
+        width: 100% !important;
+    }
+    .aboutInqueryForm .submit_btn{
+        width: 100% !important;
+        margin-left: 0;
+    }
+    .inqueryForm .form{
+        width: 100%;
+        padding: 15px;
+    }
+    .inqueryForm .form h1{
+        font-size: 25px;
+    }
+}
+@media(max-width:800px){
+    .aboutDescription_grid{
+        grid-template-columns: 100%;
+    }
+
+    .inqueryForm{
+        justify-content: center;
+    }
+    .aboutInqueryForm{
+        width: 75% !important;
+        
+    }
+    .aboutInqueryForm .submit_btn{
+        width: 50% !important;
+        margin-left: 25%;
+
+    }
+}
+@media(max-width:600px){
+    .aboutInqueryForm .submit_btn{
+        width: 100% !important;
+        margin-left: 0;
+    }
+}

@@ -2,7 +2,7 @@ import Blogs from "../models/BlogsModel.js";
 import fs from 'fs';
 import path from 'path';
 
-// Create a new Blogs
+
 const addBlogs = async (req, res) => {
     const { title,content,category } = req.body;
     const image = req.file ? req.file.filename : null;
@@ -17,7 +17,7 @@ const addBlogs = async (req, res) => {
     }
 };
 
-// Update an existing Blogs
+
 const updateBlogs = async (req, res) => {
     const blogsId = req.params.id;
     const { title, content,category } = req.body;
@@ -45,7 +45,7 @@ const updateBlogs = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to update Blogs." });
     }
 };
-// List all properties
+
 const listBlogs = async (req, res) => {
     try {
         const blogs = await Blogs.find();
@@ -55,6 +55,46 @@ const listBlogs = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to fetch Blogs." });
     }
 };
+const deleteBlogs = async (req, res) => {
+    const blogsId = req.params.id;
+
+    try {
+       
+        const blog = await Blogs.findById(blogsId);
+        if (!blog) {
+            return res.status(404).json({ success: false, message: "Blog not found." });
+        }
+
+        if (blog.image) {
+            const imagePath = path.join('uploads', blog.image);
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Failed to delete image:", err);
+                }
+            });
+        }
+
+        await Blogs.findByIdAndDelete(blogsId);
+
+        res.json({ success: true, message: "Blog deleted successfully." });
+    } catch (error) {
+        console.error("Error deleting blog:", error);
+        res.status(500).json({ success: false, message: "Failed to delete blog." });
+    }
+};
+
+const getBlogsById = async (req, res) => {
+    const blogsId = req.params.id;
+
+    try {
+        const blog = await Blogs.findById(blogsId);
+        if (!blog) return res.status(404).json({ success: false, message: "Blog not found." });
+        res.json({ success: true, blog });
+    } catch (error) {
+        console.error("Error fetching blog:", error);
+        res.status(500).json({ success: false, message: "Failed to fetch blog." });
+    }
+};
 
 
-export { addBlogs, updateBlogs, listBlogs };
+export { addBlogs, updateBlogs, listBlogs, deleteBlogs, getBlogsById };

@@ -61,3 +61,9 @@
   .service .service_grid .service_box:hover h1{
     transform: scale(1.1);
   }
+
+  @media(max-width:800px){
+    .service{
+      grid-template-columns: 100%;
+    }
+  }
