@@ -6,7 +6,7 @@ import generateToken from '../utils/generateToken.js';
 const hardcodedUser = {
     _id: '1',
     name: 'Vivek',
-    email: 'vivek2717340@gmail.com',
+    email: 'vivek@gmail.com',
     password: 'TWB12345',
     isAdmin: true,
 };
