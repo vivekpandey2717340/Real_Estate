@@ -197,11 +197,7 @@ const Navbar = ({ isLoggedIn }) => {
                             <a className="dropdown_menu_p">Profile</a>                          
                         </li>
                       </Link>
-                      <Link to="/">
-                        <li>                          
-                            <a className="dropdown_menu_p">Log Out</a>                          
-                        </li>
-                      </Link>
+                     
                     </ul>
                 </li>
               </ul>
