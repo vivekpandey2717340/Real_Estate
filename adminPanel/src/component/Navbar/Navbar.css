@@ -29,9 +29,7 @@
     width: 25px;
     height: 25px;
 }
-.navbar .menu {
-    margin-top: 50px !important;
-}
+
 .navbar .menu li{
     display: flex;
     justify-content: start;
